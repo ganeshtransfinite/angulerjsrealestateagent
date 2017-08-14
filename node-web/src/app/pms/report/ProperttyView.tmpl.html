@@ -1,0 +1,249 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+
+    <md-toolbar class="md-primary" layout="row"  layout-align="space-between center">
+        <div class="md-toolbar-tools" >
+            <h2>View Property </h2> 
+        </div>
+
+        <md-button ng-click="hide()"  class="md-fab md-mini" aria-label="Close">
+            <md-icon md-font-icon="zmdi zmdi-close-circle"></md-icon>
+        </md-button>
+
+
+    </md-toolbar>
+    <md-dialog-content class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10" >
+        <md-whiteframe class="md-whiteframe-18dp"    layout layout-align="center center">
+
+            <div flex="100" layout="column" class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10">
+                <div  layout="row" layout-align="space-between center">    
+                    <div class="table_view_tital" flex="80">{{::propertyobj.propertytypeid.name}} : {{::propertyobj.propertylbedroomsid.name}} <span class="table_view_cell_tital">
+                            {{::propertyobj.totalarea}} SQFT </span></div>
+                    <div class="table_view_cell_tital" flex="20">
+                        <div  layout="column" ng-show="propertyobj.propertytobeid.propertytobeid === 1"> 
+                            <div  layout="row">
+                                <div flex="30">Rent </div>
+                                <div flex="70">:{{::propertyobj.amount}} <md-icon  md-font-icon="fa fa-rupee"></md-icon></div>
+                            </div>
+                            <div  layout="row">
+                                <div flex="30">Deposit </div>
+                                <div flex="70">:{{::propertyobj.deposit}} <md-icon  md-font-icon="fa fa-rupee"></md-icon></div>
+                            </div>
+                           
+
+                        </div>
+                        <div  layout="column" ng-show="propertyobj.propertytobeid.propertytobeid === 2"> 
+                             <div  layout="row">
+                                <div flex="30"> Sale Price </div>
+                                <div flex="70">:{{::propertyobj.amount}} <md-icon  md-font-icon="fa fa-rupee"></md-icon></div>
+                            </div>
+                            
+                        <div  layout="row">
+                                <div flex="30">Sq.FT. Rate </div>
+                                <div flex="70">:{{::propertyobj.sqfeetrate}} <md-icon  md-font-icon="fa fa-rupee"></md-icon></div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div  layout="row" layout-align="start center">    
+                    <div class="table_view_cell_tital"  >{{'MENU.property.GRID.apt'| translate}} : {{::propertyobj.apt}} </div>
+                </div>
+                <md-divider></md-divider>
+                <div  layout="row" layout-align="space-between center" palette-background="blue:200" >    
+                    <div class="table_view_cell_tital" flex="10"> Name  </div>
+                    <div class="table_view_cell_data" flex="30">: {{::propertyobj.customerid.fullname}} </div>
+                    <div class="table_view_cell_tital" flex="20">   <md-icon  md-font-icon="zmdi zmdi-email"></md-icon>   {{::propertyobj.customerid.email}}</div>
+
+                    <div class="table_view_cell_tital" flex="20">   <md-icon  md-font-icon="fa fa-mobile"></md-icon>   {{::propertyobj.customerid.mobileno}}</div>
+                    <div class="table_view_cell_tital" flex="20">   <md-icon  md-font-icon="fa fa-mobile"></md-icon>   {{::propertyobj.customerid.landlineno}}</div>
+                </div>
+
+                <div  layout="column"  layout-align="cener start" palette-background="blue:100">    
+                    <div class="md-subhead"  >{{'MENU.property.GRID.address'| translate}} : {{::propertyobj.address}}   </div>
+                    <div class="md-subhead"  >Near : {{::propertyobj.landmark}}   </div>
+
+                </div>
+                <md-divider></md-divider>
+                <div  layout="row" layout-align="start">    
+                    <div class="table_view_cell_tital"  > {{::propertyobj.propertylocalityid.name}},{{::propertyobj.cityid.name}} </div>
+                </div>
+
+                <md-divider></md-divider>
+                <div  layout="row" layout-align="space-between center">    
+                    <div flex="50">
+
+
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.status'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{::propertyobj.status == true ? "Close" : "Available"}}  </div>
+                        </div>
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.flatno'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{::propertyobj.flatno}}  </div>
+                        </div>
+
+
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.availablefrom'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{propertyobj.availablefrom| date:'dd/MM/yyyy' }}   </div>
+                        </div>
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.postedon'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{propertyobj.postedon| date:'dd/MM/yyyy' }}   </div>
+                        </div>
+
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.propertyage'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{::propertyobj.propertyage}}  </div>
+                        </div>
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.leaseperiod'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{::propertyobj.leaseperiod}}  </div>
+                        </div>
+
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.floorno'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{::propertyobj.floorno}}  </div>
+                        </div>
+
+
+
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.propertyavailibility.GRID.name'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{::propertyobj.propertyavailibilityid.name}}  </div>
+                        </div>
+
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.propertyfacingid'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{::propertyobj.propertyfacingid.name}}  </div>
+                        </div>
+
+
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.balcony'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{::propertyobj.balcony}}  </div>
+                        </div>
+
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.bathroom'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{::propertyobj.bathroom}}  </div>
+                        </div>
+
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.totalfloorno'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{::propertyobj.totalfloorno}}  </div>
+                        </div>
+
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.parking'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{propertyobj.parking? 'Yes': 'No'}}  </div>
+                        </div>
+
+
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.balcony'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{::propertyobj.keyavailability}}  </div>
+                        </div>
+
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.keyname'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{::propertyobj.keyname}}  </div>
+                        </div>
+
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.keymobile'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{::propertyobj.keymobile}}  </div>
+                        </div>
+
+                        <div  layout="row" layout-align="start center">    
+                            <div  class="table_view_cell_tital" flex="50"> {{'MENU.property.GRID.keyaddress'| translate}}  </div>
+                            <div  class="table_view_cell_data" flex="50" >: {{::propertyobj.keyaddress}}  </div>
+                        </div>
+
+
+
+
+                    </div>
+                    <div flex="50" layout="column">
+                        <md-progress-linear class="margin-bottom-20" ng-show="propertyobj.showprogressbar" md-mode="indeterminate"></md-progress-linear>
+                        <div layout="row" >
+                            <div layout="column" flex="25">
+                                <div  flex="33"></div>
+                                <img flex="33" ng-show="propertyobj.image1 !== null" flex="33" ng-src="data:image/JPEG;base64,{{propertyobj.image1.content}}"  flex="100" alt="">
+                                <img flex="33" ng-show="propertyobj.image1 === null" ng-src="assets/images/imagenot.jpeg"  flex="100" alt="">
+
+
+                                <div flex="33"></div>
+                            </div>
+                            <div layout="column" flex="25" >
+                                <img  flex="33" ng-show="propertyobj.image2 !== null" ng-src="data:image/JPEG;base64,{{propertyobj.image2.content}}"  flex="100" alt="">
+                                <img  flex="33" ng-show="propertyobj.image2 === null" ng-src="assets/images/imagenot.jpeg"  flex="100" alt="">
+
+
+                                <img flex="33" ng-show="propertyobj.image3 !== null" ng-src="data:image/JPEG;base64,{{propertyobj.image3.content}}"  flex="100" alt="">
+                                <img flex="33" ng-show="propertyobj.image3 === null" ng-src="assets/images/imagenot.jpeg"  flex="100" alt="">
+
+
+                                <img  flex="33" ng-show="propertyobj.image4 !== null" ng-src="data:image/JPEG;base64,{{propertyobj.image4.content}}"  flex="100" alt="">
+                                <img flex="33" ng-show="propertyobj.image4 === null" ng-src="assets/images/imagenot.jpeg"  flex="100" alt="">
+
+
+                            </div>
+                            <div layout="column" flex="25">
+
+                                <img flex="33" ng-show="propertyobj.image5 !== null" ng-src="data:image/JPEG;base64,{{propertyobj.image5.content}}"  flex="100" alt="">
+                                <img flex="33" ng-show="propertyobj.image5 === null" ng-src="assets/images/imagenot.jpeg"  flex="100" alt="">
+
+                                <img flex="33" ng-show="propertyobj.image6 !== null" ng-src="data:image/JPEG;base64,{{propertyobj.image6.content}}"  flex="100" alt="">
+                                <img flex="33" ng-show="propertyobj.image6 === null" ng-src="assets/images/imagenot.jpeg"  flex="100" alt="">
+
+
+                                <img flex="33"  ng-show="propertyobj.image7 !== null" ng-src="data:image/JPEG;base64,{{propertyobj.image7.content}}"  flex="100" alt="">
+                                <img flex="33" ng-show="propertyobj.image7 === null" ng-src="assets/images/imagenot.jpeg"  flex="100" alt="">
+
+
+                            </div>
+
+                            <div layout="column" flex="25">
+                                <img flex="33"  ng-show="propertyobj.image8 !== null" ng-src="data:image/JPEG;base64,{{propertyobj.image8.content}}"  flex="100" alt="">
+                                <img flex="33" ng-show="propertyobj.image8 === null" ng-src="assets/images/imagenot.jpeg"  flex="100" alt="">
+
+
+                                <img flex="33"  ng-show="propertyobj.image9 !== null" ng-src="data:image/JPEG;base64,{{propertyobj.image9.content}}"  flex="100" alt="">
+                                <img flex="33" ng-show="propertyobj.image9 === null" ng-src="assets/images/imagenot.jpeg"  flex="100" alt="">
+
+
+                                <img flex="33" ng-show="propertyobj.image10 !== null" ng-src="data:image/JPEG;base64,{{propertyobj.image10.content}}"  flex="100" alt="">
+                                <img flex="33" ng-show="propertyobj.image10 === null" ng-src="assets/images/imagenot.jpeg"  flex="100" alt="">
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <md-divider></md-divider>
+
+                <div  layout="row" layout-align="start center">    
+                    <div  class="table_view_cell_tital" flex="25"> {{'MENU.property.GRID.flatamenitiesid'| translate}}  </div>
+                    <div  class="table_view_cell_data" flex="75" >: <span  ng-repeat="obj in propertyobj.flatamenitiesid"> {{obj.name}} <span ng-if="!$last">,</span> </span>   </div>
+                </div>
+                <md-divider></md-divider>
+                <div  layout="row" layout-align="start center">    
+                    <div  class="table_view_cell_tital" flex="25"> {{'MENU.property.GRID.societyamenitiesid'| translate}}  </div>
+                    <div  class="table_view_cell_data" flex="75" >: <span  ng-repeat="obj in propertyobj.societyamenitiesid"> {{obj.name}} <span ng-if="!$last">,</span> </span>   </div>
+                </div>
+
+                <md-divider></md-divider>
+                <div  layout="row" layout-align="start center">    
+                    <div  class="table_view_cell_tital" flex="25"> {{'MENU.property.GRID.remark'| translate}}  </div>
+                    <div  class="table_view_cell_data" flex="75" >:  {{::propertyobj.remark}}    </div>
+                </div>
+            </div>   </md-whiteframe>
+    </md-dialog-content>
+
+
+</md-dialog>

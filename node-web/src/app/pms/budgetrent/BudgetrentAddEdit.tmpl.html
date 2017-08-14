@@ -1,0 +1,57 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar md-theme="{{triSkin.elements.content}}">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{'MENU.budgetrent.DIALOG.NEW'| translate}}     </span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-dialog-content class="sticky-container">
+        <div> 
+           <form name="budgetrentfrom" novalidate>
+                
+ <md-input-container class="md-block">
+                    <label>{{'MENU.budgetrent.DIALOG.name'| translate}}</label>
+                    <input ng-model="pmsbudgetrent.name" class="dialog-close" name="name" 
+                           id="name" type="text" required> 
+                    <div ng-messages="budgetrentfrom.name.$error">
+                         <div ng-message="required">
+                            {{'MENU.budgetrent.DIALOG.budgetrentform.PLEASE_name_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+ <md-input-container class="md-block">
+                    <label>{{'MENU.budgetrent.DIALOG.amount'| translate}}</label>
+                    <input ng-model="pmsbudgetrent.amount" class="dialog-close" name="amount" 
+                           id="amount" type="text" required> 
+                    <div ng-messages="budgetrentfrom.amount.$error">
+                         <div ng-message="required">
+                            {{'MENU.budgetrent.DIALOG.budgetrentform.PLEASE_amount_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+ <md-input-container class="md-block">
+                    <label>{{'MENU.budgetrent.DIALOG.recordorder'| translate}}</label>
+                    <input ng-model="pmsbudgetrent.recordorder" class="dialog-close" name="recordorder" 
+                           id="recordorder" type="text" required> 
+                    <div ng-messages="budgetrentfrom.recordorder.$error">
+                         <div ng-message="required">
+                            {{'MENU.budgetrent.DIALOG.budgetrentform.PLEASE_recordorder_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+            </form>
+        </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()" class="md-primary">
+            Cancel
+        </md-button>
+        <md-button ng-click="hide()" class="md-primary" ng-disabled="budgetrentfrom.$invalid">
+            Ok
+        </md-button>
+    </div>
+</md-dialog>

@@ -1,0 +1,87 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar class="md-primary" layout="row"  layout-align="space-between center">
+        <div class="md-toolbar-tools" >
+            <h2>View Agent  </h2> 
+        </div>
+        <md-button ng-click="hide()"  class="md-fab md-mini" aria-label="Close">
+            <md-icon md-font-icon="zmdi zmdi-close-circle"></md-icon>
+        </md-button>
+    </md-toolbar>
+    <md-dialog-content class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10" >
+        <md-whiteframe class="md-whiteframe-18dp"    layout layout-align="center center">
+            <div flex="100" layout="column" class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10">
+                 
+             
+                <md-divider></md-divider>
+                <div  layout="row" layout-align="space-between center">    
+                    <div flex="100">
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.agent.GRID.agentid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::agentobj.agentid}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.agent.GRID.name}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::agentobj.name}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.agent.GRID.mobile}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::agentobj.mobile}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.agent.GRID.email}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::agentobj.email}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.agent.GRID.companyname}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::agentobj.companyname}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.agent.GRID.address}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::agentobj.address}}  </div>
+                        </div>   
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.agent.GRID.cityid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::agentobj.cityid.__fkey__}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.agent.GRID.propertylocalityid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::agentobj.propertylocalityid.__fkey__}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.agent.GRID.modeoperationid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::agentobj.modeoperationid.__fkey__}}  </div>
+                        </div>  
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.agent.GRID.active}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::agentobj.active}}  </div>
+                        </div>   
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.agent.GRID.createddate}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::agentobj.createddate | date:'dd/MM/yyyy'}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.agent.GRID.modifyddate}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::agentobj.modifyddate | date:'dd/MM/yyyy'}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.agent.GRID.userid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::agentobj.userid.__fkey__}}  </div>
+                        </div>  
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.agent.GRID.recordorder}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::agentobj.recordorder}}  </div>
+                        </div>   
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.agent.GRID.remark}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::agentobj.remark.__fkey__}}  </div>
+                        </div>  
+"
+                    </div>
+               
+                </div>
+                <md-divider></md-divider>
+            
+            </div>   </md-whiteframe>
+    </md-dialog-content>
+</md-dialog>

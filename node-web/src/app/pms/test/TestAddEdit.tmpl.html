@@ -1,0 +1,66 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar md-theme="{{triSkin.elements.content}}">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{'MENU.test.DIALOG.NEW'| translate}}     </span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-dialog-content class="sticky-container">
+        <div> 
+           <form name="testfrom" novalidate>
+                
+ <md-input-container class="md-block">
+                    <label>{{'MENU.test.DIALOG.name'| translate}}</label>
+                    <input ng-model="pmstest.name" class="dialog-close" name="name" 
+                           id="name" type="text" required> 
+                    <div ng-messages="testfrom.name.$error">
+                         <div ng-message="required">
+                            {{'MENU.test.DIALOG.testform.PLEASE_name_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{'MENU.test.DIALOG.flatamenitiesid'| translate}} </label>
+                    <md-select placeholder="{{'MENU.test.DIALOG.flatamenitiesid'| translate}}"  ng-model="pmstest.selectflatamenitiesid" name="flatamenitiesid"  id="flatamenitiesid" type="select" required multiple="true">
+                        <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.flatamenitiesidlist  ">{{objcombo.text }}</md-option>
+                    </md-select>
+                    <div ng-messages="testfrom.flatamenitiesid.$error">
+                         <div ng-message="required">
+                            {{'MENU.test.DIALOG.testform.PLEASE_flatamenitiesid_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{'MENU.test.DIALOG.societyamenitiesid'| translate}} </label>
+                    <md-select placeholder="{{'MENU.test.DIALOG.societyamenitiesid'| translate}}"  ng-model="pmstest.selectsocietyamenitiesid" name="societyamenitiesid"  id="societyamenitiesid" type="select"  multiple="true">
+                        <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.societyamenitiesidlist  ">{{objcombo.text }}</md-option>
+                    </md-select>
+                    <div ng-messages="testfrom.societyamenitiesid.$error">
+                     </div>
+                </md-input-container>
+ <md-input-container class="md-block">
+                    <label>{{'MENU.test.DIALOG.recordorder'| translate}}</label>
+                    <input ng-model="pmstest.recordorder" class="dialog-close" name="recordorder" 
+                           id="recordorder" type="text" required> 
+                    <div ng-messages="testfrom.recordorder.$error">
+                         <div ng-message="required">
+                            {{'MENU.test.DIALOG.testform.PLEASE_recordorder_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+            </form>
+        </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()" class="md-primary">
+            Cancel
+        </md-button>
+        <md-button ng-click="hide()" class="md-primary" ng-disabled="testfrom.$invalid">
+            Ok
+        </md-button>
+    </div>
+</md-dialog>

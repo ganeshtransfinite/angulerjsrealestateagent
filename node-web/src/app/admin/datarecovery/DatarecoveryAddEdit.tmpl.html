@@ -1,0 +1,57 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar md-theme="{{triSkin.elements.content}}">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{'adminmenu.datarecovery.DIALOG.NEW'| translate}}     </span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-dialog-content class="sticky-container">
+        <div> 
+           <form name="datarecoveryfrom" novalidate>
+                
+ <md-input-container class="md-block">
+                    <label>{{'adminmenu.datarecovery.DIALOG.tablename'| translate}}</label>
+                    <input ng-model="admindatarecovery.tablename" class="dialog-close" name="tablename" 
+                           id="tablename" type="text" required> 
+                    <div ng-messages="datarecoveryfrom.tablename.$error">
+                         <div ng-message="required">
+                            {{'adminmenu.datarecovery.DIALOG.datarecoveryform.PLEASE_tablename_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+<md-input-container class="md-block">
+                    <label>{{'adminmenu.datarecovery.DIALOG.content'| translate}} </label>
+                    <input placeholder="{{'adminmenu.datarecovery.DIALOG.content'| translate}} " ng-model="admindatarecovery.selectcontent" name="content" id="content"  ngf-select="uploadcontent($files)" type="file" required>
+  <img ng-src="data:image/JPEG;base64,{{admindatarecovery.content.content}}" flex="100" alt="">
+                                                                      <div ng-messages="datarecoveryfrom.content.$error">
+                         <div ng-message="required">
+                            {{'adminmenu.datarecovery.DIALOG.datarecoveryform.PLEASE_content_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+ <md-input-container class="md-block">
+                    <label>{{'adminmenu.datarecovery.DIALOG.recordorder'| translate}}</label>
+                    <input ng-model="admindatarecovery.recordorder" class="dialog-close" name="recordorder" 
+                           id="recordorder" type="text" required> 
+                    <div ng-messages="datarecoveryfrom.recordorder.$error">
+                         <div ng-message="required">
+                            {{'adminmenu.datarecovery.DIALOG.datarecoveryform.PLEASE_recordorder_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+            </form>
+        </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()" class="md-primary">
+            Cancel
+        </md-button>
+        <md-button ng-click="hide()" class="md-primary" ng-disabled="datarecoveryfrom.$invalid">
+            Ok
+        </md-button>
+    </div>
+</md-dialog>

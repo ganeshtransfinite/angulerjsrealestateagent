@@ -1,0 +1,522 @@
+<div class="dash-content" >
+<div class="dashboard-container overlay-10 padded-content-page" layout="column">
+    <div class="drag-container" layout="row" layout-xs="column" layout-margin dragula='"drag-analytics-container"'>
+        <tri-widget palette-background="deep-orange:500" content-layout="row" content-layout-align="center center" content-padding>
+            <!--            <div> 
+                            <md-icon class="font-size-5 opacity-50 margin-left-10" md-font-icon="fa fa-comments"></md-icon>
+                        </div>-->
+            <div layout="column" layout-align="center center">
+                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0 text-ellipsis" countupto="deshborddata['Property Rent Count'][0]" decimals="0"></p>
+                <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-0" translate>Property Rent</p>
+            </div>
+        </tri-widget>
+        <tri-widget palette-background="triCyan:500" content-layout="row" content-layout-align="center center" content-padding>
+            <!--            <div>
+                            <md-icon class="font-size-5 opacity-50 margin-left-10" md-font-icon="fa fa-twitter"></md-icon>
+                        </div>-->
+            <div layout="column" layout-align="center center">
+                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0 text-ellipsis" countupto="deshborddata['Property Rent Close'][0]" decimals="0"></p>
+                <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-0" translate>Property Rent Close</p>
+            </div>
+        </tri-widget>
+        <tri-widget palette-background="indigo:500" content-layout="row" content-layout-align="center center" content-padding>
+            <!--            <div>
+                            <md-icon class="font-size-5 opacity-50 margin-left-10" md-font-icon="fa fa-facebook"></md-icon>
+                        </div>-->
+            <div layout="column" layout-align="center center">
+                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0" countupto="deshborddata['Property Rent Available'][0]" decimals="0"></p>
+                <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-0" translate>Property Rent Available</p>
+            </div>
+        </tri-widget>
+        <tri-widget palette-background="teal:500" content-layout="row" content-layout-align="center center" content-padding>
+            <!--            <div>
+                            <md-icon class="font-size-5 opacity-50 margin-left-10" md-font-icon="fa fa-eye"></md-icon>
+                        </div>-->
+            <div layout="column" layout-align="center center">
+                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0" countupto="deshborddata['Property Sale'][0]" decimals="0"></p>
+                <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-0" translate>Property Sale</p>
+            </div>
+        </tri-widget>
+        <tri-widget palette-background="deep-orange:500" content-layout="row" content-layout-align="center center" content-padding>
+            <!--            <div>
+                            <md-icon class="font-size-5 opacity-50 margin-left-10" md-font-icon="fa fa-eye"></md-icon>
+                        </div>-->
+            <div layout="column" layout-align="center center">
+                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0" countupto="deshborddata['Property Sale Close'][0]" decimals="0"></p>
+                <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-0" translate>Property Sale Close</p>
+            </div>
+        </tri-widget>
+        <tri-widget palette-background="triCyan:500" content-layout="row" content-layout-align="center center" content-padding>
+            <!--            <div>
+                            <md-icon class="font-size-5 opacity-50 margin-left-10" md-font-icon="fa fa-eye"></md-icon>
+                        </div>-->
+            <div layout="column" layout-align="center center">
+                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0" countupto="deshborddata['Inquiry'][0]" decimals="0"></p>
+                <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-0" translate>Inquiry</p>
+            </div>
+        </tri-widget>
+        <tri-widget palette-background="indigo:500" content-layout="row" content-layout-align="center center" content-padding>
+            <!--            <div>
+                            <md-icon class="font-size-5 opacity-50 margin-left-10" md-font-icon="fa fa-eye"></md-icon>
+                        </div>-->
+            <div layout="column" layout-align="center center">
+                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0" countupto="deshborddata['Customer'][0]" decimals="0"></p>
+                <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-0" translate>Customer</p>
+            </div>
+        </tri-widget>
+        <tri-widget palette-background="teal:500" content-layout="row" content-layout-align="center center" content-padding>
+            <!--            <div>
+                            <md-icon class="font-size-5 opacity-50 margin-left-10" md-font-icon="fa fa-eye"></md-icon>
+                        </div>-->
+            <div layout="column" layout-align="center center">
+                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0" countupto="deshborddata['Agent'][0]" decimals="0"></p>
+                <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-0" translate>Agent</p>
+            </div>
+        </tri-widget>
+    </div>
+    <div layout="row"  layout-margin>
+        <div flex="50" layout="column">
+            <div flex="100"  ng-show="PropertyRentSale.chart === 'chart-bar'">
+                <tri-widget flex="100" chartjs-propertycloseline-widget title="Close Property Rent & Sale" subtitle="Lifetime" content-layout="row" content-padding>
+                    <canvas height="100px"     height="100px"  class="chart-bar" chart-data="PropertyRentSale[PropertyRentSale.type].data" chart-labels="PropertyRentSale[PropertyRentSale.type].labels" chart-legend="true" chart-series="PropertyRentSale[PropertyRentSale.type].series" chart-options="PropertyRentSale.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group  ng-model="PropertyRentSale.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+                        <md-radio-group class="md-primary" ng-model="PropertyRentSale.type" >
+                            <md-radio-button value="Monthly">Monthly</md-radio-button>
+                            <md-radio-button value="Quarter">Quarter</md-radio-button>
+                            <md-radio-button value="Year">Year</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </tri-widget>
+
+            </div>
+
+            <div flex="100" ng-show="PropertyRentSale.chart === 'chart-line'">
+                <tri-widget flex="100"  chartjs-propertycloseline-widget title="Close Property Rent & Sale" subtitle="Lifetime" content-layout="row" content-padding>
+                    <canvas height="100px"     class="chart-line" chart-data="PropertyRentSale[PropertyRentSale.type].data" chart-labels="PropertyRentSale[PropertyRentSale.type].labels" chart-legend="true" chart-series="PropertyRentSale[PropertyRentSale.type].series" chart-options="PropertyRentSale.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group ng-model="PropertyRentSale.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+                        <md-radio-group class="md-primary" ng-model="PropertyRentSale.type" >
+                            <md-radio-button value="Monthly">Monthly</md-radio-button>
+                            <md-radio-button value="Quarter">Quarter</md-radio-button>
+                            <md-radio-button value="Year">Year</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </tri-widget>
+            </div>
+            <div flex="100" ng-show="PropertyRentSale.chart === 'chart-doughnut'">
+                <tri-widget flex="100"  chartjs-propertycloseline-widget title="Close Property Rent & Sale" subtitle="Lifetime" content-layout="row" content-padding>
+                    <canvas height="100px"   class="chart-doughnut" chart-data="PropertyRentSale[PropertyRentSale.type].data[0]" chart-legend="true" chart-labels="PropertyRentSale[PropertyRentSale.type].labels"></canvas>
+                    <canvas height="100px"    class="chart-doughnut" chart-data="PropertyRentSale[PropertyRentSale.type].data[1]" chart-legend="true" chart-labels="PropertyRentSale[PropertyRentSale.type].labels"></canvas>
+
+                    <div layout="column">
+                        <md-radio-group ng-model="PropertyRentSale.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+                        <md-radio-group class="md-primary" ng-model="PropertyRentSale.type" >
+                            <md-radio-button value="Monthly">Monthly</md-radio-button>
+                            <md-radio-button value="Quarter">Quarter</md-radio-button>
+                            <md-radio-button value="Year">Year</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </tri-widget>
+            </div>
+
+
+        </div>
+        <div flex="50" layout-margin layout="column">
+            <div flex="100"  ng-show="PropertyRentSaleAVA.chart === 'chart-bar'">
+                <tri-widget flex="100" chartjs-propertyavaline-widget title="Property Rent Available" subtitle="Lifetime" content-layout="row" content-padding>
+                    <canvas  height="100px"  class="chart-bar" chart-data="PropertyRentSaleAVA[PropertyRentSaleAVA.type].data" chart-labels="PropertyRentSaleAVA[PropertyRentSaleAVA.type].labels" chart-legend="true" chart-series="PropertyRentSaleAVA[PropertyRentSaleAVA.type].series" chart-options="PropertyRentSaleAVA.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group ng-model="PropertyRentSaleAVA.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+                        </md-radio-group>
+                        <md-radio-group class="md-primary" ng-model="PropertyRentSaleAVA.type" >
+                            <md-radio-button value="Monthly">Monthly</md-radio-button>
+                            <md-radio-button value="Quarter">Quarter</md-radio-button>
+                            <md-radio-button value="Year">Year</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </tri-widget>
+
+            </div>
+
+            <div flex="100" ng-show="PropertyRentSaleAVA.chart === 'chart-line'">
+                <tri-widget flex="100"  chartjs-propertyavaline-widget title="Property Rent Available" subtitle="Lifetime" content-layout="row" content-padding>
+                    <canvas height="100px"  class="chart-line" chart-data="PropertyRentSaleAVA[PropertyRentSaleAVA.type].data" chart-labels="PropertyRentSaleAVA[PropertyRentSaleAVA.type].labels" chart-legend="true" chart-series="PropertyRentSaleAVA[PropertyRentSaleAVA.type].series" chart-options="PropertyRentSaleAVA.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group ng-model="PropertyRentSaleAVA.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+                        </md-radio-group>
+                        <md-radio-group class="md-primary" ng-model="PropertyRentSaleAVA.type" >
+                            <md-radio-button value="Monthly">Monthly</md-radio-button>
+                            <md-radio-button value="Quarter">Quarter</md-radio-button>
+                            <md-radio-button value="Year">Year</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </tri-widget>
+            </div>
+
+
+            <div flex="100" ng-show="PropertyRentSaleAVA.chart === 'chart-doughnut'">
+                <tri-widget flex="100"  chartjs-propertyavaline-widget title="Property Rent Available" subtitle="Lifetime" content-layout="row" content-padding>
+                    <canvas height="100px"  class="chart-doughnut" chart-data="PropertyRentSaleAVA[PropertyRentSaleAVA.type].data[0]" chart-legend="true" chart-labels="PropertyRentSaleAVA[PropertyRentSaleAVA.type].labels"></canvas>
+
+
+                    <div layout="column">
+                        <md-radio-group ng-model="PropertyRentSaleAVA.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+                        </md-radio-group>
+                        <md-radio-group class="md-primary" ng-model="PropertyRentSaleAVA.type" >
+                            <md-radio-button value="Monthly">Monthly</md-radio-button>
+                            <md-radio-button value="Quarter">Quarter</md-radio-button>
+                            <md-radio-button value="Year">Year</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </tri-widget>
+            </div>
+
+        </div>
+
+
+        <!--        <div flex="50" layout="column" >
+                    <tri-widget flex="100"  chartjs-pie-widget title="Network Referrals" subtitle="11/03/15 - 11/4/15" content-padding>
+                        <canvas class="chart-doughnut" chart-data="pieChart.data" chart-legend="true" chart-labels="pieChart.labels"></canvas>
+                    </tri-widget>
+                </div>-->
+    </div>
+    <div layout="row"  layout-margin>
+        <div flex="50" layout="column">
+            <div flex="100"  ng-show="LocationPropertyRentSale.chart === 'chart-bar'">
+                <tri-widget flex="100" chartjs-propertylocationline-widget title="Loaction Property Rent & Sale" subtitle="Lifetime" content-layout="row" content-padding>
+                    <canvas height="100px"     height="100px"  class="chart-bar" chart-data="LocationPropertyRentSale[LocationPropertyRentSale.type].data" chart-labels="LocationPropertyRentSale[LocationPropertyRentSale.type].labels" chart-legend="true" chart-series="LocationPropertyRentSale[LocationPropertyRentSale.type].series" chart-options="LocationPropertyRentSale.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group  ng-model="LocationPropertyRentSale.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+
+            </div>
+
+            <div flex="100" ng-show="LocationPropertyRentSale.chart === 'chart-line'">
+                <tri-widget flex="100"  chartjs-propertylocationline-widget title="Loaction Property Rent & Sale" subtitle="Lifetime" content-layout="row" content-padding>
+                    <canvas height="100px"     class="chart-line" chart-data="LocationPropertyRentSale[LocationPropertyRentSale.type].data" chart-labels="LocationPropertyRentSale[LocationPropertyRentSale.type].labels" chart-legend="true" chart-series="LocationPropertyRentSale[LocationPropertyRentSale.type].series" chart-options="LocationPropertyRentSale.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group ng-model="LocationPropertyRentSale.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+            </div>
+            <div flex="100" ng-show="LocationPropertyRentSale.chart === 'chart-doughnut'">
+                <tri-widget flex="100"  chartjs-propertylocationline-widget title="Loaction Property Rent & Sale" subtitle="Lifetime" content-layout="row" content-padding>
+                    <canvas height="100px"   class="chart-doughnut" chart-data="LocationPropertyRentSale[LocationPropertyRentSale.type].data[0]" chart-legend="true" chart-labels="LocationPropertyRentSale[LocationPropertyRentSale.type].labels"></canvas>
+                    <canvas height="100px"    class="chart-doughnut" chart-data="LocationPropertyRentSale[LocationPropertyRentSale.type].data[1]" chart-legend="true" chart-labels="LocationPropertyRentSale[LocationPropertyRentSale.type].labels"></canvas>
+
+                    <div layout="column">
+                        <md-radio-group ng-model="LocationPropertyRentSale.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+            </div>
+
+
+        </div>
+        <div flex="50" layout="column">
+            <div flex="100"  ng-show="LocationPropertyRentSaleClose.chart === 'chart-bar'">
+                <tri-widget flex="100" chartjs-propertylocationcloseline-widget title="Loaction Property Rent & Sale Close" subtitle="Last 365 Days" content-layout="row" content-padding>
+                    <canvas height="100px"     height="100px"  class="chart-bar" chart-data="LocationPropertyRentSaleClose[LocationPropertyRentSaleClose.type].data" chart-labels="LocationPropertyRentSaleClose[LocationPropertyRentSaleClose.type].labels" chart-legend="true" chart-series="LocationPropertyRentSaleClose[LocationPropertyRentSaleClose.type].series" chart-options="LocationPropertyRentSaleClose.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group  ng-model="LocationPropertyRentSaleClose.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+
+            </div>
+
+            <div flex="100" ng-show="LocationPropertyRentSaleClose.chart === 'chart-line'">
+                <tri-widget flex="100"  chartjs-propertylocationcloseline-widget title="Loaction Property Rent & Sale Close" subtitle="Last 365 Days" content-layout="row" content-padding>
+                    <canvas height="100px"     class="chart-line" chart-data="LocationPropertyRentSaleClose[LocationPropertyRentSaleClose.type].data" chart-labels="LocationPropertyRentSaleClose[LocationPropertyRentSaleClose.type].labels" chart-legend="true" chart-series="LocationPropertyRentSaleClose[LocationPropertyRentSaleClose.type].series" chart-options="LocationPropertyRentSaleClose.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group ng-model="LocationPropertyRentSaleClose.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+            </div>
+            <div flex="100" ng-show="LocationPropertyRentSaleClose.chart === 'chart-doughnut'">
+                <tri-widget flex="100"  chartjs-propertylocationcloseline-widget title="Loaction Property Rent & Sale Close" subtitle="Last 365 Days" content-layout="row" content-padding>
+                    <canvas height="100px"   class="chart-doughnut" chart-data="LocationPropertyRentSaleClose[LocationPropertyRentSaleClose.type].data[0]" chart-legend="true" chart-labels="LocationPropertyRentSaleClose[LocationPropertyRentSaleClose.type].labels"></canvas>
+                    <canvas height="100px"    class="chart-doughnut" chart-data="LocationPropertyRentSaleClose[LocationPropertyRentSaleClose.type].data[1]" chart-legend="true" chart-labels="LocationPropertyRentSaleClose[LocationPropertyRentSaleClose.type].labels"></canvas>
+
+                    <div layout="column">
+                        <md-radio-group ng-model="LocationPropertyRentSaleClose.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+    <div layout="row"  layout-margin>
+
+        <div flex="50" layout="column">
+            <div flex="100"  ng-show="LocationPropertyRentSaleAva.chart === 'chart-bar'">
+                <tri-widget flex="100" chartjs-propertylocationavaline-widget title="Loaction Property Rent Avilable" subtitle="Last 365 Days" content-layout="row" content-padding>
+                    <canvas height="100px"     height="100px"  class="chart-bar" chart-data="LocationPropertyRentSaleAva[LocationPropertyRentSaleAva.type].data" chart-labels="LocationPropertyRentSaleAva[LocationPropertyRentSaleAva.type].labels" chart-legend="true" chart-series="LocationPropertyRentSaleAva[LocationPropertyRentSaleAva.type].series" chart-options="LocationPropertyRentSaleAva.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group  ng-model="LocationPropertyRentSaleAva.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+
+            </div>
+
+            <div flex="100" ng-show="LocationPropertyRentSaleAva.chart === 'chart-line'">
+                <tri-widget flex="100"  chartjs-propertylocationavaline-widget title="Loaction Property Rent Avilable" subtitle="Last 365 Days" content-layout="row" content-padding>
+                    <canvas height="100px"     class="chart-line" chart-data="LocationPropertyRentSaleAva[LocationPropertyRentSaleAva.type].data" chart-labels="LocationPropertyRentSaleAva[LocationPropertyRentSaleAva.type].labels" chart-legend="true" chart-series="LocationPropertyRentSaleAva[LocationPropertyRentSaleAva.type].series" chart-options="LocationPropertyRentSaleAva.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group ng-model="LocationPropertyRentSaleAva.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+            </div>
+            <div flex="100" ng-show="LocationPropertyRentSaleAva.chart === 'chart-doughnut'">
+                <tri-widget flex="100"  chartjs-propertylocationavaline-widget title="Loaction Property Rent Avilable" subtitle="Last 365 Days" content-layout="row" content-padding>
+                    <canvas height="100px"   class="chart-doughnut" chart-data="LocationPropertyRentSaleAva[LocationPropertyRentSaleAva.type].data[0]" chart-legend="true" chart-labels="LocationPropertyRentSaleAva[LocationPropertyRentSaleAva.type].labels"></canvas>
+
+                    <div layout="column">
+                        <md-radio-group ng-model="LocationPropertyRentSaleAva.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+            </div>
+
+
+        </div>
+        <div flex="50" layout="column">
+            <div flex="100"  ng-show="LocationAgent.chart === 'chart-bar'">
+                <tri-widget flex="100" chartjs-propertylocationagentline-widget title="Loaction Agent" subtitle="Lifetime" content-layout="row" content-padding>
+                    <canvas height="100px"     height="100px"  class="chart-bar" chart-data="LocationAgent[LocationAgent.type].data" chart-labels="LocationAgent[LocationAgent.type].labels" chart-legend="true" chart-series="LocationAgent[LocationAgent.type].series" chart-options="LocationAgent.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group  ng-model="LocationAgent.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+
+            </div>
+
+            <div flex="100" ng-show="LocationAgent.chart === 'chart-line'">
+                <tri-widget flex="100"  chartjs-propertylocationagentline-widget title="Loaction Agent" subtitle="Lifetime" content-layout="row" content-padding>
+                    <canvas height="100px"     class="chart-line" chart-data="LocationAgent[LocationAgent.type].data" chart-labels="LocationAgent[LocationAgent.type].labels" chart-legend="true" chart-series="LocationAgent[LocationAgent.type].series" chart-options="LocationAgent.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group ng-model="LocationAgent.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+            </div>
+            <div flex="100" ng-show="LocationAgent.chart === 'chart-doughnut'">
+                <tri-widget flex="100"  chartjs-propertylocationagentline-widget title="Loaction Agent" subtitle="Lifetime" content-layout="row" content-padding>
+                    <canvas height="100px"   class="chart-doughnut" chart-data="LocationAgent[LocationAgent.type].data[0]" chart-legend="true" chart-labels="LocationAgent[LocationAgent.type].labels"></canvas>
+
+                    <div layout="column">
+                        <md-radio-group ng-model="LocationAgent.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div layout="row"  layout-margin>
+
+        <div flex="50" layout="column">
+            <div flex="100"  ng-show="InquiryAgent.chart === 'chart-bar'">
+                <tri-widget flex="100" chartjs-propertylocationinquiryline-widget title="Location Inquiry" subtitle="Last 365 Days" content-layout="row" content-padding>
+                    <canvas height="100px"     height="100px"  class="chart-bar" chart-data="InquiryAgent[InquiryAgent.type].data" chart-labels="InquiryAgent[InquiryAgent.type].labels" chart-legend="true" chart-series="InquiryAgent[InquiryAgent.type].series" chart-options="InquiryAgent.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group  ng-model="InquiryAgent.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+
+            </div>
+
+            <div flex="100" ng-show="InquiryAgent.chart === 'chart-line'">
+                <tri-widget flex="100"  chartjs-propertylocationinquiryline-widget title="Location Inquiry" subtitle="Last 365 Days" content-layout="row" content-padding>
+                    <canvas height="100px"     class="chart-line" chart-data="InquiryAgent[InquiryAgent.type].data" chart-labels="InquiryAgent[InquiryAgent.type].labels" chart-legend="true" chart-series="InquiryAgent[InquiryAgent.type].series" chart-options="InquiryAgent.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group ng-model="InquiryAgent.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+            </div>
+            <div flex="100" ng-show="InquiryAgent.chart === 'chart-doughnut'">
+                <tri-widget flex="100"  chartjs-propertylocationinquiryline-widget title="Location Inquiry" subtitle="Last 365 Days" content-layout="row" content-padding>
+                    <canvas height="100px"   class="chart-doughnut" chart-data="InquiryAgent[InquiryAgent.type].data[0]" chart-legend="true" chart-labels="InquiryAgent[InquiryAgent.type].labels"></canvas>
+
+                    <div layout="column">
+                        <md-radio-group ng-model="InquiryAgent.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+            </div>
+
+
+        </div>
+        <div flex="50" layout="column">
+            <div flex="100"  ng-show="PropertyRent.chart === 'chart-bar'">
+                <tri-widget flex="100" chartjs-propertyrentline-widget title="Location Inquiry" subtitle="Last 365 Days" content-layout="row" content-padding>
+                    <canvas height="100px"     height="100px"  class="chart-bar" chart-data="PropertyRent[PropertyRent.type].data" chart-labels="PropertyRent[PropertyRent.type].labels" chart-legend="true" chart-series="PropertyRent[PropertyRent.type].series" chart-options="PropertyRent.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group  ng-model="PropertyRent.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+
+            </div>
+
+            <div flex="100" ng-show="PropertyRent.chart === 'chart-line'">
+                <tri-widget flex="100"  chartjs-propertyrentline-widget title="Location Inquiry" subtitle="Last 365 Days" content-layout="row" content-padding>
+                    <canvas height="100px"     class="chart-line" chart-data="PropertyRent[PropertyRent.type].data" chart-labels="PropertyRent[PropertyRent.type].labels" chart-legend="true" chart-series="PropertyRent[PropertyRent.type].series" chart-options="PropertyRent.options"></canvas>
+                    <div layout="column">
+                        <md-radio-group ng-model="PropertyRent.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+            </div>
+            <div flex="100" ng-show="PropertyRent.chart === 'chart-doughnut'">
+                <tri-widget flex="100"  chartjs-propertyrentline-widget title="Location Inquiry" subtitle="Last 365 Days" content-layout="row" content-padding>
+                    <canvas height="100px"   class="chart-doughnut" chart-data="PropertyRent[PropertyRent.type].data[0]" chart-legend="true" chart-labels="PropertyRent[PropertyRent.type].labels"></canvas>
+
+                    <div layout="column">
+                        <md-radio-group ng-model="PropertyRent.chart" >
+                            <md-radio-button value="chart-bar">Bar Chart</md-radio-button>
+                            <md-radio-button value="chart-line">Line Chart</md-radio-button>
+                            <md-radio-button value="chart-doughnut">Pie Chart</md-radio-button>
+
+                        </md-radio-group>
+
+                    </div>
+                </tri-widget>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+</div>

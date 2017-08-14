@@ -1,0 +1,1440 @@
+<div  ng-controller="PropertyTableController as vm">
+    <div ng-show="!addeditform" flex layout="row" >
+        <div flex layout="row" >
+
+            <div flex-gt-lg="15" ng-show="!vm.filterclose && role['Property'].Filter && vm.showmenu === true"     >
+                <md-toolbar >
+                    <div class="md-toolbar-tools">
+                        <h2>
+                            Filter
+                        </h2>
+                        <md-menu>
+                            <md-button class="md-icon-button" aria-label="open menu" ng-click="$mdOpenMenu()">
+                                <md-icon md-font-icon="zmdi zmdi-more-vert"></md-icon>
+                            </md-button>
+                            <md-menu-content >
+
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsproperty.selectlistbox.propertypropertytypeid = true;"
+                                                     ng-model="pmsproperty.selectlistbox.propertypropertytypeid"    >
+                                            <div class="md-body-2"  >
+                                                {{'MENU.property.GRID.propertytypeid'| translate}} 
+                                            </div>
+                                        </md-checkbox>    
+
+                                    </md-button>
+                                </md-menu-item>   
+                                <md-menu-item >
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsproperty.selectlistbox.propertypropertylocalityid = true;" ng-model="pmsproperty.selectlistbox.propertypropertylocalityid"    >
+                                            
+                                            <div class="md-body-2"  >
+                                            {{'MENU.property.GRID.propertylocalityid'| translate}} 
+                                        </div>
+                                        </md-checkbox>    
+                                        
+                                    </md-button>
+                                </md-menu-item>         
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsproperty.selectlistbox.propertypropertylbedroomsid = true;" ng-model="pmsproperty.selectlistbox.propertypropertylbedroomsid"    >    
+                                        <div class="md-body-2"  >
+                                            {{'MENU.property.GRID.propertylbedroomsid'| translate}} 
+                                        </div>
+                                            </md-checkbox>
+                                    </md-button>
+                                </md-menu-item>         
+
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsproperty.selectlistbox.propertypropertyfurnishedid = true;" ng-model="pmsproperty.selectlistbox.propertypropertyfurnishedid"    >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.property.GRID.propertyfurnishedid'| translate}} 
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item>         
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsproperty.selectlistbox.propertyamount = false;" ng-model="pmsproperty.selectlistbox.propertyamount"    >
+                                        <div class="md-body-2"  >
+                                            {{ (pmspropertycommonobject.type === 1 ? 'Rent' : 'Sale Cost')}}
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item>  
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsproperty.selectlistbox.propertypropertypriorityid = false;" ng-model="pmsproperty.selectlistbox.propertypropertypriorityid"    >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.property.GRID.propertypriorityid'| translate}} 
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item>  
+                                <md-menu-divider></md-menu-divider>
+
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsproperty.selectlistbox.propertyapt = false;" ng-model="pmsproperty.selectlistbox.propertyapt"    >    
+                                        <div class="md-body-2"  >
+                                            {{'MENU.property.GRID.apt'| translate}} 
+                                        </div></md-checkbox>
+                                    </md-button>
+                                </md-menu-item>   
+                                <md-menu-item>
+                                    <md-button >
+                                        <md-checkbox ng-model="pmsproperty.selectlistbox.aptselect"  >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.property.GRID.apt'| translate}} List 
+                                        </div>
+</md-checkbox>
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsproperty.selectlistbox.propertycustomerid = false;" ng-model="pmsproperty.selectlistbox.propertycustomerid"    >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.property.GRID.customerid'| translate}} 
+                                        </div></md-checkbox>
+                                    </md-button>
+                                </md-menu-item>         
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;
+                                                        pmsproperty.selectlistbox.propertyavailablefrom = false;" ng-model="pmsproperty.selectlistbox.propertyavailablefrom"    >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.property.GRID.availablefrom'| translate}} 
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item>      
+                                <md-menu-divider></md-menu-divider>
+
+                                <md-menu-item ng-show="false">
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsproperty.selectlistbox.propertycityid = false;" ng-model="pmsproperty.selectlistbox.propertycityid"    >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.property.GRID.cityid'| translate}} 
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item>         
+
+
+
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsproperty.selectlistbox.propertyflatamenitiesid = false;" ng-model="pmsproperty.selectlistbox.propertyflatamenitiesid"    >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.property.GRID.flatamenitiesid'| translate}} 
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item>         
+
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;
+                                                        pmsproperty.selectlistbox.propertysocietyamenitiesid = false;" ng-model="pmsproperty.selectlistbox.propertysocietyamenitiesid"    >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.property.GRID.societyamenitiesid'| translate}} 
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item> 
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsproperty.selectlistbox.propertypropertyfacingid = false;" ng-model="pmsproperty.selectlistbox.propertypropertyfacingid"    >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.property.GRID.propertyfacingid'| translate}} 
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item>      
+                                <md-menu-divider></md-menu-divider>
+                            </md-menu-content>
+                        </md-menu>
+                        <span layout="row" flex>                                 
+                            <md-button    ng-click="vm.getTable()"     class="md-fab md-mini" aria-label="Refresh">
+                                <md-icon md-font-icon="zmdi zmdi-refresh"></md-icon> <md-tooltip>Refresh</md-tooltip>
+
+                            </md-button>
+
+
+                        </span>
+                    </div>
+                </md-toolbar>
+                <md-content flex layout="column"  class="filter-content"  >
+                    <md-content flex='100' layout="column">
+                        <md-list flex='100' class="filter-list" >
+
+                            <div ng-show="pmsproperty.selectlistbox.propertypropertytypeid" layout="column"  flex>
+                                <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsproperty.selectpropertypropertytypeidtbl)}}" 
+                                               >   <md-icon ng-click="pmsproperty.selectlistbox.propertypropertytypeid = false"  md-font-icon="zmdi zmdi-close-circle" >  </md-icon> <span  class="md-subheaderheader"> </md-icon> &nbsp; {{'MENU.property.GRID.propertytypeid'| translate}} </span> </md-subheader>
+                                <div   ng-model="pmsproperty.selectpropertypropertytypeidtbl"   name="propertypropertytypeid" id="propertypropertytypeid" flex="100">
+                                    <div class="filtertext" ng-show="$index < sessionobject.getPlaletCount(pmsproperty.selectlistbox) || selectpropertypropertytypeidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertypropertytypeidcntlist" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsproperty.selectpropertypropertytypeidtbl[objcombo.id]"  aria-label="Primary Checkbox"  flex="100" >
+
+                                            {{objcombo.text}}  ( {{objcombo.count}} )
+
+                                        </md-checkbox>  
+
+                                    </div>                                
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!selectpropertypropertytypeidtblflag"  layout="row" ng-click="selectpropertypropertytypeidtblflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="selectpropertypropertytypeidtblflag"  layout="row" ng-click="selectpropertypropertytypeidtblflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+
+                            <div ng-show="pmsproperty.selectlistbox.propertypropertylocalityid" layout="column"  flex>
+                                <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsproperty.selectpropertypropertylocalityidtbl)}}" 
+                                               >   <md-icon ng-click="pmsproperty.selectlistbox.propertypropertylocalityid = false"  md-font-icon="zmdi zmdi-close-circle" >  </md-icon> <span  class="md-subheaderheader"> </md-icon> &nbsp; {{'MENU.property.GRID.propertylocalityid'| translate}} </span> </md-subheader>
+                                <div   ng-model="pmsproperty.selectpropertypropertylocalityidtbl"   name="propertypropertylocalityid" id="propertypropertylocalityid" flex="100">
+                                    <div class="filtertext" ng-show="$index < sessionobject.getPlaletCount(pmsproperty.selectlistbox) || selectpropertypropertylocalityidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertypropertylocalityidcntlist" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsproperty.selectpropertypropertylocalityidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                            {{objcombo.text}}  ( {{objcombo.count}} )
+                                        </md-checkbox>  
+                                    </div>                                
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!selectpropertypropertylocalityidtblflag"  layout="row" ng-click="selectpropertypropertylocalityidtblflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="selectpropertypropertylocalityidtblflag"  layout="row" ng-click="selectpropertypropertylocalityidtblflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+                            <div ng-show="pmsproperty.selectlistbox.propertypropertylbedroomsid" layout="column"  flex>
+                                <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsproperty.selectpropertypropertylbedroomsidtbl)}}" 
+                                               >   <md-icon ng-click="pmsproperty.selectlistbox.propertypropertylbedroomsid = false"  md-font-icon="zmdi zmdi-close-circle" >  </md-icon> <span  class="md-subheaderheader"> </md-icon> &nbsp; {{'MENU.property.GRID.propertylbedroomsid'| translate}} </span> </md-subheader>
+                                <div   ng-model="pmsproperty.selectpropertypropertylbedroomsidtbl"   name="propertypropertylbedroomsid" id="propertypropertylbedroomsid" flex="100">
+                                    <div class="filtertext" ng-show="$index < sessionobject.getPlaletCount(pmsproperty.selectlistbox) || selectpropertypropertylbedroomsidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertypropertylbedroomsidcntlist" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsproperty.selectpropertypropertylbedroomsidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                            {{objcombo.text}}  ( {{objcombo.count}} )
+                                        </md-checkbox>  
+                                    </div>                                
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!selectpropertypropertylbedroomsidtblflag"  layout="row" ng-click="selectpropertypropertylbedroomsidtblflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="selectpropertypropertylbedroomsidtblflag"  layout="row" ng-click="selectpropertypropertylbedroomsidtblflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+                            <div ng-show="pmsproperty.selectlistbox.propertypropertyfurnishedid" layout="column"  flex>
+                                <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsproperty.selectpropertypropertyfurnishedidtbl)}}" 
+                                               >   <md-icon ng-click="pmsproperty.selectlistbox.propertypropertyfurnishedid = false"  md-font-icon="zmdi zmdi-close-circle" >  </md-icon> <span  class="md-subheaderheader"> </md-icon> &nbsp; {{'MENU.property.GRID.propertyfurnishedid'| translate}} </span> </md-subheader>
+                                <div   ng-model="pmsproperty.selectpropertypropertyfurnishedidtbl"   name="propertypropertyfurnishedid" id="propertypropertyfurnishedid" flex="100">
+                                    <div class="filtertext" ng-show="$index < sessionobject.getPlaletCount(pmsproperty.selectlistbox) || selectpropertypropertyfurnishedidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertypropertyfurnishedidcntlist" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsproperty.selectpropertypropertyfurnishedidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                            {{objcombo.text}}  ( {{objcombo.count}} )
+                                        </md-checkbox>  
+                                    </div>                                
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!selectpropertypropertyfurnishedidtblflag"  layout="row" ng-click="selectpropertypropertyfurnishedidtblflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="selectpropertypropertyfurnishedidtblflag"  layout="row" ng-click="selectpropertypropertyfurnishedidtblflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+
+
+                            <div ng-show="pmsproperty.selectlistbox.propertyamount" layout="column"  flex="100">
+                                <md-subheader class="md-primary" style="background-color: {{sessionobject.getPlaletColorText(pmsproperty.selectamountform)}}" > <md-icon ng-click="pmsproperty.selectlistbox.propertyamount = false"  
+                                                                                                                                                                         md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp;
+                                    {{pmspropertycommonobject.type===1 ? 'Rent' : 'Sale Cost'}} </md-subheader>
+                                <div layout layout-xs="column" flex="100">
+                                    <div flex="45" style="width: 20px">
+                                        <md-input-container class="md-block" >
+                                            <input ng-model="pmsproperty.amountform"  name="amountform" 
+                                                   id="amountform"  currency-mask type="text"  >
+                                        </md-input-container>
+                                    </div>
+                                    <div flex="10" > To </div>
+                                    <div flex="45" style="width: 20px">
+                                        <md-input-container class="md-block" >
+                                            <input ng-model="pmsproperty.amountto" currency-mask   name="amountto" 
+                                                   id="amountto" type="text"    > 
+                                        </md-input-container>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div ng-show="pmsproperty.selectlistbox.propertypropertypriorityid" layout="column"  flex>
+                                <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsproperty.selectpropertypropertypriorityidtbl)}}" 
+                                               >   <md-icon ng-click="pmsproperty.selectlistbox.propertypropertypriorityid = false"  md-font-icon="zmdi zmdi-close-circle" >  </md-icon> <span  class="md-subheaderheader"> </md-icon> &nbsp; {{'MENU.property.GRID.propertypriorityid'| translate}} </span> </md-subheader>
+                                <div   ng-model="pmsproperty.selectpropertypropertypriorityidtbl"   name="propertypropertypriorityid" id="propertypropertypriorityid" flex="100">
+                                    <div class="filtertext" ng-show="$index < sessionobject.getPlaletCount(pmsproperty.selectlistbox) || selectpropertypropertypriorityidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertypropertypriorityidcntlist" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsproperty.selectpropertypropertypriorityidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                            {{objcombo.text}}  ( {{objcombo.count}} )
+                                        </md-checkbox>  
+                                    </div>                                
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!selectpropertypropertypriorityidtblflag"  layout="row" ng-click="selectpropertypropertypriorityidtblflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="selectpropertypropertypriorityidtblflag"  layout="row" ng-click="selectpropertypropertypriorityidtblflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+                            <div ng-show="pmsproperty.selectlistbox.propertyapt" layout="column"  flex>
+                                <md-subheader class="md-primary" style="background-color: {{sessionobject.getPlaletColorText(pmsproperty.apttbl)}}" >
+                                    <md-icon ng-click="pmsproperty.selectlistbox.propertyapt = false" 
+                                             md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp;
+                                    {{'MENU.property.GRID.apt'| translate}}   </md-subheader>
+                                <md-input-container class="md-block">                                                     
+                                    <label>{{'MENU.property.DIALOG.apt'| translate}}</label>
+                                    <md-autocomplete
+                                        ng-disabled="pmspropertycommonobject.isDisabled"
+                                        md-no-cache="pmspropertycommonobject.noCache"
+                                        md-search-text="pmsproperty.apttbl"
+                                        md-selected-item-change="pmsproperty.apttbl=item.text"
+                                        md-items="item in sessionobject.querySearch(pmsproperty.apttbl,sessionobject.comboboxlist.propertypropertyidcntlistapt)"
+                                        md-item-text="item.text"
+                                        md-min-length="0"
+                                        name="apttbl" 
+                                        id="apt">
+                                        <md-item-template>
+                                            <span md-highlight-text="pmsproperty.apttbl" md-highlight-flags="^i">{{item.text}}</span>
+                                        </md-item-template>
+                                    </md-autocomplete>
+                                    <!--                                                    <input ng-model="pmsproperty.apt"  name="apt" 
+                                                                                               id="apt" type="text" required> -->
+                                </md-input-container>
+                                <md-divider></md-divider>
+                            </div>
+                            <div ng-show="pmsproperty.selectlistbox.aptselect" layout="column"  flex>
+                                <md-subheader class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsproperty.selectaptselecttbl)}}" >
+                                    <md-icon ng-click="pmsproperty.selectlistbox.aptselect = false" 
+                                             md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp;
+                                    {{'MENU.property.GRID.apt'| translate}} </span> </md-subheader>
+                                <div   ng-model="pmsproperty.selectaptselect"   name="aptselect" id="aptselect" flex="100">
+                                    <div class="filtertext"  ng-show="$index < sessionobject.getPlaletCount(pmsproperty.selectlistbox) || aptselectflag"
+                                         ng-repeat="objcombo in sessionobject.comboboxlist.propertypropertyidcntlistapt" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsproperty.selectaptselecttbl[objcombo.text]" aria-label="Primary Checkbox" flex="100">
+                                            {{objcombo.text}}  ({{objcombo.count}})
+                                        </md-checkbox>  
+                                    </div>
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!aptselectflag"  layout="row" ng-click="aptselectflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="aptselectflag"  layout="row" ng-click="aptselectflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+
+                            <div ng-show="pmsproperty.selectlistbox.propertycustomerid" layout="column"  flex>
+                                <md-subheader class="md-primary" style="background-color: {{sessionobject.getPlaletColorText(pmsproperty.customeridtbl)}}" >
+                                    <md-icon ng-click="pmsproperty.selectlistbox.propertycustomerid = false" 
+                                             md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp;
+                                    {{'MENU.property.GRID.customerid'| translate}} {{ pmsproperty.customeridtbl}} </md-subheader>
+                                <md-input-container class="md-block">                                                     
+                                    <label>{{'MENU.property.DIALOG.customerid'| translate}}</label>
+                                    <md-autocomplete
+                                        ng-disabled="pmspropertycommonobject.isDisabled"
+                                        md-no-cache="pmspropertycommonobject.noCache"
+                                        md-search-text="pmsproperty.customeridtbl"
+                                        md-selected-item-change="pmsproperty.selectcustomeridtbl=item.id"
+                                        md-items="item in sessionobject.querySearch(pmsproperty.customeridtbl,sessionobject.comboboxlist.propertycustomeridcntlist)"
+                                        md-item-text="item.text"
+                                        md-min-length="0"
+                                        name="customeridtbl" 
+                                        id="customerid">
+                                        <md-item-template>
+                                            <span md-highlight-text="pmsproperty.customeridtbl" md-highlight-flags="^i">{{item.text}}</span>
+                                        </md-item-template>
+                                    </md-autocomplete>
+                                    <!--                                                    <input ng-model="pmsproperty.customerid"  name="customerid" 
+                                                                                               id="customerid" type="text" required> -->
+                                </md-input-container>
+                                <md-divider></md-divider>
+                            </div>
+
+
+                            <div ng-show="pmsproperty.selectlistbox.propertycityid" layout="column"  flex>
+                                <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsproperty.selectpropertycityidtbl)}}" 
+                                               >   <md-icon ng-click="pmsproperty.selectlistbox.propertycityid = false"  md-font-icon="zmdi zmdi-close-circle" >  </md-icon> <span  class="md-subheaderheader"> </md-icon> &nbsp; {{'MENU.property.GRID.cityid'| translate}} </span> </md-subheader>
+                                <div   ng-model="pmsproperty.selectpropertycityidtbl"   name="propertycityid" id="propertycityid" flex="100">
+                                    <div class="filtertext" ng-show="$index < sessionobject.getPlaletCount(pmsproperty.selectlistbox) || selectpropertycityidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertycityidcntlist" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsproperty.selectpropertycityidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                            {{objcombo.text}}  ( {{objcombo.count}} )
+                                        </md-checkbox>  
+                                    </div>                                
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!selectpropertycityidtblflag"  layout="row" ng-click="selectpropertycityidtblflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="selectpropertycityidtblflag"  layout="row" ng-click="selectpropertycityidtblflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+
+                            <div ng-show="pmsproperty.selectlistbox.propertypropertyfacingid" layout="column"  flex>
+                                <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsproperty.selectpropertypropertyfacingidtbl)}}" 
+                                               >   <md-icon ng-click="pmsproperty.selectlistbox.propertypropertyfacingid = false"  md-font-icon="zmdi zmdi-close-circle" >  </md-icon> <span  class="md-subheaderheader"> </md-icon> &nbsp; {{'MENU.property.GRID.propertyfacingid'| translate}} </span> </md-subheader>
+                                <div   ng-model="pmsproperty.selectpropertypropertyfacingidtbl"   name="propertypropertyfacingid" id="propertypropertyfacingid" flex="100">
+                                    <div class="filtertext" ng-show="$index < sessionobject.getPlaletCount(pmsproperty.selectlistbox) || selectpropertypropertyfacingidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertypropertyfacingidcntlist" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsproperty.selectpropertypropertyfacingidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                            {{objcombo.text}}  ( {{objcombo.count}} )
+                                        </md-checkbox>  
+                                    </div>                                
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!selectpropertypropertyfacingidtblflag"  layout="row" ng-click="selectpropertypropertyfacingidtblflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="selectpropertypropertyfacingidtblflag"  layout="row" ng-click="selectpropertypropertyfacingidtblflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+
+                            <div ng-show="pmsproperty.selectlistbox.propertyavailablefrom" layout="column"  flex>
+                                <md-subheader class="md-primary" style="background-color: {{sessionobject.getPlaletColorText(pmsproperty.availablefromdate_from)}}" > <md-icon ng-click="pmsproperty.selectlistbox.propertyavailablefrom = false"
+                                                                                                                                                                               md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp;
+                                    {{'MENU.property.GRID.availablefrom'| translate}} </span> </md-subheader>
+
+                                <div class="margin-normal" layout="row"  layout-align="space-around center" >
+                                    <input mdc-datetime-picker="" date="true" time="false" type="text" short-time="true" id="pmsproperty.availablefromdate_from"
+                                           min-date="date" ng-model="pmsproperty.availablefromdate_from" class="md-input" format="DD-MM-YYYY" flex="40">
+
+                                    To 
+                                    <input mdc-datetime-picker="" date="true" time="false" type="text" short-time="true" id="pmsproperty.availablefromdate_to"
+                                           min-date="date" ng-model="pmsproperty.availablefromdate_to" class="md-input" format="DD-MM-YYYY"  flex="40">
+                                </div>
+
+
+                                <div layout layout-xs="column" flex>
+                                    <md-button class="md-raised"  ng-click="sessionobject.dateAdd(pmsproperty, 'availablefromdate_to', 'availablefromdate_from', -30);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Prev 1 Mon</md-button>
+                                    <md-button class="md-raised"  ng-click="sessionobject.dateAdd(pmsproperty, 'availablefromdate_from', 'availablefromdate_to', 30);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Next 1 Mon</md-button>
+                                </div>
+                                <div layout layout-xs="column" flex>
+                                    <md-button class="md-raised"  ng-click="sessionobject.dateAdd(pmsproperty, 'availablefromdate_to', 'availablefromdate_from', -90);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Prev 3 Mon</md-button>
+                                    <md-button class="md-raised"  ng-click="sessionobject.dateAdd(pmsproperty, 'availablefromdate_from', 'availablefromdate_to', 90);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Next 3 Mo</md-button>
+                                </div>     <div layout layout-xs="column" flex>
+                                    <md-button class="md-raised"  ng-click="sessionobject.dateAdd(pmsproperty, 'availablefromdate_to', 'availablefromdate_from', -180);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Prev 6 Mon</md-button>
+                                    <md-button class="md-raised"  ng-click="sessionobject.dateAdd(pmsproperty, 'availablefromdate_from', 'availablefromdate_to', 180);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Next 6 Mo</md-button>
+                                </div>
+                                <div layout layout-xs="column" flex>
+                                    <md-button class="md-raised"  ng-click="sessionobject.dateAdd(pmsproperty, 'availablefromdate_to', 'availablefromdate_from', -365);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Prev 1 Year</md-button>
+                                    <md-button class="md-raised"  ng-click="sessionobject.dateAdd(pmsproperty, 'availablefromdate_from', 'availablefromdate_to', 365);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Next 1 Year</md-button>
+                                </div>
+                                <md-divider></md-divider>
+                            </div>
+                            <div ng-show="pmsproperty.selectlistbox.propertyflatamenitiesid" layout="column"  flex>
+                                <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsproperty.selectpropertyflatamenitiesidtbl)}}" 
+                                               >   <md-icon ng-click="pmsproperty.selectlistbox.propertyflatamenitiesid = false"  md-font-icon="zmdi zmdi-close-circle" >  </md-icon> <span  class="md-subheaderheader"> </md-icon> &nbsp; {{'MENU.property.GRID.flatamenitiesid'| translate}} </span> </md-subheader>
+                                <div   ng-model="pmsproperty.selectpropertyflatamenitiesidtbl"   name="propertyflatamenitiesid" id="propertyflatamenitiesid" flex="100">
+                                    <div class="filtertext" ng-show="$index < sessionobject.getPlaletCount(pmsproperty.selectlistbox) || selectpropertyflatamenitiesidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertyflatamenitiesidcntlist" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsproperty.selectpropertyflatamenitiesidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                            {{objcombo.text}}  ( {{objcombo.count}} )
+                                        </md-checkbox>  
+                                    </div>                                
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!selectpropertyflatamenitiesidtblflag"  layout="row" ng-click="selectpropertyflatamenitiesidtblflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="selectpropertyflatamenitiesidtblflag"  layout="row" ng-click="selectpropertyflatamenitiesidtblflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+
+                            <div ng-show="pmsproperty.selectlistbox.propertysocietyamenitiesid" layout="column"  flex>
+                                <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsproperty.selectpropertysocietyamenitiesidtbl)}}" 
+                                               >   <md-icon ng-click="pmsproperty.selectlistbox.propertysocietyamenitiesid = false"  md-font-icon="zmdi zmdi-close-circle" >  </md-icon> <span  class="md-subheaderheader"> </md-icon> &nbsp; {{'MENU.property.GRID.societyamenitiesid'| translate}} </span> </md-subheader>
+                                <div   ng-model="pmsproperty.selectpropertysocietyamenitiesidtbl"   name="propertysocietyamenitiesid" id="propertysocietyamenitiesid" flex="100">
+                                    <div class="filtertext" ng-show="$index < sessionobject.getPlaletCount(pmsproperty.selectlistbox) || selectpropertysocietyamenitiesidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertysocietyamenitiesidcntlist" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsproperty.selectpropertysocietyamenitiesidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                            {{objcombo.text}}  ( {{objcombo.count}} )
+                                        </md-checkbox>  
+                                    </div>                                
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!selectpropertysocietyamenitiesidtblflag"  layout="row" ng-click="selectpropertysocietyamenitiesidtblflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="selectpropertysocietyamenitiesidtblflag"  layout="row" ng-click="selectpropertysocietyamenitiesidtblflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+                        </md-list>
+                    </md-content>
+                </md-content>
+            </div>
+            <div class="md-whiteframe-z5 animate-wrapper"  layout="column" layout-align="start start" flex>
+
+                <div flex id="ui-admin-email" ui-view layout="column" layout-align="start stretch" class="overflow-auto full-width">
+                    <div flex class="inbox-no-email-selected" layout="column" layout-align="center" >
+                        <md-toolbar  layout="row" layout-align="space-between center"  class="padding-bottom-5 padding-left-5 padding-top-5  padding-right-5">
+                            <div>
+
+                                <div  layout='row' layout-align="start">
+                                    <md-button    ng-click="vm.filterclose = true"   ng-show="!vm.filterclose"  class="md-fab md-mini" aria-label="Close">
+                                        <md-icon md-font-icon="fa fa-sign-in" ></md-icon>
+                                        <md-tooltip>Close Filter</md-tooltip>
+                                    </md-button>
+                                    <md-button    ng-click="vm.refreshCount()"     class="md-accent md-raised md-mini" aria-label="Refresh">
+                                        <md-icon md-font-icon="zmdi zmdi-refresh"></md-icon> <md-tooltip>Refresh Count</md-tooltip>  Refresh Count
+
+                                    </md-button>
+                                    <md-button    ng-click="vm.filterclose = false"   ng-show="vm.filterclose"  class="md-fab md-mini" aria-label="Open">
+                                        <md-icon md-font-icon="fa fa-sign-out"></md-icon> <md-tooltip> Open Filter </md-tooltip>
+
+                                    </md-button>
+
+                                    <md-button     ng-click="addTodo($event)"   ng-show="role['Property'].Add"  class="md-fab md-mini"  class="md-fab md-mini" aria-label="Add">
+                                        <md-icon md-font-icon="fa fa-plus"></md-icon> <md-tooltip> Add </md-tooltip>
+
+                                    </md-button>
+                                    <md-button    ng-show="role['Property'].Edit"  class="md-fab md-mini"
+                                                  ng-click="vm.object.editTodo($event)"   class="md-fab md-mini" aria-label="Edit">
+                                        <md-icon md-font-icon="fa fa-edit"></md-icon> <md-tooltip> Edit </md-tooltip>
+
+                                    </md-button>
+                                    <md-button     ng-show="role['Property'].Delete"  class="md-fab md-mini" ng-click="vm.object.removeTodo($event)"    class="md-fab md-mini" aria-label="Delete">
+                                        <md-icon md-font-icon="zmdi zmdi-delete"></md-icon> <md-tooltip> Delete </md-tooltip>
+
+                                    </md-button>
+
+                                    <md-button     ng-click="uploadExcel($event)"   ng-show="role['Property'].Add"   class="md-fab md-mini"   aria-label="Add">
+                                        <md-icon md-font-icon="zmdi zmdi-upload"></md-icon> <md-tooltip> Upload Excel </md-tooltip>
+
+                                    </md-button>
+
+                                    <md-button ng-show="pmspropertycommonobject.type === 2"    target="_blank" ng-href="http://uandvmarketers.com/property/web/fromat_Sale.xls"    ng-show="role['Property'].Add"  class="md-fab md-mini"   aria-label="Add">
+                                        <md-icon md-font-icon="zmdi zmdi-download"></md-icon> <md-tooltip> Downlaod Sample Excel </md-tooltip>
+
+                                    </md-button>
+                                    <md-button ng-show="pmspropertycommonobject.type === 1"    target="_blank" ng-href="http://uandvmarketers.com/property/web/fromat_rent.xls"    ng-show="role['Property'].Add"  class="md-fab md-mini"   aria-label="Add">
+                                        <md-icon md-font-icon="zmdi zmdi-download"></md-icon> <md-tooltip> Downlaod Sample Excel </md-tooltip>
+
+                                    </md-button>
+                                </div>
+
+                            </div>
+                            <div >
+                                {{'ADMIN.TOOLBAR.EXPORTDATA'| translate}}   
+                                <md-menu>
+                                    <md-button class="md-icon-button" aria-label="{{'ADMIN.TOOLBAR.EXPORTDATA'| translate}} " ng-click="$mdOpenMenu()">
+                                        <md-icon md-font-icon="zmdi zmdi-more-vert"> </md-icon>
+                                    </md-button>
+                                    <md-menu-content >
+                                        <md-menu-item >
+                                            <md-button  ng-click="sessionobject.tableExport({type: 'excel', escape: 'false'});" >
+                                                <md-icon md-font-icon="fa fa-file-excel-o"> </md-icon>
+
+                                                <div class="md-body-2"  >
+                                                    {{'ADMIN.TOOLBAR.EXCEL'| translate}} 
+                                                </div>
+
+                                            </md-button>
+
+                                        </md-menu-item>
+                                        <md-menu-item >
+
+                                            <md-button  ng-click="sessionobject.tableExport({type: 'xml', escape: 'false'});" >
+                                                <md-icon md-font-icon="fa fa-file-o"> </md-icon>
+
+                                                <div class="md-body-2"  >
+                                                    {{'ADMIN.TOOLBAR.xml'| translate}} 
+                                                </div>
+
+                                            </md-button>
+                                        </md-menu-item >
+                                        <md-menu-item >
+                                            <md-button  ng-click="sessionobject.tableExport({type: 'csv', escape: 'false'});" >
+                                                <md-icon md-font-icon="fa fa-file-text-o"> </md-icon>
+
+                                                <div class="md-body-2"  >
+                                                    {{'ADMIN.TOOLBAR.csv'| translate}} 
+                                                </div>
+
+                                            </md-button>
+                                        </md-menu-item >
+
+                                        <md-menu-divider></md-menu-divider>
+
+                                        <md-menu-item >
+                                            <md-button  ng-click="sessionobject.printIt('printArea1')" >
+                                                <md-icon md-font-icon="fa fa-print"> </md-icon>
+
+                                                <div class="md-body-2"  >
+                                                    {{'ADMIN.TOOLBAR.Print'| translate}} 
+                                                </div>
+
+                                            </md-button>
+                                        </md-menu-item >
+                                    </md-menu-content>
+                                </md-menu>
+                            </div>
+
+                        </md-toolbar>
+
+
+
+                        <md-divider></md-divider>
+                        <md-table-pagination  class="page-nav-list md-title"  
+                                              md-limit-options="vm.query.limitoption" md-limit="vm.query.limit" md-page-select md-page="vm.query.page" md-total="{{vm.contents.total_count}}" 
+                                              md-on-paginate="vm.getTable"></md-table-pagination>
+                        <md-divider></md-divider>
+
+
+                        <md-table-container flex="grow"    ng-show="role['Property'].Grid"  id="printArea1"  class="md-tablegrid-container overflow-auto full-width">
+
+                            <table fixed-header md-table class="md-primary md-tablegrid" id="printArea" md-row-select ng-model="vm.selected" 
+                                   multiple id="tabledata"   md-progress="vm.promise" >
+                                <thead  md-head md-order="vm.query.order" md-on-reorder="vm.getTable">
+                                    <tr md-row>
+                                        <th md-column >  </th>
+                                        <th md-column md-order-by="propertytypeid.name" >{{vm.columns.propertytypeid| translate }} </th>
+
+                                        <th md-column md-order-by="propertylocalityid.name"   > {{vm.columns.propertylocalityid| translate }} </th>
+                                        <th md-column md-order-by="propertylbedroomsid.name" >{{vm.columns.propertylbedroomsid| translate }} </th>
+                                        <th md-column md-order-by="propertyfurnishedid.name" >{{vm.columns.propertyfurnishedid| translate }} </th>
+                                        <th md-column md-order-by="amount" > {{pmspropertycommonobject.type === 1 ? 'Rent' : 'Sale'| translate }} </th>
+
+                                        <th md-column md-order-by="deposit"  ng-show="pmspropertycommonobject.type === 1" >{{vm.columns.deposit| translate }} </th>
+
+                                        <th md-column md-order-by="totalarea" ng-show="pmspropertycommonobject.type === 2">{{vm.columns.totalarea| translate }} </th>
+                                        <th md-column md-order-by="sqfeetrate" ng-show="pmspropertycommonobject.type === 2" >{{vm.columns.sqfeetrate| translate }} </th>
+
+                                        <th md-column md-order-by="propertypriorityid.name" ng-show="pmspropertycommonobject.type === 1" >{{vm.columns.propertypriorityid| translate }} </th>
+
+                                        <th md-column md-order-by="apt" >{{vm.columns.apt| translate }} </th>
+                                        <th md-column md-order-by="customerid.fullname" style="width: 20px" >{{vm.columns.customerid| translate }} </th>
+                                        <th md-column md-order-by="customerid.mobile" >Mobile No</span></th>
+
+                                        <th md-column md-order-by="availablefrom" >{{vm.columns.availablefrom| translate }} </th>
+
+                                        <!--                                        <th md-column md-order-by="postedon" >{{vm.columns.postedon| translate }} </th>
+                                        
+                                                                                <th md-column md-order-by="parking" >Parking </th>-->
+
+
+                                    </tr>
+                                </thead>
+                                <tbody md-body>
+
+                                    <tr   md-row md-auto-select md-select="propertyobj" ng-repeat="propertyobj in vm.contents.items"  >
+                                        <td md-cell> 
+
+                                        </td>
+                                        <td md-cell>
+                                <md-button md-no-ink  ng-click="pmspropertycommonobject.showProperty($event, propertyobj)" class="md-primary"> {{::propertyobj.propertytypeid.name}}</md-button>
+                                </td>
+
+                                <td md-cell>{{::propertyobj.propertylocalityid.name| cut:true:12:' ...'}}</td>
+
+
+                                <td md-cell>  <md-button md-no-ink  ng-click="pmspropertycommonobject.openImage(propertyobj, $event)" class="md-primary">{{::propertyobj.propertylbedroomsid.name}}</md-button></td>
+                                <td md-cell>{{::propertyobj.propertyfurnishedid.name}}</td>
+
+                                <td md-cell>{{sessionobject.formatNumber(propertyobj.amount)}}   </td>
+                                <td md-cell ng-show="pmspropertycommonobject.type === 1">{{sessionobject.formatNumber(propertyobj.deposit)}}  </td>
+
+                                <td md-cell ng-show="pmspropertycommonobject.type === 2">{{::propertyobj.totalareRenta}}</td>                                    
+                                <td md-cell ng-show="pmspropertycommonobject.type === 2">  {{sessionobject.formatNumber(propertyobj.sqfeetrate)}} </td>
+                                <td md-cell ng-show="pmspropertycommonobject.type === 1">
+                                    <span  ng-repeat="obj in ::propertyobj.propertypriorityid"> {{obj.name}} <span ng-if="!$last">, <span ng-if="($index % 3) === 2">  </span></span></span> </span>
+                                </td>
+                                <!--                                <td md-cell >{{::propertyobj.propertypriorityid.name| cut:true:12:' ...'}}</td>-->
+                                <td md-cell>{{::propertyobj.apt| cut:true:20:' ...'}}</td>
+                                <td md-cell>{{::propertyobj.customerid.fullname| cut:true:20:' ...'}}</td>
+                                <td md-cell>{{ propertyobj.customerid.mobileno}}
+                                    <span ng-if="propertyobj.customerid.contact1 !== null"><br> {{ propertyobj.customerid.contact1}}</span>                                       
+                                    <span ng-if="propertyobj.customerid.contact1 !== null"> <br>          {{ propertyobj.customerid.contact2}}</span>  
+                                    <span ng-if="propertyobj.customerid.contact1 !== null"> <br>   {{ propertyobj.customerid.contact3}}</span> 
+                                </td>
+
+                                <!--
+                                                                <td md-cell>{{::propertyobj.customerid.mobileno}}</td>-->
+                                <td md-cell>{{propertyobj.availablefrom| date:'dd/MM/yyyy' }}</td>
+
+                                <!--                                <td md-cell>{{propertyobj.postedon| date:'dd/MM/yyyy' }}</td>
+                                
+                                                                <td md-cell>{{propertyobj.parking ? propertyobj.parkingtype : 'No' }}</td>-->
+
+
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </md-table-container>
+
+                        <md-table-pagination    class="page-nav-list md-title"  md-limit-options="vm.query.limitoption"  md-limit="vm.query.limit" md-page-select md-page="vm.query.page" md-total="{{vm.contents.total_count}}" md-on-paginate="vm.getTable"></md-table-pagination>
+                        <div>
+                            <md-toolbar class="toolbar-default margin-bottom-30">
+                                <div class="md-toolbar-tools">
+                                    <md-button class="md-icon-button" aria-label="Settings">
+                                        <md-icon md-font-icon="icon-menu"></md-icon>
+                                    </md-button>
+                                    <!--                                sessionobject.printIt('printArea')-->
+                                    <span flex></span>
+
+
+                                    <div  layout='row' layout-align="start">
+
+                                        <md-button    ng-click="addTodo($event)"   ng-show="role['Property'].Add"  class="md-fab md-mini"  class="md-fab md-mini" aria-label="Add">
+                                            <md-icon md-font-icon="fa fa-plus"></md-icon> <md-tooltip> Add </md-tooltip>
+                                        </md-button>
+                                        <md-button    ng-show="role['Property'].Edit"  class="md-fab md-mini"
+                                                      ng-click="vm.object.editTodo($event)"   class="md-fab md-mini" aria-label="Edit">
+                                            <md-icon md-font-icon="fa fa-edit"></md-icon> <md-tooltip> Edit </md-tooltip>
+                                        </md-button>
+                                        <md-button     ng-show="role['Property'].Delete"  class="md-fab md-mini" ng-click="vm.object.removeTodo($event)"    class="md-fab md-mini" aria-label="Delete">
+                                            <md-icon md-font-icon="zmdi zmdi-delete"></md-icon> <md-tooltip> Delete </md-tooltip>
+                                        </md-button>
+                                    </div>
+                                </div>
+                            </md-toolbar>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div> 
+    </div> 
+
+    <form name="accountForm" >
+
+        <md-whiteframe ng-show="addeditform"  class="md-whiteframe-18dp"   layout layout-align="center center">
+
+
+            <md-card flex="100" layout="column" class="md-whiteframe-z1" tri-wizard>
+
+
+                <div flex="100" layout="row" >
+                    <md-card flex="33">
+                        <md-card-header class="md-subheader"  palette-background="blue:500">
+                            <span class="oxy-step-label">1</span>
+                            <span translate> Property General  </span>
+
+                        </md-card-header>
+                        <md-card-conten  >
+                            <md-content class="md-padding" style="min-height: 450px" palette-background="white:900">
+                                <div palette-background="white:900" >
+
+                                    <div class="divformrow" layout layout-xs="column" flex>
+                                        <md-input-container  ng-show="false">
+                                            <label>{{'MENU.property.DIALOG.propertytobeid'| translate}} </label>
+                                            <md-select placeholder="{{'MENU.property.DIALOG.propertytobeid'| translate}}"  ng-model="pmsproperty.selectpropertytobeid" name="propertytobeid"  id="propertytobeid" type="select" required multiple="false">
+                                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertytobeidlist">{{objcombo.text}}</md-option>
+                                            </md-select>
+                                            <div ng-messages="accountForm.propertytobeid.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_propertytobeid_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <div  ng-show="{{pmsproperty.propertyid !== 0}}" flex="50">
+
+                                            <md-switch ng-model="pmsproperty.status">{{'MENU.property.DIALOG.status'| translate}}
+                                            </md-switch>
+                                        </div>
+                                        <md-input-container  ng-show="pmsproperty.status" flex="50">
+                                            <label>Close By Name</label>
+                                            <input ng-model="pmsproperty.closeby"  name="closeby" 
+                                                   id="closeby" type="text" > 
+                                        </md-input-container>
+                                        <md-input-container flex="50" >
+                                            <label>{{'MENU.property.DIALOG.propertytypeid'| translate}} </label>
+                                            <md-select placeholder="{{'MENU.property.DIALOG.propertytypeid'| translate}}"
+                                                       ng-model="pmsproperty.selectpropertytypeid" name="propertytypeid"
+                                                       id="propertytypeid" type="select" required multiple="false" required>
+                                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertytypeidlist">{{objcombo.text}}</md-option>
+                                            </md-select>
+                                            <div ng-messages="accountForm.propertytypeid.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_propertytypeid_required'| translate}}
+                                                </div>
+                                            </div>
+
+                                        </md-input-container>
+                                    </div>
+                                    <div style="height: 60px" layout="row"       layout-align="center center">
+
+                                        <div flex="40" layout="column"   > 
+                                            <md-input-container class="md-block">
+                                                <label>{{'MENU.property.DIALOG.customerid'| translate}} </label>
+                                                <md-autocomplete  
+                                                    ng-disabled="pmspropertycommonobject.isDisabled"
+                                                    md-no-cache="pmspropertycommonobject.noCache"
+                                                    md-search-text="pmsproperty.customeridtxt"
+                                                    md-items="item in pmspropertycommonobject.querySearch(pmsproperty.customeridtxt,sessionobject.comboboxlist.customeridlist)"
+                                                    md-item-text="item.text"
+                                                    md-selected-item-change="pmsproperty.selectcustomerid=item.id;"
+                                                    md-min-length="0"
+                                                    name="customeridtxt" 
+                                                    id="customeridtxt"    required>
+                                                    <md-item-template>
+                                                        <span md-highlight-text="pmsproperty.customeridtxt" md-highlight-flags="^i">{{item.text}}</span>
+                                                    </md-item-template>
+
+                                                </md-autocomplete>
+
+                                                <div ng-messages="accountForm.customerid.$error">
+                                                    <div ng-message="required">
+                                                        {{'MENU.property.DIALOG.propertyform.PLEASE_customerid_required'| translate}}
+                                                    </div>
+                                                </div>
+                                            </md-input-container>
+                                        </div>
+
+                                        <md-button   ng-click="pmspropertycommonobject.showCustomerDiloag($event, pmsproperty.customeridtxt, pmsproperty.proprtyid)" class="md-fab md-mini" aria-label="Add">
+                                            <md-icon md-font-icon="fa fa-plus"></md-icon> <md-tooltip> Add </md-tooltip>
+                                        </md-button>
+
+                                        <div flex="50" layout="column"  > 
+                                            <md-input-container class="md-block">                                                     
+                                                <label>{{'MENU.property.DIALOG.apt'| translate}}</label>
+                                                <md-autocomplete
+                                                    ng-disabled="pmspropertycommonobject.isDisabled"
+                                                    md-no-cache="pmspropertycommonobject.noCache"
+                                                    md-search-text="pmsproperty.apt"
+                                                    md-selected-item-change="pmsproperty.apt=item.text"
+
+                                                    md-items="item in pmspropertycommonobject.querySearch(pmsproperty.apt,sessionobject.comboboxlist.propertypropertyidcntlistapt)"
+                                                    md-item-text="item.text"
+                                                    md-min-length="0"
+                                                    name="apt" 
+                                                    id="apt" required>
+                                                    <md-item-template>
+                                                        <span md-highlight-text="pmsproperty.apt" md-highlight-flags="^i">{{item.text}}</span>
+                                                    </md-item-template>
+
+                                                </md-autocomplete>
+                                                <!--                                                    <input ng-model="pmsproperty.apt"  name="apt" 
+                                                                                                           id="apt" type="text" required> -->
+                                                <div ng-messages="accountForm.apt.$error">
+                                                    <div ng-message="required">
+                                                        {{'MENU.property.DIALOG.propertyform.PLEASE_apt_required'| translate}}
+                                                    </div>
+                                                </div>
+                                            </md-input-container>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div layout layout-xs="column" class="divformrow" ng-show="false">
+
+
+                                        <md-input-container flex>
+                                            <label>{{'MENU.property.DIALOG.flatno'| translate}}</label>
+                                            <input ng-model="pmsproperty.flatno"  name="flatno" 
+                                                   id="flatno" type="text" > 
+                                            <div ng-messages="accountForm.flatno.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_flatno_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+
+                                    </div>
+
+                                    <div layout class="divformrow" layout-xs="column" flex>
+                                        <md-input-container flex="50">
+                                            <label>{{'MENU.property.DIALOG.landmark'| translate}}</label>
+                                            <input ng-model="pmsproperty.landmark"  name="landmark" 
+                                                   id="landmark" type="text" > 
+                                            <div ng-messages="accountForm.landmark.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_landmark_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container flex="50">
+                                            <label>{{'MENU.property.DIALOG.propertylocalityid'| translate}} </label>
+                                            <md-select  placeholder="{{'MENU.property.DIALOG.propertylocalityid'| translate}}" 
+                                                        ng-model="pmsproperty.selectpropertylocalityid" name="propertylocalityid" 
+                                                        id="propertylocalityid" type="select" required multiple="false">
+                                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertylocalityidlist| filter:{pid1:pmsproperty.selectcityid} ">{{objcombo.text}}</md-option>
+                                            </md-select>
+                                            <div ng-messages="accountForm.propertylocalityid.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_propertylocalityid_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                    </div>
+                                    <div flex="100" class="divformrow" >
+                                        <md-input-container class="md-block">
+                                            <label>{{'MENU.property.DIALOG.address'| translate}}</label>
+                                            <textarea ng-model="pmsproperty.address"   name="address" 
+                                                      id="address" type="text" >  </textarea>
+                                            <div ng-messages="accountForm.address.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_address_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                    </div>
+                                    <div layout class="divformrow"  layout-xs="column" flex  >
+
+                                        <md-input-container flex>
+                                            <label>{{'MENU.property.DIALOG.propertypriorityid'| translate}} </label>
+                                            <md-select 
+                                                placeholder="{{'MENU.property.DIALOG.propertypriorityid'| translate}}" 
+                                                ng-model="pmsproperty.selectpropertypriorityid" name="propertypriorityid"  
+                                                id="propertypriorityid" type="select" required multiple="true">
+                                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertypriorityidlist">{{objcombo.text}}</md-option>
+                                            </md-select>
+                                            <div ng-messages="accountForm.propertypriorityid.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_propertypriorityid_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container class="md-input-has-placeholder md-block"  >
+                                            <label>{{'MENU.property.DIALOG.availablefrom'| translate}} </label>
+
+                                            <input mdc-datetime-picker="" date="true" time="false" type="text" short-time="true" id="property.availablefrom"
+                                                   min-date="date" ng-model="pmsproperty.availablefrom" class="md-input" format="DD-MM-YYYY">
+                                        </md-input-container>
+
+
+
+
+
+                                    </div>
+                                    <div layout class="divformrow"  layout-xs="column" flex ng-show="false">
+
+
+
+                                        <md-input-container flex>
+                                            <label>{{'MENU.property.DIALOG.roadname'| translate}}</label>
+                                            <input ng-model="pmsproperty.roadname"  name="roadname" 
+                                                   id="roadname" type="text" > 
+                                            <div ng-messages="accountForm.roadname.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_roadname_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container ng-show="false" flex>
+                                            <label>{{'MENU.property.DIALOG.cityid'| translate}} </label>
+                                            <md-select placeholder="{{'MENU.property.DIALOG.cityid'| translate}}" 
+                                                       ng-model="pmsproperty.selectcityid" name="cityid"  id="cityid" type="select"  multiple="false">
+                                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.cityidlist">{{objcombo.text}}</md-option>
+                                            </md-select>
+                                            <div ng-messages="accountForm.cityid.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_cityid_required'| translate}}
+                                                </div>
+                                            </div>
+
+                                        </md-input-container>
+
+                                    </div>
+                                    <div layout class="divformrow"  layout-xs="column" flex>
+
+                                        <md-input-container flex="30">
+                                            <label>{{'MENU.property.DIALOG.propertylbedroomsid'| translate}} </label>
+                                            <md-select placeholder="{{'MENU.property.DIALOG.propertylbedroomsid'| translate}}"
+                                                       ng-model="pmsproperty.selectpropertylbedroomsid" name="propertylbedroomsid" 
+                                                       id="propertylbedroomsid" type="select"  multiple="false">
+                                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertylbedroomsidlist">{{objcombo.text}}</md-option>
+                                            </md-select>
+                                            <div ng-messages="accountForm.propertylbedroomsid.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_propertylbedroomsid_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container flex="40">
+                                            <label>{{'MENU.property.DIALOG.balcony'| translate}} </label>
+                                            <input ng-model="pmsproperty.balcony"  name="balcony" 
+                                                   id="balcony" type="text" > 
+                                            <div ng-messages="accountForm.balcony.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_balcony_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container flex="30">
+                                            <label>{{'MENU.property.DIALOG.bathroom'| translate}} </label>
+                                            <input ng-model="pmsproperty.bathroom"  name="bathroom" 
+                                                   id="bathroom" type="text" > 
+                                            <div ng-messages="accountForm.bathroom.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_bathroom_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                    </div>
+
+                                    <div layout class="divformrow"  layout-xs="column" flex>
+
+                                        <md-input-container flex="30">
+                                            <label>{{'MENU.property.DIALOG.propertyfurnishedid'| translate}} </label>
+                                            <md-select placeholder="{{'MENU.property.DIALOG.propertyfurnishedid'| translate}}" 
+                                                       ng-model="pmsproperty.selectpropertyfurnishedid" name="propertyfurnishedid" 
+                                                       id="propertyfurnishedid" type="select" required multiple="false">
+                                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertyfurnishedidlist">{{objcombo.text}}</md-option>
+                                            </md-select>
+                                            <div ng-messages="accountForm.propertyfurnishedid.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_propertyfurnishedid_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container flex="40">
+                                            <label>{{'MENU.property.DIALOG.floorno'| translate}}</label>
+                                            <input ng-model="pmsproperty.floorno"  name="floorno" 
+                                                   id="floorno" type="text" > 
+                                            <div ng-messages="accountForm.floorno.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_floorno_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container flex="30">
+                                            <label>{{'MENU.property.DIALOG.totalfloorno'| translate}} </label>
+                                            <input ng-model="pmsproperty.totalfloorno"  name="totalfloorno" 
+                                                   id="totalfloorno" type="text" > 
+                                            <div ng-messages="accountForm.totalfloorno.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_totalfloorno_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                    </div>
+                                </div>
+
+                            </md-content>
+
+                    </md-card>
+
+
+                    <md-card flex="33" >
+                        <md-card-header class="md-subheader" palette-background="blue:500">
+                            <span class="oxy-step-label">2</span>
+                            <span translate>Property Construction </span>
+                        </md-card-header>
+                        <md-card-content>
+
+                            <md-content class="md-padding" style="min-height: 450px" palette-background="white:900">
+
+                                <div palette-background="white:900">
+
+
+                                    <div class="divformrow" layout layout-xs="column" flex>
+
+                                        <md-input-container flex>
+                                            <label>{{'MENU.property.DIALOG.totalarea'| translate}}</label>
+                                            <input ng-model="pmsproperty.totalarea" ng-change="pmsproperty.sqfeetrate = sessionobject.format('number', (pmsproperty.amount / pmsproperty.totalarea), 0)"  name="totalarea" 
+                                                   id="totalarea" type="text" > 
+                                            <div ng-messages="accountForm.totalarea.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_totalarea_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container flex >
+
+                                            <label> {{pmsproperty.selectpropertytobeid==1 ? "Rent": "Sale Cost"}} &#8377; </label>
+                                            <input ng-model="pmsproperty.amount"    name="amount" 
+                                                   id="amount" type="text" 
+
+                                                   currency-mask ng-blur="pmsproperty.sqfeetrate = sessionobject.format('number', (pmspropertycommonobject.clearComma(pmsproperty.amount) / pmsproperty.totalarea), 0)" required> 
+                                            <!--                                            ng-pattern="/^[+-]?((\.\d+)|(\d+(\.\d+)?))$/"-->
+                                            <div ng-messages="accountForm.amount.$error">
+                                                <div ng-message="required" >
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_amount_required'| translate}}
+                                                </div>
+                                                <div ng-message="ng-pattern">
+                                                    Enter valid  Number
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container  ng-show="pmsproperty.selectpropertytobeid == 2" flex>
+
+
+                                            <label>{{'MENU.property.DIALOG.sqfeetrate'| translate}} &#8377;</label>
+                                            <input ng-model="pmsproperty.sqfeetrate"    name="sqfeetrate" 
+                                                   id="sqfeetrate" currency-mask type="text" >  
+                                            <div ng-messages="accountForm.sqfeetrate.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_sqfeetrate_required'| translate}}
+                                                </div>
+                                            </div>                    
+                                        </md-input-container>
+
+                                        <md-input-container ng-show="pmsproperty.selectpropertytobeid == 1" flex>
+                                            <label>{{'MENU.property.DIALOG.deposit'| translate}} &#8377;</label>
+                                            <input ng-model="pmsproperty.deposit"  name="deposit"
+
+                                                   id="deposit" currency-mask type="text" > 
+                                            <div ng-messages="accountForm.deposit.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_deposit_required'| translate}}
+                                                </div>
+                                                <div ng-message="ng-pattern">
+                                                    Enter valid  Number
+                                                </div>
+
+                                            </div>
+
+                                        </md-input-container>
+
+                                    </div>
+                                    <div class="divformrow" layout layout-xs="column" flex>
+
+                                        <md-input-container flex>
+                                            <label>{{'MENU.property.DIALOG.propertyage'| translate}}</label>
+                                            <input ng-model="pmsproperty.propertyage"  name="propertyage" 
+                                                   id="propertyage" type="text" > 
+                                            <div ng-messages="accountForm.propertyage.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_propertyage_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container ng-show="pmspropertycommonobject.type === 1" flex>
+                                            <label>{{'MENU.property.DIALOG.leaseperiod'| translate}}</label>
+                                            <input ng-model="pmsproperty.leaseperiod"  name="leaseperiod" 
+                                                   id="leaseperiod" type="text" > 
+                                            <div ng-messages="accountForm.leaseperiod.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_leaseperiod_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container flex>
+                                            <label>{{'MENU.property.DIALOG.propertyfacingid'| translate}} </label>
+                                            <md-select placeholder="{{'MENU.property.DIALOG.propertyfacingid'| translate}}" 
+                                                       ng-model="pmsproperty.selectpropertyfacingid" name="propertyfacingid" 
+                                                       id="propertyfacingid" type="select"  multiple="false">
+                                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertyfacingidlist">{{objcombo.text}}</md-option>
+                                            </md-select>
+                                            <div ng-messages="accountForm.propertyfacingid.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_propertyfacingid_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                    </div>
+
+
+
+
+                                    <div class="divformrow" layout="row" flex="100">
+                                        <md-input-container flex="50">
+                                            <label>{{'MENU.property.DIALOG.flatamenitiesid'| translate}} * </label>
+                                            <md-select placeholder="{{'MENU.property.DIALOG.flatamenitiesid'| translate}}"
+                                                       ng-model="pmsproperty.selectflatamenitiesid" name="flatamenitiesid" 
+                                                       id="flatamenitiesid" type="select"  multiple="true"  >
+                                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.flatamenitiesidlist">{{objcombo.text| cut:true:40:' ...'}}</md-option>
+                                            </md-select>
+                                            <div ng-messages="accountForm.flatamenitiesid.$error">
+                                                <div ng-message="required">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_flatamenitiesid_required'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container flex="50">
+                                            <label>{{'MENU.property.DIALOG.societyamenitiesid'| translate}} * </label>
+                                            <md-select placeholder="{{'MENU.property.DIALOG.societyamenitiesid'| translate}}"
+                                                       ng-model="pmsproperty.selectsocietyamenitiesid" name="societyamenitiesid"  
+                                                       id="societyamenitiesid" type="select"  multiple="true"  >
+                                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.societyamenitiesidlist">{{objcombo.text| cut:true:40:' ...'}} </md-option>
+                                            </md-select>
+                                            <div ng-messages="accountForm.societyamenitiesid.$error">
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+
+                                    <div layout class="divformrow" layout-xs="column" flex>
+                                        <md-input-container flex="50"  >
+
+                                            <md-switch ng-model="pmsproperty.parking" flex="50">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {{'MENU.property.DIALOG.parking'| translate}}
+                                            </md-switch>
+                                        </md-input-container>
+                                        <md-input-container flex="50" ng-show="pmsproperty.parking">
+                                            <label>Select Type</label>
+                                            <md-select  
+                                                ng-model="pmsproperty.parkingtype" name="parkingtype"  
+                                                id="parkingtype" type="select"   >
+                                                <md-option value="" >Select </md-option>
+                                                <md-option value="Open" >Open Parking</md-option>
+                                                <md-option value="Close" >Cover Parking </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                    <div layout class="divformrow" layout-xs="column" flex>
+
+                                        <md-input-container flex="33">
+                                            <label>{{'MENU.property.DIALOG.keyavailability'| translate}}</label>
+                                            <input ng-model="pmsproperty.keyavailability"  name="keyavailability" 
+                                                   id="keyavailability" type="text" > 
+                                            <div ng-messages="propertyfrom.keyavailability.$error">
+                                                <div ng-message="None">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_keyavailability_None'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container flex="33">
+                                            <label>{{'MENU.property.DIALOG.keyname'| translate}}</label>
+                                            <input ng-model="pmsproperty.keyname"  name="keyname" 
+                                                   id="keyname" type="text" > 
+                                            <div ng-messages="propertyfrom.keyname.$error">
+                                                <div ng-message="None">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_keyname_None'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container flex="33">
+                                            <label>{{'MENU.property.DIALOG.keymobile'| translate}}</label>
+                                            <input ng-model="pmsproperty.keymobile"  name="keymobile" 
+                                                   id="keymobile" type="text" > 
+                                            <div ng-messages="propertyfrom.keymobile.$error">
+                                                <div ng-message="None">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_keymobile_None'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+
+                                    </div>
+                                    <div class="divformrow" flex="100">
+                                        <md-input-container class="md-block">
+                                            <label>{{'MENU.property.DIALOG.keyaddress'| translate}}</label>
+                                            <textarea ng-model="pmsproperty.keyaddress"   name="keyaddress" 
+                                                      id="keyaddress" type="text" >  </textarea>
+
+                                            <div ng-messages="propertyfrom.keyaddress.$error">
+                                                <div ng-message="None">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_keyaddress_None'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+                                    <div class="divformrow" flex="100">
+                                        <md-input-container class="md-block"  >
+                                            <label>{{'MENU.property.DIALOG.remark'| translate}}</label>
+                                            <!--                                            <text-angular ng-model="pmsproperty.remark" ta-toolbar="''"   name="remark" 
+                                                                                                      id="remark"    ta-focussed-class="myfocused"> </text-angular>-->
+
+                                            <textarea ng-model="pmsproperty.remark"  row="5" cols="20"></textarea>
+                                            <div ng-messages="accountForm.remark.$error">
+                                                <div ng-message="None">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_remark_None'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div layout="row" style="min-height: 50px" layout-align="center end" flex>
+                                    <md-button class="md-accent md-raised" ng-click="hide(pmsproperty.propertyid)"   ng-disabled="accountForm.$invalid" >OK</md-button>
+                                    <md-button class="md-accent md-raised" ng-click="cancel()" ng-show="true" >Cancel</md-button>
+                                </div>
+                            </md-content>
+                        </md-card-content>
+                    </md-card>
+
+                    <md-card flex="33">
+                        <md-card-header class="md-subheader" palette-background="blue:500">
+                            <span class="oxy-step-label">3</span>
+                            <span translate>Property Images </span>
+
+                        </md-card-header>
+                        <md-card-content>
+
+
+                            <md-content class="md-padding" palette-background="white:900">
+
+                                <div>
+                                    <div layout layout-xs="column" flex>
+
+
+                                        <md-input-container  flex>
+
+                                            <img ng-show="pmsproperty.image1 !== null" ng-src="data:image/JPEG;base64,{{pmsproperty.image1.content}}" flex="40" alt="">
+
+                                            <input placeholder="{{'MENU.property.DIALOG.image1'| translate}} " ng-model="pmsproperty.selectimage1" name="image1" id="image1"   ngf-select ngf-change="uploadimage1($files)" type="file" >
+                                            <div ng-messages="accountForm.image1.$error">
+                                                <div ng-message="None">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_image1_None'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container ng-show="pmsproperty.selectimage1 !== 0" flex>
+                                            <img ng-show="pmsproperty.image2 !== null" ng-src="data:image/JPEG;base64,{{pmsproperty.image2.content}}" flex="40" alt="">
+
+                                            <input placeholder="{{'MENU.property.DIALOG.image2'| translate}} " ng-model="pmsproperty.selectimage2" name="image2" id="image2"  ngf-select="uploadimage2($files)" type="file" >
+                                            <div ng-messages="accountForm.image2.$error">
+                                                <div ng-message="None">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_image2_None'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+
+
+                                    </div>
+                                    <div layout layout-xs="column" flex>
+                                        <md-input-container  ng-show="pmsproperty.selectimage2 !== 0" flex>   <img ng-show="pmsproperty.image3 !== null" ng-src="data:image/JPEG;base64,{{pmsproperty.image3.content}}" flex="40" alt="">
+
+                                            <input placeholder="{{'MENU.property.DIALOG.image3'| translate}} " ng-model="pmsproperty.selectimage3" name="image3" id="image3"  ngf-select="uploadimage3($files)" type="file" >
+                                            <div ng-messages="accountForm.image3.$error">
+                                                <div ng-message="None">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_image3_None'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container  ng-show="pmsproperty.selectimage3 !== 0" flex>   <img ng-show="pmsproperty.image4 !== null" ng-src="data:image/JPEG;base64,{{pmsproperty.image4.content}}" flex="40" alt="">
+
+                                            <input placeholder="{{'MENU.property.DIALOG.image4'| translate}} " ng-model="pmsproperty.selectimage4" name="image4" id="image4"  ngf-select="uploadimage4($files)" type="file" >
+                                            <div ng-messages="accountForm.image4.$error">
+                                                <div ng-message="None">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_image4_None'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                    </div>
+
+                                    <div layout layout-xs="column" flex>
+                                        <md-input-container  ng-show="pmsproperty.selectimage4 !== 0" flex>
+
+                                            <img ng-show="pmsproperty.image5 !== null" ng-src="data:image/JPEG;base64,{{pmsproperty.image5.content}}" flex="40" alt="">
+
+                                            <input placeholder="{{'MENU.property.DIALOG.image5'| translate}} " ng-model="pmsproperty.selectimage5" name="image5" id="image5"  ngf-select="uploadimage5($files)" type="file" >
+                                            <div ng-messages="accountForm.image5.$error">
+                                                <div ng-message="None">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_image5_None'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container  ng-show="pmsproperty.selectimage5 !== 0" flex>
+                                            <img ng-show="pmsproperty.image6 !== null" ng-src="data:image/JPEG;base64,{{pmsproperty.image6.content}}" flex="40" alt="">
+                                            <input placeholder="{{'MENU.property.DIALOG.image6'| translate}} " ng-model="pmsproperty.selectimage6" name="image6" id="image6"  ngf-select="uploadimage6($files)" type="file" >
+                                            <div ng-messages="accountForm.image6.$error">
+                                                <div ng-message="None">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_image6_None'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+
+                                    </div> 
+                                    <div layout layout-xs="column" flex>
+                                        <md-input-container  ng-show="pmsproperty.selectimage6 !== 0" flex>
+                                            <img ng-show="pmsproperty.image7 !== null" ng-src="data:image/JPEG;base64,{{pmsproperty.image7.content}}" flex="40" alt="">
+                                            <input placeholder="{{'MENU.property.DIALOG.image7'| translate}} " ng-model="pmsproperty.selectimage7" name="image7" id="image7"  ngf-select="uploadimage7($files)" type="file" >
+                                            <div ng-messages="accountForm.image7.$error">
+                                                <div ng-message="None">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_image7_None'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>
+                                        <md-input-container  ng-show="pmsproperty.selectimage7 !== 0" flex>
+                                            <img ng-show="pmsproperty.image8 !== null" ng-src="data:image/JPEG;base64,{{pmsproperty.image8.content}}" flex="40" alt="">
+                                            <input placeholder="{{'MENU.property.DIALOG.image8'| translate}} " ng-model="pmsproperty.selectimage8" name="image8" id="image8"  ngf-select="uploadimage8($files)" type="file" >
+                                            <div ng-messages="accountForm.image8.$error">
+                                                <div ng-message="None">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_image8_None'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container>      </div>  <div layout layout-xs="column" flex>
+                                        <md-input-container  ng-show="pmsproperty.selectimage8 !== 0" flex>
+                                            <img ng-show="pmsproperty.image9 !== null" ng-src="data:image/JPEG;base64,{{pmsproperty.image9.content}}" flex="40" alt="">
+                                            <input placeholder="{{'MENU.property.DIALOG.image9'| translate}} " ng-model="pmsproperty.selectimage9" name="image9" id="image9"  ngf-select="uploadimage9($files)" type="file" >
+                                            <div ng-messages="accountForm.image9.$error">
+                                                <div ng-message="None">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_image9_None'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container> 
+                                        <md-input-container  ng-show="pmsproperty.selectimage9 !== 0" flex>
+                                            <img ng-show="pmsproperty.image10 !== null" ng-src="data:image/JPEG;base64,{{pmsproperty.image10.content}}" flex="40" alt="">
+                                            <input placeholder="{{'MENU.property.DIALOG.image10'| translate}} " ng-model="pmsproperty.selectimage10" name="image10" id="image10"  ngf-select="uploadimage10($files)" type="file" >
+                                            <div ng-messages="accountForm.image9.$error">
+                                                <div ng-message="None">
+                                                    {{'MENU.property.DIALOG.propertyform.PLEASE_image9_None'| translate}}
+                                                </div>
+                                            </div>
+                                        </md-input-container> 
+                                    </div>
+                                    <!--                                    <div layout layout-xs="column" flex>
+                                                                          
+                                                                            <md-input-container flex>
+                                                                                <label>{{'MENU.property.DIALOG.image10'| translate}} </label>
+                                                                                <input placeholder="{{'MENU.property.DIALOG.image10'| translate}} " ng-model="pmsproperty.selectimage10" name="image10" id="image10"  ngf-select="uploadimage10($files)" type="file" >
+                                                                                <img ng-src="data:image/JPEG;base64,{{pmsproperty.image10.content}}" flex="100" alt="">
+                                                                                <div ng-messages="accountForm.image10.$error">
+                                                                                    <div ng-message="None">
+                                                                                        {{'MENU.property.DIALOG.propertyform.PLEASE_image10_None'| translate}}
+                                                                                    </div>
+                                                                                </div>
+                                                                            </md-input-container>
+                                                                        </div>-->
+
+
+
+                                </div>
+
+                            </md-content>
+                        </md-card-content>
+                    </md-card>
+                    </form>
+                </div>
+
+
+
+            </md-card>
+
+        </md-whiteframe>
+
+    </form>
+
+
+
+
+</div>
+
+
+

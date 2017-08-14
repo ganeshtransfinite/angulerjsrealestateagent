@@ -1,0 +1,327 @@
+
+<div ng-controller="PropertyTableController as vm">
+    <div class="padded-content-page master-container" flex layout-align="center center">
+
+
+
+        <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="example-right" >
+            <md-toolbar class="md-theme-light">
+                <h1 class="md-toolbar-tools">Filter</h1>
+            </md-toolbar>
+            <md-content class="md-padding"  >
+                <md-content flex layout class="admin-notifications" >
+                    <md-content flex='100' layout="column">
+                        <div flex='100'>
+                            <md-select  placeholder="Select Filter "  ng-model="pmsproperty.selectlistbox"
+                                        name="pmsPropertyfilter" id="pmspropertyfilter" type="select" 
+                                        multiple="true"  >
+                                <md-option value="propertytobeid" >{{'MENU.property.GRID.propertytobeid'| translate}} </md-option>         
+                                <md-option value="budget" >Rent / Sale Cost </md-option>         
+                                <md-option value="availablefrom" >{{'MENU.property.GRID.availablefrom'| translate}} </md-option>         
+                                <md-option value="status" >{{'MENU.property.GRID.status'| translate}} </md-option>         
+
+                                <md-option value="propertyavailibilityid" >{{'MENU.property.GRID.propertyavailibilityid'| translate}} </md-option>         
+
+                                <md-option value="propertytypeid" >{{'MENU.property.GRID.propertytypeid'| translate}} </md-option>         
+                                <md-option value="propertypriorityid" >{{'MENU.property.GRID.propertypriorityid'| translate}} </md-option>         
+                                <md-option value="cityid" >{{'MENU.property.GRID.cityid'| translate}} </md-option>         
+                                <md-option value="propertylocalityid" >{{'MENU.property.GRID.propertylocalityid'| translate}} </md-option>         
+                                <md-option value="flatamenitiesid" >{{'MENU.property.GRID.flatamenitiesid'| translate}} </md-option>         
+                                <md-option value="societyamenitiesid" >{{'MENU.property.GRID.societyamenitiesid'| translate}} </md-option>         
+
+                                <md-option value="propertylbedroomsid" >{{'MENU.property.GRID.propertylbedroomsid'| translate}} </md-option>         
+                                <md-option value="propertyfacingid" >{{'MENU.property.GRID.propertyfacingid'| translate}} </md-option>         
+                                <md-option value="propertyfurnishedid" >{{'MENU.property.GRID.propertyfurnishedid'| translate}} </md-option>         
+
+                                <md-option value="propertykeyid" >{{'MENU.property.GRID.propertykeyid'| translate}} </md-option>         
+                                <md-option value="customerid" >{{'MENU.property.GRID.customerid'| translate}} </md-option>         
+
+                            </md-select>
+                        </div>
+                        <md-button class="md-raised" flex="100" ng-click="vm.getTable()"  class="md-primary md-raised" md-ripple-size="full"
+                                   aria-label="raised button">View Property</md-button>
+                        <div flex="100" style="height: 40px">
+                            &nbsp;
+                        </div>
+                        <md-list flex='100' ng-show="pmsproperty.selectlistbox.length >= 1">
+
+                            <div ng-show="pmsproperty.selectlistbox.indexOf('propertytypeid') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.propertytypeid'| translate}}</span></md-subheader>
+                                <md-select placeholder="{{'MENU.property.GRID.propertytypeid'| translate}}"     multiple="true"   ng-model="pmsproperty.selectpropertytypeidtbl"
+                                           name="propertytypeid" id="propertytypeid" type="select" >
+                                    <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertytypeidlist">{{objcombo.text}}</md-option>
+                                </md-select>
+                            </div>         
+                            <div ng-show="pmsproperty.selectlistbox.indexOf('status') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.status'| translate}}</span></md-subheader>
+                                <md-switch ng-model="pmsproperty.statustbl">
+                                </md-switch>
+                            </div>         
+                            <div ng-show="pmsproperty.selectlistbox.indexOf('budget') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.amount'| translate}}</span></md-subheader>
+                                <div layout layout-xs="column" flex>
+
+                                    <md-select placeholder="{{'MENU.property.GRID.amount'| translate}}" ng-model="pmsproperty.selectamountform"
+                                               name="selectamountform" id="selectamountform" flex="40">
+                                        <md-option value="{{objcombo.count}}" ng-repeat="objcombo in sessionobject.comboboxlist.budgetidlist">{{objcombo.text}}</md-option>
+                                    </md-select>
+                                    To
+                                    <md-select placeholder="{{'MENU.property.GRID.amount'| translate}}" ng-model="pmsproperty.selectamountto"
+                                               name="selectamountto" id="selectamountto"  flex="40" type="select" >
+                                        <md-option value="{{objcombo.count}}" ng-repeat="objcombo in sessionobject.comboboxlist.budgetidlist">{{objcombo.text}}</md-option>
+                                    </md-select>
+                                </div>
+                            </div>   
+                            <div ng-show="pmsproperty.selectlistbox.indexOf('availablefrom') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.amount'| translate}}</span></md-subheader>
+
+                                <md-datepicker ng-model="pmsproperty.availabledate_from"
+                                               name="availabledate_from" 
+                                               id="availabledate_from" 
+                                               md-placeholder="{{pmsproperty.availabledate_from| date: 'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\''}}"
+                                               ></md-datepicker>
+                                To
+                                <md-datepicker ng-model="pmsproperty.availabledate_to"
+                                               name="availabledate_to" 
+                                               id="availabledate_to" 
+                                               md-placeholder="{{pmsproperty.availabledate_to| date: 'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\''}}"
+                                               ></md-datepicker>
+                                <div layout layout-xs="column" flex>
+
+                                    <md-button class="md-raised"  ng-click="pmspropertycommonobject.dateAdd(pmsproperty, 30);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Last 1 Mon</md-button>
+                                    <md-button class="md-raised"  ng-click="pmspropertycommonobject.dateAdd(pmsproperty, 60);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Last 1 Mon</md-button>
+                                </div>
+                                <div layout layout-xs="column" flex>
+
+                                    <md-button class="md-raised"  ng-click="pmspropertycommonobject.dateAdd(pmsproperty, 90);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Last 3 Mon</md-button>
+                                    <md-button class="md-raised"  ng-click="pmspropertycommonobject.dateAdd(pmsproperty, 180);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Last 6 Mo</md-button>
+                                </div>
+                                <div layout layout-xs="column" flex>
+
+                                    <md-button class="md-raised"  ng-click="pmspropertycommonobject.dateAdd(pmsproperty, 365);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Last Year</md-button>
+                                    <md-button class="md-raised"  ng-click="pmspropertycommonobject.dateAdd(pmsproperty, 365 * 2);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Last 2 Year</md-button>
+                                </div>
+                            </div>   
+
+                            <div ng-show="pmsproperty.selectlistbox.indexOf('customerid') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.customerid'| translate}}</span></md-subheader>
+                                <md-select placeholder="{{'MENU.property.GRID.customerid'| translate}}"     multiple="true"   ng-model="pmsproperty.selectcustomeridtbl"
+                                           name="customerid" id="customerid" type="select" >
+                                    <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.customeridlist">{{objcombo.text}}</md-option>
+                                </md-select>
+                            </div>         
+                            <div ng-show="pmsproperty.selectlistbox.indexOf('propertypriorityid') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.propertypriorityid'| translate}}</span></md-subheader>
+                                <md-select placeholder="{{'MENU.property.GRID.propertypriorityid'| translate}}"     multiple="true"   ng-model="pmsproperty.selectpropertypriorityidtbl"
+                                           name="propertypriorityid" id="propertypriorityid" type="select" >
+                                    <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertypriorityidlist">{{objcombo.text}}</md-option>
+                                </md-select>
+                            </div>         
+                            -<div ng-show="pmsproperty.selectlistbox.indexOf('cityid') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.cityid'| translate}}</span></md-subheader>
+                                <md-select placeholder="{{'MENU.property.GRID.cityid'| translate}}"     multiple="true"   ng-model="pmsproperty.selectcityidtbl"
+                                           name="cityid" id="cityid" type="select" >
+                                    <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.cityidlist">{{objcombo.text}}</md-option>
+                                </md-select>
+                            </div>         
+                            <div ng-show="pmsproperty.selectlistbox.indexOf('propertylocalityid') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.propertylocalityid'| translate}}</span></md-subheader>
+                                <md-select placeholder="{{'MENU.property.GRID.propertylocalityid'| translate}}"     multiple="true"   ng-model="pmsproperty.selectpropertylocalityidtbl"
+                                           name="propertylocalityid" id="propertylocalityid" type="select"  ng-change="pmspropertycommonobject.initCombo("Cityid","propertylocalityid",pmsproperty.selectpropertylocalityidtbl)" >
+                                           <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertylocalityidlist">{{objcombo.text}}</md-option>
+                                </md-select>
+                            </div>         
+                            <div ng-show="pmsproperty.selectlistbox.indexOf('propertylbedroomsid') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.propertylbedroomsid'| translate}}</span></md-subheader>
+                                <md-select placeholder="{{'MENU.property.GRID.propertylbedroomsid'| translate}}"     multiple="true"   ng-model="pmsproperty.selectpropertylbedroomsidtbl"
+                                           name="propertylbedroomsid" id="propertylbedroomsid" type="select" >
+                                    <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertylbedroomsidlist">{{objcombo.text}}</md-option>
+                                </md-select>
+                            </div>         
+                            <div ng-show="pmsproperty.selectlistbox.indexOf('propertyfacingid') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.propertyfacingid'| translate}}</span></md-subheader>
+                                <md-select placeholder="{{'MENU.property.GRID.propertyfacingid'| translate}}"     multiple="true"   ng-model="pmsproperty.selectpropertyfacingidtbl"
+                                           name="propertyfacingid" id="propertyfacingid" type="select" >
+                                    <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertyfacingidlist">{{objcombo.text}}</md-option>
+                                </md-select>
+                            </div>         
+                            <div ng-show="pmsproperty.selectlistbox.indexOf('propertyavailibilityid') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.propertyavailibilityid'| translate}}</span></md-subheader>
+                                <md-select placeholder="{{'MENU.property.GRID.propertyavailibilityid'| translate}}"     multiple="true"   ng-model="pmsproperty.selectpropertyavailibilityidtbl"
+                                           name="propertyavailibilityid" id="propertyavailibilityid" type="select" >
+                                    <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertyavailibilityidlist">{{objcombo.text}}</md-option>
+                                </md-select>
+                            </div>         
+                            <div ng-show="pmsproperty.selectlistbox.indexOf('propertyfurnishedid') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.propertyfurnishedid'| translate}}</span></md-subheader>
+                                <md-select placeholder="{{'MENU.property.GRID.propertyfurnishedid'| translate}}"     multiple="true"   ng-model="pmsproperty.selectpropertyfurnishedidtbl"
+                                           name="propertyfurnishedid" id="propertyfurnishedid" type="select" >
+                                    <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertyfurnishedidlist">{{objcombo.text}}</md-option>
+                                </md-select>
+                            </div>         
+                            <div ng-show="pmsproperty.selectlistbox.indexOf('propertytobeid') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.propertytobeid'| translate}}</span></md-subheader>
+                                <md-select placeholder="{{'MENU.property.GRID.propertytobeid'| translate}}"     multiple="true"   ng-model="pmsproperty.selectpropertytobeidtbl"
+                                           name="propertytobeid" id="propertytobeid" type="select" >
+                                    <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertytobeidlist">{{objcombo.text}}</md-option>
+                                </md-select>
+                            </div>         
+                            <div ng-show="pmsproperty.selectlistbox.indexOf('propertykeyid') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.propertykeyid'| translate}}</span></md-subheader>
+                                <md-select placeholder="{{'MENU.property.GRID.propertykeyid'| translate}}"     multiple="true"   ng-model="pmsproperty.selectpropertykeyidtbl"
+                                           name="propertykeyid" id="propertykeyid" type="select" >
+                                    <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertykeyidlist">{{objcombo.text}}</md-option>
+                                </md-select>
+                            </div>         
+                            <div ng-show="pmsproperty.selectlistbox.indexOf('flatamenitiesid') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.flatamenitiesid'| translate}}</span></md-subheader>
+                                <md-select placeholder="{{'MENU.property.GRID.flatamenitiesid'| translate}}"     multiple="true"   ng-model="pmsproperty.selectflatamenitiesidtbl"
+                                           name="propertykeyid" id="propertykeyid" type="select" >
+                                    <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.flatamenitiesidlist">{{objcombo.text}}</md-option>
+                                </md-select>
+                            </div>         
+                            <div ng-show="pmsproperty.selectlistbox.indexOf('societyamenitiesid') !== -1" >
+                                <md-subheader class="md-primary"> {{'MENU.property.GRID.societyamenitiesid'| translate}}</span></md-subheader>
+                                <md-select placeholder="{{'MENU.property.GRID.societyamenitiesid'| translate}}"     multiple="true"   ng-model="pmsproperty.selectsocietyamenitiesidtbl"
+                                           name="propertykeyid" id="propertykeyid" type="select" >
+                                    <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.societyamenitiesidlist">{{objcombo.text}}</md-option>
+                                </md-select>
+                            </div>         
+                        </md-list>
+                    </md-content>
+                </md-content>
+            </md-content>
+        </md-sidenav>
+
+
+
+        <div>
+            <div class="md-whiteframe-4dp" layout="column">
+                <div flex flex-xs="100" class="elements-buttons-fab-usage md-whiteframe-z3" layout="row">
+                    <md-toolbar>
+                        <div  class="md-toolbar-tools">
+                            Property 
+                        </div>
+                    </md-toolbar>
+
+                    <md-button flex="15" class="md-primary md-raised demo-menu-open-button"
+                               ng-click="sessionobject.openSidebar('example-right')" ng-show="role['Property'].psearch">
+                        Filter
+                    </md-button>
+
+                </div>
+                <div flex="100" style="height: 40px">
+                    &nbsp;
+                </div>         
+                <div > 
+                    <md-toolbar class="md-table-toolbar alternate" ng-show="vm.selected.length" ng-show="role['Property'].Grid">
+                        <div class="md-toolbar-tools" layout-align="start center">
+                            <div>{{vm.selected.length}} {{vm.selected.length > 1 ? 'users' : 'user'}} selected</div>
+                        </div>
+                    </md-toolbar>
+
+
+                    <div   class="padding-bottom-10 padding-left-10 padding-top-10" layout-xs="column" id="printArea" flex="100">
+                        <!--                                            <div flex="15">
+                                                                       <img ng-src="data:image/JPEG;base64,{{::propertyobj.image1.content}}"  ng-click="vm.openImage(propertyobj)" style="height: 200px;width: 200px" >
+                                                                   </div>-->
+                        <div ng-repeat="propertyobj in vm.contents.items" >
+                            <md-whiteframe class="md-whiteframe-z3 margin-20"   >
+
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.propertytobeid'| translate}}  :</div><div flex="90">  {{::propertyobj.propertytobeid.name}}   </div>  </div>
+
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.propertytypeid'| translate}}  :</div><div flex="90">  {{::propertyobj.propertytypeid.name}}   </div>  </div>
+
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.customerid'| translate}}  :</div><div flex="90">  {{::propertyobj.customerid.fullname}}   </div>  </div>
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.totalarea'| translate}}  :</div><div flex="90">  {{::propertyobj.totalarea}}   </div>  </div>
+
+                                <div layout="row" layout-xs="column" ng-show="{{propertyobj.propertytypeid.propertytypeid === 2}}" > <div flex="10">{{'MENU.property.GRID.deposit'| translate}}  :</div><div flex="90">{{::propertyobj.deposit}}</div> </div>
+                                <div layout="row" layout-xs="column" ng-show="{{propertyobj.propertytypeid.propertytypeid === 1}}" > <div flex="10">{{'MENU.property.GRID.sqfeetrate'| translate}}  :</div><div flex="90">  {{::propertyobj.sqfeetrate}}   </div>  </div>
+                                <div layout="row" layout-xs="column" ng-show="{{propertyobj.propertytypeid.propertytypeid === 1}}" > <div flex="10">{{'MENU.property.GRID.bookingcharges'| translate}}  :</div><div flex="90">  {{::propertyobj.bookingcharges}}   </div>  </div>
+
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.amount'| translate}}  :</div><div flex="90">  {{::propertyobj.amount}}   </div>  </div>
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.flatno'| translate}}  :</div><div flex="90">  {{::propertyobj.flatno}}   </div>  </div>
+
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.availablefrom'| translate}}  :</div><div flex="90">  {{propertyobj.availablefrom| date:'dd/MM/yyyy' }}  </div>  </div>
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.postedon'| translate}}  :</div><div flex="90">  {{propertyobj.postedon| date:'dd/MM/yyyy' }}  </div>  </div>
+
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.apt'| translate}}  :</div><div flex="90">  {{::propertyobj.apt}}   </div>  </div>
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.address'| translate}}  :</div><div flex="90">  {{::propertyobj.address}}   </div>  </div>
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.cityid'| translate}}  :</div><div flex="90">  {{::propertyobj.cityid.name}}   </div>  </div>
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.landmark'| translate}}  :</div><div flex="90">  {{::propertyobj.landmark}}   </div>  </div>
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.status'| translate}}  :</div><div flex="90">  {{::propertyobj.status}}   </div>  </div>
+
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.propertyage'| translate}}  :</div><div flex="90">  {{::propertyobj.propertyage}}   </div>  </div>
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.leaseperiod'| translate}}  :</div><div flex="90">  {{::propertyobj.leaseperiod}}   </div>  </div>
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.propertylbedroomsid'| translate}}  :</div><div flex="90">  {{::propertyobj.propertylbedroomsid.name}}   </div>  </div>
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.floorno'| translate}}  :</div><div flex="90">  {{::propertyobj.floorno}}   </div>  </div>
+
+
+                                <!--                                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.propertystatusid'| translate}}  :</div><div flex="90">  {{::propertyobj.propertystatusid.name}}   </div>  </div>-->
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.property.GRID.propertyfacingid'| translate}}  :</div><div flex="90">  {{::propertyobj.propertyfacingid.name}}   </div>  </div>
+                                <div layout="row" layout-xs="column" > <div flex="10">{{'MENU.propertyavailibility.GRID.name'| translate}}  :</div><div flex="90">  {{::propertyobj.propertyavailibilityid.name}}   </div>  </div>
+                                <div  layout="row" layout-xs="column" >{{'MENU.property.GRID.flatamenitiesid'| translate}}  :</div>
+                                <div  layout="row" layout-xs="column"   ng-repeat="obj in propertyobj.flatamenitiesid">  <div flex="10"></div> <div flex="90">{{::obj.name}}</div>    </div>  
+                                <div  layout="row" layout-xs="column" >{{'MENU.property.GRID.societyamenitiesid'| translate}}  :</div>
+                                <div  layout="row" layout-xs="column"  ng-repeat="obj in propertyobj.societyamenitiesid">  <div flex="10"></div>  <div flex="90">{{::obj.name}}</div>    </div>  
+                                <div  layout="row" layout-xs="column" >{{'MENU.property.GRID.remark'| translate}}  :</div>
+                                <div  layout="row" layout-xs="column"  >  <div flex="10"></div>  <div flex="90">{{::propertyobj.remark}}</div>    </div>  
+                            </md-whiteframe>
+                            <div flex="100" style="height: 50px"></div>
+                        </div>
+                    </div>
+
+                    <!--                                    <td md-cell>{{::propertyobj.propertyid}}</td>
+                 -                                                     <td md-cell>{{::propertyobj.propertytypeid.name}}</td>
+                                                                      <td md-cell>{{::propertyobj.customerid.fullname}}</td>
+                                                                      <td md-cell>{{::propertyobj.totalarea}}</td>
+                                                                      <td md-cell>{{::propertyobj.amount}}</td>
+                                                                      <td md-cell>{{::propertyobj.propertypriorityid.name}}</td>
+                                                                      <td md-cell>{{::propertyobj.flatno}}</td>
+                                                                      <td md-cell>{{::propertyobj.apt}}</td>
+                                                                      <td md-cell>{{::propertyobj.address}}</td>
+                                                                      <td md-cell>{{::propertyobj.roadname}}</td>
+                                                                      <td md-cell>{{::propertyobj.cityid.name}}</td>
+                                                                      <td md-cell>{{::propertyobj.propertylocalityid.name}}</td>
+                                                                      <td md-cell>{{::propertyobj.landmark}}</td>
+                                                                      <td md-cell>{{::propertyobj.propertyage}}</td>
+                                                                      <td md-cell>{{::propertyobj.leaseperiod}}</td>
+                                                                      <td md-cell>{{::propertyobj.propertylbedroomsid.name}}</td>
+                                                                      <td md-cell>{{::propertyobj.floorno}}</td>
+                                                                      <td md-cell>{{::propertyobj.propertyfacingid.name}}</td>
+                                                                      <td md-cell>{{::propertyobj.propertyavailibilityid.name}}</td>
+                                                                      <td md-cell>{{::propertyobj.propertyfurnishedid.name}}</td>
+                                                                      <td md-cell>{{::propertyobj.userid.fullname}}</td>
+                                                                      <td md-cell>{{propertyobj.createddate| date:'dd/MM/yyyy' }}</td>
+                                                                      <td md-cell>{{propertyobj.modifyddate| date:'dd/MM/yyyy' }}</td>
+                                                                      <td md-cell>{{::propertyobj.deposit}}</td>
+                                                                      <td md-cell>{{::propertyobj.sqfeetrate}}</td>
+                                                                      <td md-cell>{{::propertyobj.bookingcharges}}</td>
+                                                                      <td md-cell>{{propertyobj.postedon| date:'dd/MM/yyyy' }}</td>
+                                                                      <td md-cell>{{::propertyobj.propertytobeid.name}}</td>
+                                                                      <td md-cell>{{propertyobj.availablefrom| date:'dd/MM/yyyy' }}</td>
+                                                                      <td md-cell>{{::propertyobj.propertykeyid.name}}</td>
+                                                                      <td md-cell>{{::propertyobj.flatamenitiesid.name}}</td>
+                                                                      <td md-cell>{{::propertyobj.status}}</td>
+                                                                      <td md-cell>{{::propertyobj.societyamenitiesid.name}}</td>-->
+
+
+                    <div>
+                        <md-toolbar class="toolbar-default margin-bottom-30">
+                            <div class="md-toolbar-tools">
+                                <md-button class="md-icon-button" aria-label="Settings">
+                                    <md-icon md-font-icon="icon-menu"></md-icon>
+                                </md-button>
+                                <span flex></span>
+                                <md-button class="md-raised"  ng-click="pmspropertycommonobject.printIt()" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button">Print</md-button>
+
+                            </div>
+                        </md-toolbar>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>

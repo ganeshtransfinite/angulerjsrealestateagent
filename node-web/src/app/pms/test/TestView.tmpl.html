@@ -1,0 +1,63 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar class="md-primary" layout="row"  layout-align="space-between center">
+        <div class="md-toolbar-tools" >
+            <h2>View Test  </h2> 
+        </div>
+        <md-button ng-click="hide()"  class="md-fab md-mini" aria-label="Close">
+            <md-icon md-font-icon="zmdi zmdi-close-circle"></md-icon>
+        </md-button>
+    </md-toolbar>
+    <md-dialog-content class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10" >
+        <md-whiteframe class="md-whiteframe-18dp"    layout layout-align="center center">
+            <div flex="100" layout="column" class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10">
+                 
+             
+                <md-divider></md-divider>
+                <div  layout="row" layout-align="space-between center">    
+                    <div flex="100">
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.test.GRID.testid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::testobj.testid}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.test.GRID.name}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::testobj.name}}  </div>
+                        </div>   
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.test.GRID.flatamenitiesid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::testobj.flatamenitiesid.__fkey__}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.test.GRID.societyamenitiesid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::testobj.societyamenitiesid.__fkey__}}  </div>
+                        </div>  
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.test.GRID.active}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::testobj.active}}  </div>
+                        </div>   
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.test.GRID.createddate}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::testobj.createddate | date:'dd/MM/yyyy'}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.test.GRID.modifyddate}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::testobj.modifyddate | date:'dd/MM/yyyy'}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.test.GRID.userid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::testobj.userid.__fkey__}}  </div>
+                        </div>  
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.test.GRID.recordorder}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::testobj.recordorder}}  </div>
+                        </div>   
+"
+                    </div>
+               
+                </div>
+                <md-divider></md-divider>
+            
+            </div>   </md-whiteframe>
+    </md-dialog-content>
+</md-dialog>

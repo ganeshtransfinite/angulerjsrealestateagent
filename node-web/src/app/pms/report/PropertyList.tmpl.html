@@ -1,0 +1,687 @@
+<div ng-controller="ReportPropertyTableController as vm">
+    <div flex layout="row" >
+
+        <div flex-gt-lg="15" ng-show="!vm.filterclose && role['Property'].Filter && vm.showmenu === true"     >
+            <md-toolbar >
+                <div class="md-toolbar-tools">
+                    <h2>
+                        Filter
+                    </h2>
+                    <md-menu>
+                        <md-button class="md-icon-button" aria-label="open menu" ng-click="$mdOpenMenu()">
+                            <md-icon md-font-icon="zmdi zmdi-more-vert"></md-icon>
+                        </md-button>
+                        <md-menu-content >
+
+                            <md-menu-item>
+                                <md-button  >
+                                    <md-checkbox ng-init="vm.showmenu = true; pmsreportproperty.selectlistbox.propertypropertytypeid = false;" ng-model="pmsreportproperty.selectlistbox.propertypropertytypeid"    ></md-checkbox>    
+                                    <div class="md-body-2"  >
+                                        {{'MENU.property.GRID.propertytypeid'| translate}} 
+                                    </div>
+                                </md-button>
+                            </md-menu-item>   
+                            <md-menu-item >
+                                <md-button  >
+                                    <md-checkbox ng-init="vm.showmenu = true; pmsreportproperty.selectlistbox.propertypropertylocalityid = false;" ng-model="pmsreportproperty.selectlistbox.propertypropertylocalityid"    ></md-checkbox>    
+                                    <div class="md-body-2"  >
+                                        {{'MENU.property.GRID.propertylocalityid'| translate}} 
+                                    </div>
+                                </md-button>
+                            </md-menu-item>         
+                            <md-menu-item>
+                                <md-button  >
+                                    <md-checkbox ng-init="vm.showmenu = true; pmsreportproperty.selectlistbox.propertypropertylbedroomsid = false;" ng-model="pmsreportproperty.selectlistbox.propertypropertylbedroomsid"    ></md-checkbox>    
+                                    <div class="md-body-2"  >
+                                        {{'MENU.property.GRID.propertylbedroomsid'| translate}} 
+                                    </div>
+                                </md-button>
+                            </md-menu-item>         
+
+                            <md-menu-item>
+                                <md-button  >
+                                    <md-checkbox ng-init="vm.showmenu = true; pmsreportproperty.selectlistbox.propertypropertyfurnishedid = false;" ng-model="pmsreportproperty.selectlistbox.propertypropertyfurnishedid"    ></md-checkbox>    
+                                    <div class="md-body-2"  >
+                                        {{'MENU.property.GRID.propertyfurnishedid'| translate}} 
+                                    </div>
+                                </md-button>
+                            </md-menu-item>         
+                            <md-menu-divider></md-menu-divider>
+                            <md-menu-item>
+                                <md-button  >
+                                    <md-checkbox ng-init="vm.showmenu = true; pmsreportproperty.selectlistbox.propertyamount = false;" ng-model="pmsreportproperty.selectlistbox.propertyamount"    ></md-checkbox>    
+                                    <div class="md-body-2"  >
+                                        {{ (pmsreportpropertycommonobject.type === 1 ? 'Rent' : 'Sale Cost')}}
+                                    </div>
+                                </md-button>
+                            </md-menu-item>  
+                            <md-menu-item>
+                                <md-button  >
+                                    <md-checkbox ng-init="vm.showmenu = true; pmsreportproperty.selectlistbox.propertypropertypriorityid = false;" ng-model="pmsreportproperty.selectlistbox.propertypropertypriorityid"    ></md-checkbox>    
+                                    <div class="md-body-2"  >
+                                        {{'MENU.property.GRID.propertypriorityid'| translate}} 
+                                    </div>
+                                </md-button>
+                            </md-menu-item>  
+                            <md-menu-divider></md-menu-divider>
+
+                            <md-menu-item>
+                                <md-button  >
+                                    <md-checkbox ng-init="vm.showmenu = true; pmsreportproperty.selectlistbox.propertyapt = false;" ng-model="pmsreportproperty.selectlistbox.propertyapt"    ></md-checkbox>    
+                                    <div class="md-body-2"  >
+                                        {{'MENU.property.GRID.apt'| translate}} 
+                                    </div>
+                                </md-button>
+                            </md-menu-item>   
+                            <md-menu-item>
+                                <md-button >
+                                    <md-checkbox ng-model="pmsreportproperty.selectlistbox.aptselect"  ></md-checkbox>    
+                                    <div class="md-body-2"  >
+                                        {{'MENU.property.GRID.apt'| translate}} List 
+                                    </div>
+
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button  >
+                                    <md-checkbox ng-init="vm.showmenu = true; pmsreportproperty.selectlistbox.propertycustomerid = false;" ng-model="pmsreportproperty.selectlistbox.propertycustomerid"    ></md-checkbox>    
+                                    <div class="md-body-2"  >
+                                        {{'MENU.property.GRID.customerid'| translate}} 
+                                    </div>
+                                </md-button>
+                            </md-menu-item>         
+                            <md-menu-divider></md-menu-divider>
+                            <md-menu-item>
+                                <md-button  >
+                                    <md-checkbox ng-init="vm.showmenu = true;
+                                        pmsreportproperty.selectlistbox.propertyavailablefrom = true;" ng-model="pmsreportproperty.selectlistbox.propertyavailablefrom"    ></md-checkbox>    
+                                    <div class="md-body-2"  >
+                                        {{'MENU.property.GRID.availablefrom'| translate}} 
+                                    </div>
+                                </md-button>
+                            </md-menu-item>      
+                            <md-menu-divider></md-menu-divider>
+
+                            <md-menu-item ng-show="false">
+                                <md-button  >
+                                    <md-checkbox ng-init="vm.showmenu = true; pmsreportproperty.selectlistbox.propertycityid = false;" ng-model="pmsreportproperty.selectlistbox.propertycityid"    ></md-checkbox>    
+                                    <div class="md-body-2"  >
+                                        {{'MENU.property.GRID.cityid'| translate}} 
+                                    </div>
+                                </md-button>
+                            </md-menu-item>         
+
+
+
+                            <md-menu-item>
+                                <md-button  >
+                                    <md-checkbox ng-init="vm.showmenu = true; pmsreportproperty.selectlistbox.propertyflatamenitiesid = false;" ng-model="pmsreportproperty.selectlistbox.propertyflatamenitiesid"    ></md-checkbox>    
+                                    <div class="md-body-2"  >
+                                        {{'MENU.property.GRID.flatamenitiesid'| translate}} 
+                                    </div>
+                                </md-button>
+                            </md-menu-item>         
+
+                            <md-menu-item>
+                                <md-button  >
+                                    <md-checkbox ng-init="vm.showmenu = true;
+                                        pmsreportproperty.selectlistbox.propertysocietyamenitiesid = false;" ng-model="pmsreportproperty.selectlistbox.propertysocietyamenitiesid"    ></md-checkbox>    
+                                    <div class="md-body-2"  >
+                                        {{'MENU.property.GRID.societyamenitiesid'| translate}} 
+                                    </div>
+                                </md-button>
+                            </md-menu-item> 
+                            <md-menu-item>
+                                <md-button  >
+                                    <md-checkbox ng-init="vm.showmenu = true; pmsreportproperty.selectlistbox.propertypropertyfacingid = false;" ng-model="pmsreportproperty.selectlistbox.propertypropertyfacingid"    ></md-checkbox>    
+                                    <div class="md-body-2"  >
+                                        {{'MENU.property.GRID.propertyfacingid'| translate}} 
+                                    </div>
+                                </md-button>
+                            </md-menu-item>      
+                            <md-menu-divider></md-menu-divider>
+                        </md-menu-content>
+                    </md-menu>
+                    <span flex>                                 
+                        <md-button    ng-click="vm.getTable()"     class="md-fab md-mini" aria-label="Add">
+                            <md-icon md-font-icon="zmdi zmdi-refresh"></md-icon> <md-tooltip>Refresh</md-tooltip>
+                        </md-button>
+                    </span>
+                </div>
+            </md-toolbar>
+            <md-content flex layout="column"  class="filter-content"  >
+                <md-content flex='100' layout="column">
+                    <md-list flex='100' class="filter-list" >
+
+                        <div ng-show="pmsreportproperty.selectlistbox.propertypropertytypeid" layout="column"  flex>
+                            <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsreportproperty.selectpropertypropertytypeidtbl)}}" 
+                                           >   <md-icon ng-click="pmsreportproperty.selectlistbox.propertypropertytypeid = false"  md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp; {{'MENU.property.GRID.propertytypeid'| translate}} </md-subheader>
+                            <md-list   ng-model="pmsreportproperty.selectpropertypropertytypeidtbl"   name="propertypropertytypeid" id="propertypropertytypeid" flex="100">
+                                <md-list-item ng-show="$index < sessionobject.getPlaletCount(pmsreportproperty.selectlistbox) || selectpropertypropertytypeidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertypropertytypeidcntlist" style="height: 8px">
+                                    <md-checkbox class="md-primary" ng-model="pmsreportproperty.selectpropertypropertytypeidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                        {{objcombo.text}}  ( {{objcombo.count}} )
+                                    </md-checkbox>  
+                                </md-list-item>                                
+                            </md-list>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="!selectpropertypropertytypeidtblflag"  layout="row" ng-click="selectpropertypropertytypeidtblflag = true"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                            </md-button>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="selectpropertypropertytypeidtblflag"  layout="row" ng-click="selectpropertypropertytypeidtblflag = false"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                            </md-button>
+                            <md-divider></md-divider>
+                        </div>
+
+                        <div ng-show="pmsreportproperty.selectlistbox.propertypropertylocalityid" layout="column"  flex>
+                            <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsreportproperty.selectpropertypropertylocalityidtbl)}}" 
+                                           >   <md-icon ng-click="pmsreportproperty.selectlistbox.propertypropertylocalityid = false"  md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp; {{'MENU.property.GRID.propertylocalityid'| translate}} </md-subheader>
+                            <md-list   ng-model="pmsreportproperty.selectpropertypropertylocalityidtbl"   name="propertypropertylocalityid" id="propertypropertylocalityid" flex="100">
+                                <md-list-item ng-show="$index < sessionobject.getPlaletCount(pmsreportproperty.selectlistbox) || selectpropertypropertylocalityidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertypropertylocalityidcntlist" style="height: 8px">
+                                    <md-checkbox class="md-primary" ng-model="pmsreportproperty.selectpropertypropertylocalityidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                        {{objcombo.text}}  ( {{objcombo.count}} )
+                                    </md-checkbox>  
+                                </md-list-item>                                
+                            </md-list>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="!selectpropertypropertylocalityidtblflag"  layout="row" ng-click="selectpropertypropertylocalityidtblflag = true"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                            </md-button>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="selectpropertypropertylocalityidtblflag"  layout="row" ng-click="selectpropertypropertylocalityidtblflag = false"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                            </md-button>
+                            <md-divider></md-divider>
+                        </div>
+                        <div ng-show="pmsreportproperty.selectlistbox.propertypropertylbedroomsid" layout="column"  flex>
+                            <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsreportproperty.selectpropertypropertylbedroomsidtbl)}}" 
+                                           >   <md-icon ng-click="pmsreportproperty.selectlistbox.propertypropertylbedroomsid = false"  md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp; {{'MENU.property.GRID.propertylbedroomsid'| translate}} </md-subheader>
+                            <md-list   ng-model="pmsreportproperty.selectpropertypropertylbedroomsidtbl"   name="propertypropertylbedroomsid" id="propertypropertylbedroomsid" flex="100">
+                                <md-list-item ng-show="$index < sessionobject.getPlaletCount(pmsreportproperty.selectlistbox) || selectpropertypropertylbedroomsidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertypropertylbedroomsidcntlist" style="height: 8px">
+                                    <md-checkbox class="md-primary" ng-model="pmsreportproperty.selectpropertypropertylbedroomsidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                        {{objcombo.text}}  ( {{objcombo.count}} )
+                                    </md-checkbox>  
+                                </md-list-item>                                
+                            </md-list>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="!selectpropertypropertylbedroomsidtblflag"  layout="row" ng-click="selectpropertypropertylbedroomsidtblflag = true"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                            </md-button>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="selectpropertypropertylbedroomsidtblflag"  layout="row" ng-click="selectpropertypropertylbedroomsidtblflag = false"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                            </md-button>
+                            <md-divider></md-divider>
+                        </div>
+                        <div ng-show="pmsreportproperty.selectlistbox.propertypropertyfurnishedid" layout="column"  flex>
+                            <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsreportproperty.selectpropertypropertyfurnishedidtbl)}}" 
+                                           >   <md-icon ng-click="pmsreportproperty.selectlistbox.propertypropertyfurnishedid = false"  md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp; {{'MENU.property.GRID.propertyfurnishedid'| translate}} </md-subheader>
+                            <md-list   ng-model="pmsreportproperty.selectpropertypropertyfurnishedidtbl"   name="propertypropertyfurnishedid" id="propertypropertyfurnishedid" flex="100">
+                                <md-list-item ng-show="$index < sessionobject.getPlaletCount(pmsreportproperty.selectlistbox) || selectpropertypropertyfurnishedidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertypropertyfurnishedidcntlist" style="height: 8px">
+                                    <md-checkbox class="md-primary" ng-model="pmsreportproperty.selectpropertypropertyfurnishedidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                        {{objcombo.text}}  ( {{objcombo.count}} )
+                                    </md-checkbox>  
+                                </md-list-item>                                
+                            </md-list>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="!selectpropertypropertyfurnishedidtblflag"  layout="row" ng-click="selectpropertypropertyfurnishedidtblflag = true"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                            </md-button>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="selectpropertypropertyfurnishedidtblflag"  layout="row" ng-click="selectpropertypropertyfurnishedidtblflag = false"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                            </md-button>
+                            <md-divider></md-divider>
+                        </div>
+
+
+                        <div ng-show="pmsreportproperty.selectlistbox.propertyamount" layout="column"  flex>
+                            <md-subheader class="md-primary" style="background-color: {{sessionobject.getPlaletColorText(pmsreportproperty.selectamountform)}}" > <md-icon ng-click="pmsreportproperty.selectlistbox.propertyamount = false"  
+                                                                                                                                                                           md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp;
+                                {{pmsreportpropertycommonobject.type===1 ? 'Rent' : 'Sale Cost'}} </md-subheader>
+                            <div layout layout-xs="column" flex>
+                                <md-select  ng-model="pmsreportproperty.selectamountform"
+                                            name="selectamountform" id="selectamountform" flex="40">
+                                    <md-option value="{{objcombo.id}}" ng-repeat="objcombo in (pmsreportpropertycommonobject.type === 1 ? sessionobject.comboboxlist.budgetrentidlist : sessionobject.comboboxlist.budgetsaleidlist)">{{objcombo.text}}</md-option>
+                                </md-select>
+                                <span flex>To</span>
+                                <md-select   ng-model="pmsreportproperty.selectamountto"
+                                             name="selectamountto" id="selectamountto"  flex="40"  >
+                                    <md-option value="{{objcombo.id}}" ng-repeat="objcombo in (pmsreportpropertycommonobject.type === 1 ? sessionobject.comboboxlist.budgetrentidlist : sessionobject.comboboxlist.budgetsaleidlist)">{{objcombo.text}}</md-option>
+                                </md-select>
+                                <md-divider></md-divider>
+                            </div>
+                            <md-divider></md-divider>
+                        </div>
+                        <div ng-show="pmsreportproperty.selectlistbox.propertypropertypriorityid" layout="column"  flex>
+                            <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsreportproperty.selectpropertypropertypriorityidtbl)}}" 
+                                           >   <md-icon ng-click="pmsreportproperty.selectlistbox.propertypropertypriorityid = false"  md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp; {{'MENU.property.GRID.propertypriorityid'| translate}} </md-subheader>
+                            <md-list   ng-model="pmsreportproperty.selectpropertypropertypriorityidtbl"   name="propertypropertypriorityid" id="propertypropertypriorityid" flex="100">
+                                <md-list-item ng-show="$index < sessionobject.getPlaletCount(pmsreportproperty.selectlistbox) || selectpropertypropertypriorityidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertypropertypriorityidcntlist" style="height: 8px">
+                                    <md-checkbox class="md-primary" ng-model="pmsreportproperty.selectpropertypropertypriorityidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                        {{objcombo.text}}  ( {{objcombo.count}} )
+                                    </md-checkbox>  
+                                </md-list-item>                                
+                            </md-list>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="!selectpropertypropertypriorityidtblflag"  layout="row" ng-click="selectpropertypropertypriorityidtblflag = true"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                            </md-button>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="selectpropertypropertypriorityidtblflag"  layout="row" ng-click="selectpropertypropertypriorityidtblflag = false"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                            </md-button>
+                            <md-divider></md-divider>
+                        </div>
+                        <div ng-show="pmsreportproperty.selectlistbox.propertyapt" layout="column"  flex>
+                            <md-subheader class="md-primary" style="background-color: {{sessionobject.getPlaletColorText(pmsreportproperty.apttbl)}}" >
+                                <md-icon ng-click="pmsreportproperty.selectlistbox.propertyapt = false" 
+                                         md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp;
+                                {{'MENU.property.GRID.apt'| translate}} {{ pmsreportproperty.apttbl.length}} </md-subheader>
+                            <md-input-container class="md-block">                                                     
+                                <label>{{'MENU.property.DIALOG.apt'| translate}}</label>
+                                <md-autocomplete
+                                    ng-disabled="pmsreportpropertycommonobject.isDisabled"
+                                    md-no-cache="pmsreportpropertycommonobject.noCache"
+                                    md-search-text="pmsreportproperty.apttbl"
+                                    md-selected-item-change="pmsreportproperty.apttbl=item.text"
+                                    md-items="item in sessionobject.querySearch(pmsreportproperty.apttbl,sessionobject.comboboxlist.propertypropertyidcntlistapt)"
+                                    md-item-text="item.text"
+                                    md-min-length="0"
+                                    name="apttbl" 
+                                    id="apt">
+                                    <md-item-template>
+                                        <span md-highlight-text="pmsreportproperty.apttbl" md-highlight-flags="^i">{{item.text}}</span>
+                                    </md-item-template>
+                                </md-autocomplete>
+                                <!--                                                    <input ng-model="pmsreportproperty.apt" class="dialog-close" name="apt" 
+                                                                                           id="apt" type="text" required> -->
+                            </md-input-container>
+                            <md-divider></md-divider>
+                        </div>
+                        <div ng-show="pmsreportproperty.selectlistbox.aptselect" layout="column"  flex>
+                            <md-subheader class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsreportproperty.selectaptselecttbl)}}" >
+                                <md-icon ng-click="pmsreportproperty.selectlistbox.aptselect = false" 
+                                         md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp;
+                                {{'MENU.property.GRID.apt'| translate}} </md-subheader>
+                            <md-list   ng-model="pmsreportproperty.selectaptselect"   name="aptselect" id="aptselect" flex="100">
+                                <md-list-item  ng-show="$index < sessionobject.getPlaletCount(pmsreportproperty.selectlistbox) || aptselectflag"
+                                               ng-repeat="objcombo in sessionobject.comboboxlist.propertypropertyidcntlistapt" style="height: 8px">
+                                    <md-checkbox class="md-primary" ng-model="pmsreportproperty.selectaptselecttbl[objcombo.text]" aria-label="Primary Checkbox" flex="100">
+                                        {{objcombo.text}}  ({{objcombo.count}})
+                                    </md-checkbox>  
+                                </md-list-item>
+                            </md-list>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="!aptselectflag"  layout="row" ng-click="aptselectflag = true"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                            </md-button>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="aptselectflag"  layout="row" ng-click="aptselectflag = false"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                            </md-button>
+                            <md-divider></md-divider>
+                        </div>
+
+                        <div ng-show="pmsreportproperty.selectlistbox.propertycustomerid" layout="column"  flex>
+                            <md-subheader class="md-primary" style="background-color: {{sessionobject.getPlaletColorText(pmsreportproperty.customeridtbl)}}" >
+                                <md-icon ng-click="pmsreportproperty.selectlistbox.propertycustomerid = false" 
+                                         md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp;
+                                {{'MENU.property.GRID.customerid'| translate}} {{ pmsreportproperty.customeridtbl.length}} </md-subheader>
+                            <md-input-container class="md-block">                                                     
+                                <label>{{'MENU.property.DIALOG.customerid'| translate}}</label>
+                                <md-autocomplete
+                                    ng-disabled="pmsreportpropertycommonobject.isDisabled"
+                                    md-no-cache="pmsreportpropertycommonobject.noCache"
+                                    md-search-text="pmsreportproperty.customeridtbl"
+                                    md-selected-item-change="pmsreportproperty.customeridtbl=item.text"
+                                    md-items="item in sessionobject.querySearch(pmsreportproperty.customeridtbl,sessionobject.comboboxlist.propertycustomeridcntlist)"
+                                    md-item-text="item.text"
+                                    md-min-length="0"
+                                    name="customeridtbl" 
+                                    id="customerid">
+                                    <md-item-template>
+                                        <span md-highlight-text="pmsreportproperty.customeridtbl" md-highlight-flags="^i">{{item.text}}</span>
+                                    </md-item-template>
+                                </md-autocomplete>
+                                <!--                                                    <input ng-model="pmsreportproperty.customerid" class="dialog-close" name="customerid" 
+                                                                                           id="customerid" type="text" required> -->
+                            </md-input-container>
+                            <md-divider></md-divider>
+                        </div>
+
+
+                        <div ng-show="pmsreportproperty.selectlistbox.propertycityid" layout="column"  flex>
+                            <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsreportproperty.selectpropertycityidtbl)}}" 
+                                           >   <md-icon ng-click="pmsreportproperty.selectlistbox.propertycityid = false"  md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp; {{'MENU.property.GRID.cityid'| translate}} </md-subheader>
+                            <md-list   ng-model="pmsreportproperty.selectpropertycityidtbl"   name="propertycityid" id="propertycityid" flex="100">
+                                <md-list-item ng-show="$index < sessionobject.getPlaletCount(pmsreportproperty.selectlistbox) || selectpropertycityidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertycityidcntlist" style="height: 8px">
+                                    <md-checkbox class="md-primary" ng-model="pmsreportproperty.selectpropertycityidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                        {{objcombo.text}}  ( {{objcombo.count}} )
+                                    </md-checkbox>  
+                                </md-list-item>                                
+                            </md-list>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="!selectpropertycityidtblflag"  layout="row" ng-click="selectpropertycityidtblflag = true"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                            </md-button>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="selectpropertycityidtblflag"  layout="row" ng-click="selectpropertycityidtblflag = false"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                            </md-button>
+                            <md-divider></md-divider>
+                        </div>
+
+                        <div ng-show="pmsreportproperty.selectlistbox.propertypropertyfacingid" layout="column"  flex>
+                            <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsreportproperty.selectpropertypropertyfacingidtbl)}}" 
+                                           >   <md-icon ng-click="pmsreportproperty.selectlistbox.propertypropertyfacingid = false"  md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp; {{'MENU.property.GRID.propertyfacingid'| translate}} </md-subheader>
+                            <md-list   ng-model="pmsreportproperty.selectpropertypropertyfacingidtbl"   name="propertypropertyfacingid" id="propertypropertyfacingid" flex="100">
+                                <md-list-item ng-show="$index < sessionobject.getPlaletCount(pmsreportproperty.selectlistbox) || selectpropertypropertyfacingidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertypropertyfacingidcntlist" style="height: 8px">
+                                    <md-checkbox class="md-primary" ng-model="pmsreportproperty.selectpropertypropertyfacingidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                        {{objcombo.text}}  ( {{objcombo.count}} )
+                                    </md-checkbox>  
+                                </md-list-item>                                
+                            </md-list>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="!selectpropertypropertyfacingidtblflag"  layout="row" ng-click="selectpropertypropertyfacingidtblflag = true"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                            </md-button>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="selectpropertypropertyfacingidtblflag"  layout="row" ng-click="selectpropertypropertyfacingidtblflag = false"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                            </md-button>
+                            <md-divider></md-divider>
+                        </div>
+
+                        <!--                        <div ng-show="pmsreportproperty.selectlistbox.propertypropertytobeid" layout="column"  flex>
+                                                    <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsreportproperty.selectpropertypropertytobeidtbl)}}" 
+                                                                   >   <md-icon ng-click="pmsreportproperty.selectlistbox.propertypropertytobeid = false"  md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp; {{'MENU.property.GRID.propertytobeid'| translate}} </md-subheader>
+                                                    <md-list   ng-model="pmsreportproperty.selectpropertypropertytobeidtbl"   name="propertypropertytobeid" id="propertypropertytobeid" flex="100">
+                                                        <md-list-item ng-show="$index < sessionobject.getPlaletCount(pmsreportproperty.selectlistbox) || selectpropertypropertytobeidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertypropertytobeidcntlist" style="height: 8px">
+                                                            <md-checkbox class="md-primary" ng-model="pmsreportproperty.selectpropertypropertytobeidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                                                {{objcombo.text}}  ( {{objcombo.count}} )
+                                                            </md-checkbox>  
+                                                        </md-list-item>                                
+                                                    </md-list>
+                                                    <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                                               ng-show="!selectpropertypropertytobeidtblflag"  layout="row" ng-click="selectpropertypropertytobeidtblflag = true"  layout-align="end center" >
+                                                        <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                                    </md-button>
+                                                    <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                                               ng-show="selectpropertypropertytobeidtblflag"  layout="row" ng-click="selectpropertypropertytobeidtblflag = false"  layout-align="end center" >
+                                                        <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                                    </md-button>
+                                                    <md-divider></md-divider>
+                                                </div>-->
+                        <div ng-show="pmsreportproperty.selectlistbox.propertyavailablefrom" layout="column"  flex>
+                            <md-subheader class="md-primary" style="background-color: {{sessionobject.getPlaletColorText(pmsreportproperty.availablefromdate_from)}}" >
+                                <md-icon ng-click="pmsreportproperty.selectlistbox.propertyavailablefrom = false"
+                                         md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp;
+                                {{ pmsreportpropertycommonobject.avilablereoprt ?  'MENU.property.GRID.availablefrom' : "Close Date"| translate}} </md-subheader>
+                            <md-datepicker ng-model="pmsreportproperty.availablefromdate_from"
+                                           name="availablefromdate_from" 
+                                           id="availablefromdate_from" 
+                                           md-placeholder="{{pmsreportproperty.availablefromdate_from| date: 'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\''}}"
+                                           ></md-datepicker>
+                            <span flex>To</span> 
+                            <md-datepicker ng-model="pmsreportproperty.availablefromdate_to"
+                                           name="availablefromdate_to" 
+                                           id="availablefromdate_to" 
+                                           md-placeholder="{{pmsreportproperty.availablefromdate_to| date: 'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\''}}"
+                                           ></md-datepicker>
+                            <div layout layout-xs="column" flex>
+                                <md-button ng-show="!pmsreportpropertycommonobject.avilablereoprt" class="md-raised"  ng-click="sessionobject.dateAdd(pmsreportproperty, 'availablefromdate_to', 'availablefromdate_from', - 30);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Prev 1 Mon</md-button>
+                                <md-button ng-show="pmsreportpropertycommonobject.avilablereoprt" class="md-raised"  ng-click="sessionobject.dateAdd(pmsreportproperty, 'availablefromdate_from', 'availablefromdate_to', 30);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Next 1 Mon</md-button>
+                            </div>
+                            <div layout layout-xs="column" flex>
+                                <md-button  ng-show="!pmsreportpropertycommonobject.avilablereoprt" class="md-raised"  ng-click="sessionobject.dateAdd(pmsreportproperty, 'availablefromdate_to', 'availablefromdate_from', - 90);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Prev 3 Mon</md-button>
+                                <md-button  ng-show="pmsreportpropertycommonobject.avilablereoprt" class="md-raised"  ng-click="sessionobject.dateAdd(pmsreportproperty, 'availablefromdate_from', 'availablefromdate_to', 90);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Next 3 Mo</md-button>
+                            </div>     <div layout layout-xs="column" flex>
+                                <md-button   ng-show="!pmsreportpropertycommonobject.avilablereoprt"class="md-raised"  ng-click="sessionobject.dateAdd(pmsreportproperty, 'availablefromdate_to', 'availablefromdate_from', - 180);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Prev 6 Mon</md-button>
+                                <md-button  ng-show="pmsreportpropertycommonobject.avilablereoprt" class="md-raised"  ng-click="sessionobject.dateAdd(pmsreportproperty, 'availablefromdate_from', 'availablefromdate_to', 180);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Next 6 Mo</md-button>
+                            </div>
+                            <div layout layout-xs="column" flex>
+                                <md-button  ng-show="!pmsreportpropertycommonobject.avilablereoprt" class="md-raised"  ng-click="sessionobject.dateAdd(pmsreportproperty, 'availablefromdate_to', 'availablefromdate_from', - 365);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Prev 1 Year</md-button>
+                                <md-button  ng-show="pmsreportpropertycommonobject.avilablereoprt" class="md-raised"  ng-click="sessionobject.dateAdd(pmsreportproperty, 'availablefromdate_from', 'availablefromdate_to', 365);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Next 1 Year</md-button>
+                            </div>
+                            <md-divider></md-divider>
+                        </div>
+                        <div ng-show="pmsreportproperty.selectlistbox.propertyflatamenitiesid" layout="column"  flex>
+                            <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsreportproperty.selectpropertyflatamenitiesidtbl)}}" 
+                                           >   <md-icon ng-click="pmsreportproperty.selectlistbox.propertyflatamenitiesid = false"  md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp; {{'MENU.property.GRID.flatamenitiesid'| translate}} </md-subheader>
+                            <md-list   ng-model="pmsreportproperty.selectpropertyflatamenitiesidtbl"   name="propertyflatamenitiesid" id="propertyflatamenitiesid" flex="100">
+                                <md-list-item ng-show="$index < sessionobject.getPlaletCount(pmsreportproperty.selectlistbox) || selectpropertyflatamenitiesidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertyflatamenitiesidcntlist" style="height: 8px">
+                                    <md-checkbox class="md-primary" ng-model="pmsreportproperty.selectpropertyflatamenitiesidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                        {{objcombo.text}}  ( {{objcombo.count}} )
+                                    </md-checkbox>  
+                                </md-list-item>                                
+                            </md-list>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="!selectpropertyflatamenitiesidtblflag"  layout="row" ng-click="selectpropertyflatamenitiesidtblflag = true"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                            </md-button>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="selectpropertyflatamenitiesidtblflag"  layout="row" ng-click="selectpropertyflatamenitiesidtblflag = false"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                            </md-button>
+                            <md-divider></md-divider>
+                        </div>
+
+                        <div ng-show="pmsreportproperty.selectlistbox.propertysocietyamenitiesid" layout="column"  flex>
+                            <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsreportproperty.selectpropertysocietyamenitiesidtbl)}}" 
+                                           >   <md-icon ng-click="pmsreportproperty.selectlistbox.propertysocietyamenitiesid = false"  md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp; {{'MENU.property.GRID.societyamenitiesid'| translate}} </md-subheader>
+                            <md-list   ng-model="pmsreportproperty.selectpropertysocietyamenitiesidtbl"   name="propertysocietyamenitiesid" id="propertysocietyamenitiesid" flex="100">
+                                <md-list-item ng-show="$index < sessionobject.getPlaletCount(pmsreportproperty.selectlistbox) || selectpropertysocietyamenitiesidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.propertysocietyamenitiesidcntlist" style="height: 8px">
+                                    <md-checkbox class="md-primary" ng-model="pmsreportproperty.selectpropertysocietyamenitiesidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                        {{objcombo.text}}  ( {{objcombo.count}} )
+                                    </md-checkbox>  
+                                </md-list-item>                                
+                            </md-list>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="!selectpropertysocietyamenitiesidtblflag"  layout="row" ng-click="selectpropertysocietyamenitiesidtblflag = true"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                            </md-button>
+                            <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                       ng-show="selectpropertysocietyamenitiesidtblflag"  layout="row" ng-click="selectpropertysocietyamenitiesidtblflag = false"  layout-align="end center" >
+                                <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                            </md-button>
+                            <md-divider></md-divider>
+                        </div>
+                    </md-list>
+                </md-content>
+            </md-content>
+        </div>
+        <div class="md-whiteframe-z5 animate-wrapper" layout="column" layout-align="start start" flex>
+
+            <div flex id="ui-admin-email" ui-view layout="column" layout-align="start stretch" class="overflow-auto full-width">
+                <div flex class="inbox-no-email-selected" layout="column" layout-align="center" >
+                    <md-toolbar  layout="row" layout-align="space-between center"  class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10">
+                        <div>
+
+                            <div  layout='row' layout-align="start">
+                                <md-button    ng-click="vm.filterclose = true"   ng-show="!vm.filterclose"  class="md-fab md-mini" aria-label="Close">
+                                      <md-icon md-font-icon="fa fa-sign-in" ></md-icon>  <md-tooltip>Close Filter</md-tooltip>
+                                </md-button>
+
+                                <md-button    ng-click="vm.filterclose = false"   ng-show="vm.filterclose"  class="md-fab md-mini" aria-label="Open">
+                                    <md-icon md-font-icon="fa fa-sign-out"></md-icon> <md-tooltip> Open Filter </md-tooltip>
+                                </md-button>
+
+                               
+                            </div>
+
+                        </div>
+                        <div >
+                            {{'ADMIN.TOOLBAR.EXPORTDATA'| translate}}   
+                            <md-menu>
+                                <md-button class="md-icon-button" aria-label="{{'ADMIN.TOOLBAR.EXPORTDATA'| translate}} " ng-click="$mdOpenMenu()">
+                                    <md-icon md-font-icon="zmdi zmdi-more-vert"> </md-icon>
+                                </md-button>
+                                <md-menu-content >
+                                    <md-menu-item >
+                                        <md-button  ng-click="sessionobject.tableExport({type: 'excel', escape: 'false'});" >
+                                            <md-icon md-font-icon="fa fa-file-excel-o"> </md-icon>
+
+                                            <div class="md-body-2"  >
+                                                {{'ADMIN.TOOLBAR.EXCEL'| translate}} 
+                                            </div>
+
+                                        </md-button>
+
+                                    </md-menu-item>
+                                    <md-menu-item >
+
+                                        <md-button  ng-click="sessionobject.tableExport({type: 'xml', escape: 'false'});" >
+                                            <md-icon md-font-icon="fa fa-file-o"> </md-icon>
+
+                                            <div class="md-body-2"  >
+                                                {{'ADMIN.TOOLBAR.xml'| translate}} 
+                                            </div>
+
+                                        </md-button>
+                                    </md-menu-item >
+                                    <md-menu-item >
+                                        <md-button  ng-click="sessionobject.tableExport({type: 'csv', escape: 'false'});" >
+                                            <md-icon md-font-icon="fa fa-file-text-o"> </md-icon>
+
+                                            <div class="md-body-2"  >
+                                                {{'ADMIN.TOOLBAR.csv'| translate}} 
+                                            </div>
+
+                                        </md-button>
+                                    </md-menu-item >
+
+                                    <md-menu-divider></md-menu-divider>
+
+                                    <md-menu-item >
+                                        <md-button  ng-click="sessionobject.printIt('printArea1')" >
+                                            <md-icon md-font-icon="fa fa-print"> </md-icon>
+
+                                            <div class="md-body-2"  >
+                                                {{'ADMIN.TOOLBAR.Print'| translate}} 
+                                            </div>
+
+                                        </md-button>
+                                    </md-menu-item >
+                                </md-menu-content>
+                            </md-menu>
+                        </div>
+
+                    </md-toolbar>
+
+
+
+                    <md-divider></md-divider>
+                    <md-table-pagination  class="page-nav-list md-title"  
+                                          md-limit-options="vm.query.limitoption" md-limit="vm.query.limit" md-page-select md-page="vm.query.page" md-total="{{vm.contents.total_count}}" 
+                                          md-on-paginate="vm.getTable"></md-table-pagination>
+                    <md-divider></md-divider>
+                    <md-toolbar class="md-table-toolbar alternate" ng-show="vm.selected.length" ng-show="role['Property'].Grid">
+                        <div class="md-toolbar-tools" layout-align="start center">
+                            <div>{{vm.selected.length}} {{vm.selected.length > 1 ? 'users' : 'user'}} selected</div>
+                        </div>
+                    </md-toolbar>
+
+                    <md-table-container flex="grow"    ng-show="role['Property'].Grid"  id="printArea1"  class="md-tablegrid-container overflow-auto full-width">
+
+                        <table fixed-header md-table class="md-primary md-tablegrid" id="printArea" md-row-select ng-model="vm.selected" 
+                               multiple id="tabledata"   md-progress="vm.promise">
+                            <thead  md-head md-order="vm.query.order" md-on-reorder="vm.getTable">
+                                <tr md-row>
+                                    <th md-column >  </th>
+                                    <th md-column md-order-by="propertytypeid.name" >{{vm.columns.propertytypeid| translate }} </th>
+
+                                    <th md-column md-order-by="propertylocalityid.name"   > {{vm.columns.propertylocalityid| translate }} </th>
+                                    <th md-column md-order-by="propertylbedroomsid.name" >{{vm.columns.propertylbedroomsid| translate }} </th>
+                                    <th md-column md-order-by="propertyfurnishedid.name" >{{vm.columns.propertyfurnishedid| translate }} </th>
+                                    <th md-column md-order-by="amount" > {{pmsreportpropertycommonobject.type === 1 ? 'Rent' : 'Sale'| translate }} </th>
+
+                                    <th md-column md-order-by="deposit"  ng-show="pmsreportpropertycommonobject.type === 1" >{{vm.columns.deposit| translate }} </th>
+
+                                    <th md-column md-order-by="totalarea" ng-show="pmsreportpropertycommonobject.type === 2">{{vm.columns.totalarea| translate }} </th>
+                                    <th md-column md-order-by="sqfeetrate" ng-show="pmsreportpropertycommonobject.type === 2" >{{vm.columns.sqfeetrate| translate }} </th>
+
+                                    <th md-column md-order-by="propertypriorityid.name" ng-show="pmsreportpropertycommonobject.type === 1" >{{vm.columns.propertypriorityid| translate }} </th>
+
+                                    <th md-column md-order-by="apt" >{{vm.columns.apt| translate }} </th>
+                                    <th md-column md-order-by="customerid.fullname" style="width: 20px" >{{vm.columns.customerid| translate }} </th>
+                                    <th md-column md-order-by="customerid.mobile" >Mobile No</span></th>
+ <th md-column md-order-by="availablefrom" ng-show="!pmsreportpropertycommonobject.avilablereoprt">Close Date </th>
+ <th md-column md-order-by="availablefrom" ng-show="!pmsreportpropertycommonobject.avilablereoprt"> Close By</th>
+
+                                    <th md-column md-order-by="availablefrom" >{{vm.columns.availablefrom| translate }} </th>
+
+                                    <th md-column md-order-by="postedon" >{{vm.columns.postedon| translate }} </th>
+
+
+
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+
+                                <tr   md-row md-auto-select md-select="propertyobj" ng-repeat="propertyobj in vm.contents.items"  >
+                                    <td md-cell> 
+
+                                    </td>
+                                    <td md-cell>
+                            <md-button md-no-ink  ng-click="pmsreportpropertycommonobject.showProperty($event, propertyobj)" class="md-primary"> {{::propertyobj.propertytypeid.name}}</md-button>
+                            </td>
+
+                            <td md-cell>{{::propertyobj.propertylocalityid.name| cut:true:12:' ...'}}</td>
+
+
+                            <td md-cell>  <md-button md-no-ink  ng-click="pmsreportpropertycommonobject.openImage(propertyobj, $event)" class="md-primary">{{::propertyobj.propertylbedroomsid.name}}</md-button></td>
+                            <td md-cell>{{::propertyobj.propertyfurnishedid.name}}</td>
+
+                            <td md-cell> {{::propertyobj.amount}}</td>
+                            <td md-cell ng-show="pmsreportpropertycommonobject.type === 1">{{::propertyobj.deposit}}</td>
+
+                            <td md-cell ng-show="pmsreportpropertycommonobject.type === 2">{{::propertyobj.totalareRenta}}</td>                                    
+                            <td md-cell ng-show="pmsreportpropertycommonobject.type === 2">{{::propertyobj.sqfeetrate}}</td>
+
+                            <td md-cell ng-show="pmsreportpropertycommonobject.type === 1">{{::propertyobj.propertypriorityid.name| cut:true:12:' ...'}}</td>
+                            <td md-cell>{{::propertyobj.apt| cut:true:20:' ...'}}</td>
+                            <td md-cell>{{::propertyobj.customerid.fullname| cut:true:20:' ...'}}</td> 
+                            <td md-cell>{{::propertyobj.customerid.mobileno}}</td>
+                            <td md-cell ng-show="!pmsreportpropertycommonobject.avilablereoprt">{{::propertyobj.closedate| date:'dd/MM/yyyy' }}</td>
+
+                            <td md-cell ng-show="!pmsreportpropertycommonobject.avilablereoprt">{{::propertyobj.closeby}}</td>
+                            <td md-cell>{{propertyobj.availablefrom| date:'dd/MM/yyyy' }}</td>
+
+                            <td md-cell>{{propertyobj.postedon| date:'dd/MM/yyyy' }}</td>
+
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </md-table-container>
+
+                    <md-table-pagination    class="page-nav-list md-title"  md-limit-options="vm.query.limitoption"  md-limit="vm.query.limit" md-page-select md-page="vm.query.page" md-total="{{vm.contents.total_count}}" md-on-paginate="vm.getTable"></md-table-pagination>
+                    <div>
+                        <md-toolbar class="toolbar-default margin-bottom-30">
+                            <div class="md-toolbar-tools">
+                                <md-button class="md-icon-button" aria-label="Settings">
+                                    <md-icon md-font-icon="icon-menu"></md-icon>
+                                </md-button>
+                                <!--                                sessionobject.printIt('printArea')-->
+                                <span flex></span>
+
+
+                                <div  layout='row' layout-align="start">
+
+                                  
+                                </div>
+                            </div>
+                        </md-toolbar>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div> 
+</div>
+

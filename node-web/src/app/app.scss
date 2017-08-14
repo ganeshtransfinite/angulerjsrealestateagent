@@ -1,0 +1,429 @@
+$sidenav-mobile-width: 260px;
+$sidenav-desktop-width: 300px;
+
+// import angular material scss
+@import "angular-material/angular-material.scss";
+
+body {
+    color: #212121;
+}
+
+// set template font family
+button, select, html, textarea, input {
+    font-family: RobotoDraft, Roboto, 'Helvetica Neue', sans-serif;
+}
+
+
+
+// import app scss
+@import "scss/material-backgrounds";
+
+// Add your CSS here
+
+/**
+ *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */
+.triangular-content  {
+   
+     overflow: hidden;
+}
+
+.filter-content {
+    height: 80vh;//85vh;
+    overflow: auto;
+    min-height: 60vh;
+    max-height: 80vh;
+}
+
+
+.dash-content {
+    height: 90vh;//85vh;
+    overflow: auto;
+    min-height: 60vh;
+    max-height: 90vh;
+}
+
+table.md-tablegrid {
+    width: 100%;
+    height:42vh;//42vh;
+    border-spacing: 0;
+    overflow: hidden;
+    background-color: rgba(255,255,255,1.0);
+}
+// injector
+// endinjector
+._md-container{
+    display: inline-block;
+}
+md-input-container {
+    padding-bottom: 0px;
+    padding-top: 0px;
+
+}
+
+.divformrow
+{
+    height: 54px;
+    // background-color: blue;
+}
+form > div {
+    height: 60px;
+}
+
+
+.divheader {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 10px;
+    height: 30px;
+    font-size: 12pt; 
+    font-weight: bold;
+}
+
+.divspace {
+    height: 5px;
+}
+.digitborder{
+    border-bottom: solid brown;
+    border-top: solid brown;
+    border-left: solid brown;
+    border-width: 1px;
+    text-align: center;
+}
+
+.digitborderend{
+    border-bottom: solid brown;
+    border-top: solid brown;
+    border-left: solid brown;
+    border-right: solid brown;
+    border-width: 1px;
+    text-align: center;
+}
+
+.table_view_tital {
+
+    vertical-align: middle;
+    color: rgba(0, 0,255,1.0);
+
+    font-size: 21pt; 
+    font-weight: bold;
+    white-space: nowrap;
+
+}
+
+
+.table_view_cell_tital {
+
+    vertical-align: middle;
+    font-size: 13pt; 
+
+    white-space: nowrap;
+
+}
+
+.table_view_cell_data {
+
+    vertical-align: middle;
+    font-size: 13pt; 
+
+    white-space: nowrap;
+
+}
+
+
+.filter-list { 
+    background: white;
+}
+
+.page-nav-list { 
+    background: white;
+}
+
+.md-subheaderheader{
+    color: rgba(0, 0,255,1.0);
+    vertical-align: middle;
+    font-size: 10pt; 
+    font-weight: bold;
+    white-space: nowrap; 
+    // font-size: 28px;
+    text-align: left;
+
+}
+
+.md-subheadercontenet{
+    vertical-align: middle;
+    color: rgba(0, 0,255,1.0);
+
+    font-size: 8pt; 
+    font-weight: normal;
+    white-space: nowrap;
+
+    // font-size: 28px;
+    text-align: left;
+
+}
+
+.myfocused {
+    height: 100px;
+    max-height: 100px;
+}
+
+
+
+.md-tablegrid-container {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+} 
+/*table.md-tablegrid thead.md-body  {
+      overflow-y: scroll;
+}*/
+
+/*table.md-tablegrid thead.md-head {
+display: block; transform: translate3d(0px, 0px, 0px);
+}*/
+table.md-tablegrid thead.md-head tr.md-row{
+    height: 40px;
+}
+table.md-tablegrid thead.md-table-progress > tr{
+    height: 3px;
+}
+/*table.md-tablegrid tbody.md-body  tr.md-row.md-cell {
+    height: 10px;
+}*/
+/*table.md-tablegrid thead.md-head > tr.md-row {
+    height: 10px;
+}*/
+table.md-tablegrid tbody.md-body > tr.md-row,
+table.md-tablegrid tfoot.md-foot > tr.md-row {
+    height:40px;
+}
+/*table.md-tablegrid thead.md-head + .md-table-progress md-progress-linear {
+    top: -3px;
+}
+table.md-tablegrid .md-table-progress th {
+    padding: 0;
+}
+table.md-tablegrid .md-table-progress th md-progress-linear {
+    height: 0;
+    transition: opacity 1s;
+}
+table.md-tablegrid .md-table-progress th md-progress-linear.ng-hide {
+    opacity: 0;
+}
+table.md-tablegrid .md-table-progress th md-progress-linear > .md-container {
+    height: 3px;
+    top: 0;
+    transition: none;
+}
+table.md-tablegrid .md-table-progress th md-progress-linear > .md-container > .md-bar {
+    height: 3px;
+} */
+
+table.md-tablegrid th.md-column.md-sort {
+    cursor: pointer;
+}
+table.md-tablegrid th.md-column md-icon {
+    height: 16px;
+    width: 16px;
+    font-size: 16px !important;
+    line-height: 16px !important;
+}
+table.md-tablegrid th.md-column md-icon.md-sort-icon {
+    color: rgba(0, 0, 0, 0.26);
+    opacity: 0;
+    transition: -webkit-transform 0.25s, opacity 0.25s;
+    transition: transform 0.25s, opacity 0.25s;
+}
+table.md-tablegrid th.md-column md-icon.md-sort-icon.md-asc {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+table.md-tablegrid th.md-column md-icon.md-sort-icon.md-desc {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+table.md-tablegrid th.md-column md-icon:not(:first-child) {
+    margin-left: 8px;
+}
+table.md-tablegrid th.md-column md-icon:not(:last-child) {
+    margin-right: 8px;
+}
+table.md-tablegrid th.md-column.md-active,
+table.md-tablegrid th.md-column.md-active md-icon {
+    color: rgba(0, 0, 0, 0.87);
+}
+table.md-tablegrid th.md-column:hover md-icon.md-sort-icon,
+table.md-tablegrid th.md-column.md-active md-icon.md-sort-icon {
+    opacity: 1;
+}
+table.md-tablegrid tr.md-row[ng\:repeat].ng-leave,
+table.md-tablegrid tr.md-row[ng-repeat].ng-leave,
+table.md-tablegrid tr.md-row[x-ng-repeat].ng-leave,
+table.md-tablegrid tr.md-row[data-ng-repeat].ng-leave {
+    display: none;
+}
+table.md-tablegrid.md-row-select tbody.md-body > tr.md-row {
+    transition: background-color 0.2s;
+}
+table.md-tablegrid.md-row-select tbody.md-body > tr.md-row:hover {
+    background-color: red;
+} 
+table.md-tablegrid.md-row-select tbody.md-body > tr.md-row.md-selected {
+    background-color: rgb(250,250,250);
+}
+table.md-tablegrid.md-row-select td.md-cell:first-child,
+table.md-tablegrid.md-row-select th.md-column:first-child {
+    width: 10px;
+    padding: 0 0 0 10px;
+}
+table.md-tablegrid.md-row-select td.md-cell:nth-child(2),
+table.md-tablegrid.md-row-select th.md-column:nth-child(2) {
+    padding: 0 2px;
+}
+table.md-tablegrid.md-row-select td.md-cell:nth-child(n+3):nth-last-child(n+2),
+table.md-tablegrid.md-row-select th.md-column:nth-child(n+3):nth-last-child(n+2) {
+    padding: 0 5px 0 0;
+}
+table.md-tablegrid:not(.md-row-select) td.md-cell:first-child,
+table.md-tablegrid:not(.md-row-select) th.md-column:first-child {
+    padding: 0 10px;
+}
+table.md-tablegrid:not(.md-row-select) td.md-cell:nth-child(n+2):nth-last-child(n+2),
+table.md-tablegrid:not(.md-row-select) th.md-column:nth-child(n+2):nth-last-child(n+2) {
+    padding: 0 5px 0 0;
+}
+/*table.md-tablegrid td.md-cell
+{
+    vertical-align: middle;
+    color: rgba(0, 0,255,1.0);
+
+    font-size: 8pt; 
+    font-weight: normal;
+    white-space: nowrap;
+
+    // font-size: 28px;
+    text-align: left;
+}*/
+table.md-tablegrid th.md-column {
+    vertical-align: middle;
+    color: rgba(0, 0,255,1.0);
+    background-color: rgba(255,255,0,0.4);
+    font-size: 10pt; 
+    font-weight: normal;
+    white-space: nowrap;
+
+    // font-size: 28px;
+    text-align: left;
+}
+table.md-tablegrid td.md-cell > *,
+table.md-tablegrid th.md-column > * {
+    vertical-align: middle;
+}
+table.md-tablegrid td.md-cell:last-child,
+table.md-tablegrid th.md-column:last-child {
+    padding: 0 24px 0 0;
+}
+table.md-tablegrid td.md-cell.md-clickable,
+table.md-tablegrid th.md-column.md-clickable {
+    cursor: pointer;
+}
+table.md-tablegrid td.md-cell.md-clickable:focus,
+table.md-tablegrid th.md-column.md-clickable:focus {
+    outline: none;
+}
+table.md-tablegrid td.md-cell.md-numeric,
+table.md-tablegrid th.md-column.md-numeric {
+    text-align: right;
+}
+table.md-tablegrid td.md-cell md-checkbox,
+table.md-tablegrid th.md-column md-checkbox {
+    margin: 0;
+    width: 10px;
+}
+table.md-tablegrid td.md-cell {
+    color: rgba(0, 0, 0, 1);
+    font-size: 12px;
+
+    border-top: 1px rgba(0, 0, 0, 0.12) solid;
+}
+table.md-tablegrid td.md-cell.md-numeric md-select {
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+table.md-tablegrid td.md-cell.md-numeric md-select .md-select-value {
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+}
+table.md-tablegrid td.md-cell.md-placeholder {
+    color: rgba(0, 0, 0, 0.26);
+}
+table.md-tablegrid td.md-cell md-select > .md-select-value > span.md-select-icon {
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    color: rgba(250, 0, 0, 0.54);
+    width: 18px;
+    text-align: right;
+}
+table.md-tablegrid td.md-cell md-select > .md-select-value > span.md-select-icon:after {
+    -webkit-transform: scaleY(0.4) scaleX(0.8);
+    transform: scaleY(0.4) scaleX(0.8);
+}
+
+
+md-toolbar {
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    font-size: 20px;
+    min-height: 42px;
+    width: 100%;
+    -webkit-transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1);
+    transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1);
+    -webkit-transition-property: background-color, fill, color;
+    transition-property: background-color, fill, color;
+}
+.md-toolbar-tools {
+    font-size: 20px;
+    letter-spacing: 0.005em;
+    box-sizing: border-box;
+    font-weight: 400;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: 100%;
+    height: 42px;
+    max-height: 42px;
+    padding: 0 16px;
+    margin: 0;
+
+
+}
+
+.filtertext{
+    height: 20px;
+    padding-top: 2px;
+    padding-right: 1px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+}

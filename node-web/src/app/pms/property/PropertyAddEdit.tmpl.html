@@ -1,0 +1,38 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar md-theme="{{triSkin.elements.content}}">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span> Upload Excel     </span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-dialog-content class="sticky-container">
+        <div> 
+           <form name="propertyupload" novalidate>
+                
+ <md-input-container class="md-block">
+                    <label>Upload Excel</label>
+                        <input  ng-model="propertyupload.file" name="file" id="image10"  ngf-select="uploadimage11($files)" type="file" reqired>
+                                            
+                    <div ng-messages="propertyupload.file.$error">
+                         <div ng-message="required">
+                           Select Excel File
+                        </div>
+                    </div>
+                </md-input-container>
+
+            </form>
+        </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()" class="md-primary">
+            Cancel
+        </md-button>
+        <md-button ng-click="hide()" class="md-primary" ng-disabled="propertyupload.$invalid">
+            Ok
+        </md-button>
+    </div>
+</md-dialog>

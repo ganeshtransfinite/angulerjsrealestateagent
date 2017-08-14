@@ -1,0 +1,101 @@
+<div class="full-image-background mb-bg-01 padding-20 padding-top-200 overlay-gradient-30" layout="row" layout-align="center start">
+    <div class="margin-right-20">
+        <img src="assets/images/avatars/avatar-5.png" alt="girl-avatar" class="make-round" width="100"/>
+    </div>
+    <div class="text-light">
+        <h3 class="font-weight-600 margin-bottom-0 text-light"> {{ vm.adminuser.fullname}} / Profile</h3>
+        <p class="font-weight-300 margin-top-0">Edit your name, password etc</p>
+    </div>
+</div>
+
+<div layout="row" class="profile" layout-wrap>
+    <div flex="100" flex-gt-md="100">
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Profile">
+                <md-content class="md-padding">
+                    <form name="profile">
+                        <div class="md-input-message-animation ng-binding ng-scope" >
+                           {{vm.adminuser.error}}
+                        </div>
+                        <md-input-container class="md-block">
+                            <label>{{'adminmenu.user.DIALOG.email'| translate}}</label>
+                            <input ng-model="adminuser.email" class="dialog-close" name="email" 
+                                   id="email" type="text"  ng-change="vm.checkExist('fullname', adminuser.email, adminuser.userid)" required> 
+                            <div ng-messages="userfrom.email.$error">
+                                <div ng-message="required">
+                                    {{'adminmenu.user.DIALOG.userform.PLEASE_email_required'| translate}}
+                                </div>
+                                <div ng-message="email">
+                                    {{'adminmenu.user.DIALOG.userform.PLEASE_email_email'| translate}}
+                                </div>
+                            </div> 
+                            <div class="md-input-message-animation ng-binding ng-scope" ng-show="adminuser.checkExistCustomerEmail">
+                                Email is already in database.
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label>{{'adminmenu.user.DIALOG.fullname'| translate}}</label>
+                            <input ng-model="adminuser.fullname" class="dialog-close" name="fullname" 
+                                   id="fullname" type="text" required> 
+                            <div ng-messages="userfrom.fullname.$error">
+                                <div ng-message="required">
+                                    {{'adminmenu.user.DIALOG.userform.PLEASE_fullname_required'| translate}}
+                                </div>
+                            </div>
+                        </md-input-container>
+
+
+                        <md-button class="md-raised md-primary margin-left-0" ng-click="vm.updateProfile()" ng-disabled="profile.$invalid" translate="PROFILE.BUTTON"></md-button>
+                    </form>
+                </md-content>
+            </md-tab>
+            <md-tab label="Password">
+                <md-content class="md-padding">
+                    <form name="password">
+ <div class="md-input-message-animation ng-binding ng-scope" >
+                           {{vm.adminuser.error1}}
+                        </div>
+                        <md-input-container class="md-block">
+                            <label>{{'PROFILE.PASSWORD.CURRENT'| translate}}</label>
+                            <input ng-model="adminuser.oldpwd" class="dialog-close" name="oldpwd" 
+                                   id="oldpwd" type="text" required> 
+                            <div ng-messages="userfrom.oldpwd.$error">
+                                <div ng-message="required">
+                                    {{'adminmenu.user.DIALOG.userform.PLEASE_password_required'| translate}}
+                                </div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>{{'adminmenu.user.DIALOG.password'| translate}}</label>
+                            <input ng-model="adminuser.password" class="dialog-close" name="password" 
+                                   id="password" type="text" required> 
+                            <div ng-messages="userfrom.password.$error">
+                                <div ng-message="required">
+                                    {{'adminmenu.user.DIALOG.userform.PLEASE_password_required'| translate}}
+                                </div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>{{'adminmenu.user.DIALOG.confirmpassword'| translate}}</label>
+                            <input ng-model="adminuser.confirmpassword" class="dialog-close" name="confirmpassword" 
+                                   id="confirmpassword" type="text" required match="elhuser.password"> 
+                            <div ng-messages="userfrom.confirmpassword.$error">
+                                <div ng-message="required">
+                                    {{'adminmenu.user.DIALOG.userform.PLEASE_confirmpassword_required'| translate}}
+                                </div>
+                                <div ng-message="match">
+                                    {{'adminmenu.user.DIALOG.userform.PLEASE_confirmpassword_match'| translate}}
+                                </div>
+                            </div>
+                        </md-input-container>
+                        <md-button class="md-raised md-primary margin-left-0" ng-click="vm.updatepwd()" ng-disabled="profile.$invalid" translate="PROFILE.BUTTON"></md-button>
+
+                    </form>
+                </md-content>
+            </md-tab>
+
+        </md-tabs>
+    </div>
+
+</div>

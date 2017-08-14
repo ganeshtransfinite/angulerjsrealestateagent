@@ -1,0 +1,95 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar class="md-primary" layout="row"  layout-align="space-between center">
+        <div class="md-toolbar-tools" >
+            <h2>View Inquiry  </h2> 
+        </div>
+        <md-button ng-click="hide()"  class="md-fab md-mini" aria-label="Close">
+            <md-icon md-font-icon="zmdi zmdi-close-circle"></md-icon>
+        </md-button>
+    </md-toolbar>
+    <md-dialog-content class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10" >
+        <md-whiteframe class="md-whiteframe-18dp"    layout layout-align="center center">
+            <div flex="100" layout="column" class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10">
+                 
+             
+                <md-divider></md-divider>
+                <div  layout="row" layout-align="space-between center">    
+                    <div flex="100">
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.inquiryid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.inquiryid}}  </div>
+                        </div>   
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.dateofinquiry}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.dateofinquiry | date:'dd/MM/yyyy'}}  </div>
+                        </div>  
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.name}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.name}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.mobileno}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.mobileno}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.email}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.email}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.budget}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.budget}}  </div>
+                        </div>   
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.fromperiod}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.fromperiod | date:'dd/MM/yyyy'}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.propertypriorityid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.propertypriorityid.__fkey__}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.propertylbedroomsid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.propertylbedroomsid.__fkey__}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.cityid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.cityid.__fkey__}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.propertylocalityid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.propertylocalityid.__fkey__}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.propertyfacingid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.propertyfacingid.__fkey__}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.userid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.userid.__fkey__}}  </div>
+                        </div>  
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.active}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.active}}  </div>
+                        </div>   
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.createddate}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.createddate | date:'dd/MM/yyyy'}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.modifyddate}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.modifyddate | date:'dd/MM/yyyy'}}  </div>
+                        </div>  
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.inquiry.GRID.recordorder}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::inquiryobj.recordorder}}  </div>
+                        </div>   
+"
+                    </div>
+               
+                </div>
+                <md-divider></md-divider>
+            
+            </div>   </md-whiteframe>
+    </md-dialog-content>
+</md-dialog>

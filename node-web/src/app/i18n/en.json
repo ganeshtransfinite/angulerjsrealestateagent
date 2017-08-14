@@ -1,0 +1,1403 @@
+{
+    "ADMIN": {
+        "TOOLBAR": {
+            "PROFILE": "Profile",
+            "SETTINGS": "Settings",
+            "LOGOUT": "Logout",
+            "EXPORTDATA": "Export Data",
+            "EXCEL": "Excel",
+            "WORD": "Word",
+            "PP": "Power Point",
+            "xml": "XML",
+            "Print": "Print",
+            "csv": "CSV"
+        }
+    },
+    "HEADER": {
+        "HEADING": "U & V Property"
+    },
+    "LOGIN": {
+        "TITLE": "Login",
+        "EMAIL": {
+            "LABEL": "email",
+            "PLEASE_ENTER": "Please enter your email address.",
+            "PLEASE_VALID": "Please enter a valid email address."
+        },
+        "PASSWORD": {
+            "LABEL": "password",
+            "PLEASE_ENTER": "Please enter your password."
+        },
+        "REMEMBER": "Remember Me",
+        "FORGOT": "Forgot password?",
+        "BUTTON": "Log in",
+        "SIGNUP_LINK": "Don't have an account? Create one now",
+        "SOCIAL": {
+            "OR": "or login with"
+        },
+        "MESSAGES": {
+            "ACCESS_DENIED": "Username / Password Incorrect"
+        }
+    },
+    "SIGNUP": {
+        "TITLE": "Sign up",
+        "NAME": {
+            "LABEL": "name",
+            "PLEASE_ENTER": "Please enter your name"
+        },
+        "EMAIL": {
+            "LABEL": "email",
+            "PLEASE_ENTER": "Please enter your email address",
+            "PLEASE_VALID": "Please enter a valid email address"
+        },
+        "PASSWORD": {
+            "LABEL": "password",
+            "PLEASE_ENTER": "Please enter a password",
+            "MIN_LENGTH": "Your password must be greater than 8 characters long",
+            "SAME_PASSWORD": "You need to enter the same password"
+        },
+        "PASSWORD_CONFIRM": {
+            "LABEL": "confirm password"
+        },
+        "BUTTON": "Sign Up",
+        "HAVE_LOGIN": "Already have an account? Login here.",
+        "MESSAGES": {
+            "CONFIRM_SENT": "Confirmation sent",
+            "LOGIN_NOW": "Login",
+            "NO_SIGNUP": "Could not sign user up"
+        }
+    },
+    "LOCK": {
+        "TITLE": "Welcome back",
+        "LOGGED_OUT": "You have been logged out due to idleness. Enter your password to log back in.",
+        "PASSWORD": {
+            "LABEL": "password",
+            "PLEASE_ENTER": "Please enter your password."
+        },
+        "LOGIN": "Log in",
+        "LOGOUT": "Log out",
+        "MESSAGES": {
+            "ACCESS_DENIED": "Username / Password Incorrect"
+        }
+    },
+    "FORGOT": {
+        "TITLE": "Forgot your password?",
+        "ENTER_EMAIL": "Please enter your email below",
+        "EMAIL": {
+            "LABEL": "email",
+            "PLEASE_ENTER": "Please enter your email address.",
+            "PLEASE_VALID": "Please enter a valid email address."
+        },
+        "RESET": "Reset",
+        "LOGIN": "Remembered it? Login in here",
+        "MESSAGES": {
+            "RESET_SENT": "Your new password has been mailed",
+            "LOGIN_NOW": "Login",
+            "NO_RESET": "Could not reset users password"
+        }
+    },
+    "PROFILE": {
+        "TITLE": "Profile",
+        "NAME": {
+            "LABEL": "name",
+            "PLEASE_ENTER": "Please enter your name"
+        },
+        "EMAIL": {
+            "LABEL": "email",
+            "PLEASE_ENTER": "Please enter your email address",
+            "PLEASE_VALID": "Please enter a valid email address"
+        },
+        "LOCATION": {
+            "LABEL": "location"
+        },
+        "WEBSITE": {
+            "LABEL": "website"
+        },
+        "BIO": {
+            "LABEL": "bio"
+        },
+        "TWITTER": {
+            "LABEL": "twitter"
+        },
+        "PASSWORD": {
+            "LABEL": "new password",
+            "CURRENT": "current",
+            "PLEASE_ENTER": "Please enter a password",
+            "MIN_LENGTH": "Your password must be greater than 8 characters long",
+            "SAME_PASSWORD": "You need to enter the same password"
+        },
+        "PASSWORD_CONFIRM": {
+            "LABEL": "confirm password"
+        },
+        "BUTTON": "Update Settings"
+    },
+    "FORMS": {
+        "WIZARD": {
+            "INTRO": "We have combined material tabs and form inputs to create an interactive form wizardController.  We have also added validation messages to all fields and prevented the user from completing a step in the wizard until it is valid.",
+            "COMPLETE": "Complete",
+            "CREATE": "Account details",
+            "YOUR-ADDRESS": "Your address",
+            "YOUR-BILLING": "Billing details",
+            "CONFIRM": "Confirmation",
+            "USERNAME": "Username",
+            "PASSWORD": "Password",
+            "PASSWORD-CONFIRM": "Confirm password",
+            "NEXT": "Next",
+            "PREV": "Previous",
+            "SEND": "Send",
+            "FIRST-NAME": "First name",
+            "LAST-NAME": "Last name",
+            "ADDRESS": "Address Line 1",
+            "ADDRESS-2": "Address Line 2",
+            "TOWN": "Town",
+            "STATE": "State",
+            "ZIP": "Zip",
+            "COUNTRY": "Country",
+            "US": "United States",
+            "CARD-NUMBER": "Credit card number",
+            "CARD-NAME": "Name on card",
+            "CARD-EX-MONTH": "Expiry date (MM)",
+            "CARD-EX-YEAR": "Expiry date (YYYY)",
+            "PLEASE-ENTER": "This field is required",
+            "PLEASE-VALID": "Please enter a valid email",
+            "CARD-MONTH-ERROR": "Month must be in the format MM",
+            "CARD-YEAR-ERROR": "Year must be in the format YYYY",
+            "CONGRATS": "Congratulations - we will be in touch"
+        },
+        "AUTH": {
+            "AUTH": "Authentication",
+            "LOGIN": "Login",
+            "SIGN_UP": "Sign Up",
+            "FORGOT": "Forgot Password",
+            "LOCK": "Lock Page",
+            "PROFILE": "Profile"
+        }
+    },
+    "adminmenu": {
+        "admin": {
+            "ADMIN": "Admin",
+            "pms": "Property",
+            "dropdown": "Dropdown"
+        },
+        "role": {
+            "NAME": "Role Management",
+            "role": "Role",
+            "DIALOG": {
+                "NEW": "Add Role",
+                "roleid": "Role ID",
+                "name": "Name",
+                "active": "active",
+                "roleform": {
+                    "PLEASE_name_required": "The Name is required"
+                }
+            },
+            "GRID": {
+                "roleid": "Role ID",
+                "name": "Name",
+                "active": "active"
+            }
+        },
+        "user": {
+            "NAME": "User Management",
+            "user": "User",
+            "DIALOG": {
+                "NEW": "Add User",
+                "userid": "",
+                "email": "Email",
+                "password": "Password",
+                "confirmpassword": "Confirm Password",
+                "roleid": "Role",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "fullname": " Full Name",
+                "userform": {
+                    "PLEASE_email_required": "The Email is required",
+                    "PLEASE_email_email": "Please enter the proper Email",
+                    "PLEASE_password_required": "The Password is required",
+                    "PLEASE_confirmpassword_required": "The Confirm Password is required",
+                    "PLEASE_confirmpassword_match": "Please password and Confirm password must be matched",
+                    "PLEASE_roleid_required": "The Role is required",
+                    "PLEASE_fullname_required": "The Full Name is required"
+                }
+            },
+            "GRID": {
+                "userid": "User ID",
+                "email": "Email",
+                "password": "Password",
+                "confirmpassword": "Confirm Password",
+                "roleid": "Role",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "fullname": "Full Name"
+            }
+        }
+
+        ,
+        "operation": {
+            "NAME": "Operation Management",
+            "operation": "Operation",
+            "DIALOG": {
+                "NEW": "Add Operation",
+                "operationid": " Operation ID",
+                "name": " Name",
+                "funname": " Funtion Name",
+                "url": " Url",
+                "operationform": {
+                    "PLEASE_name_required": "The Name is required"
+                }
+            },
+            "GRID": {
+                "operationid": "Operation ID",
+                "name": "Name",
+                "funname": "Funtion Name",
+                "url": "Url"
+            }
+        },
+        "rolepermission": {
+            "NAME": "Role Permission Management",
+            "rolepermission": "Role Permission",
+            "DIALOG": {
+                "NEW": "Add Role Permission",
+                "rolepermissionid": " Role Permission ID",
+                "pfunction": " Access",
+                "roleid": " Role",
+                "operationid": " Operation",
+                "rolepermissionform": {
+                    "PLEASE_roleid_required": "The Role is required",
+                    "PLEASE_operationid_required": "The Operation is required"
+                }
+            },
+            "GRID": {
+                "rolepermissionid": "Role Permission ID",
+                "pfunction": "Access",
+                "roleid": "Role",
+                "operationid": "Operation"
+            }
+        }
+
+
+
+
+    },
+    "404": "404",
+    "500": "500",
+    "Go back home": "Go back home",
+    "Page not found": "Page not found",
+    "Sorry, the page you are looking for cannot be found here. Head back to the home page and start from there.": "Sorry, the page you are looking for cannot be found here. Head back to the home page and start from there.",
+    "Something went wrong.": "Something went wrong.",
+    "Sorry, something has gone wrong.": "Sorry, something has gone wrong.",
+    "Cancel": "Cancel",
+    "Ok": "Ok",
+    "Settings": "Settings",
+    "Profile": "Profile",
+    "DASHBOARDS": "Dashboards",
+    "UI": "UI",
+    "SKINS": "Skins",
+    "ANALYTICS": "Analytics",
+    "Logout": "Logout",
+    "Toggle Menu": "Toggle Menu",
+    "Account Settings": "Account Settings",
+    "Chat Settings": "Chat Settings",
+    "User Statistics": "User Statistics",
+    "Server Statistics": "Server Statistics",
+    "Show my location": "Show my location",
+    "Show my avatar": "Show my avatar",
+    "Send me notifications": "Send me notifications",
+    "Allow cloud backups": "Allow cloud backups",
+    "Show my username": "Show my username",
+    "Make my profile public": "Make my profile public",
+    "Storage Space (120/160 Gb)": "Storage Space (120/160 Gb)",
+    "Bandwidth Usage (10/100 Gb)": "Bandwidth Usage (10/100 Gb)",
+    "Memory Usage (1/8 Gb)": "Memory Usage (1/8 Gb)",
+    "Chinese": "Chinese",
+    "English": "English",
+    "French": "French",
+    "Portuguese": "Portuguese",
+    "Next Page": "Next Page",
+    "Previous Page": "Previous Page",
+    "of": "of",
+    "Rows per page:": "Rows per page:",
+    "Language Changed": "Language Changed",
+    "Seed Module": "Seed Module",
+    "Start Page": "Start Page",
+    "Welcome to the triangular test page": "Welcome to the triangular test page",
+    "Authentication": "Authentication",
+    "Login": "Login",
+    "Sign Up": "Sign Up",
+    "Forgot Password": "Forgot Password",
+    "Lock Page": "Lock Page",
+    "Triangular": "Triangular",
+    "email": "email",
+    "Please enter your email address.": "Please enter your email address.",
+    "Please enter a valid email address.": "Please enter a valid email address.",
+    "password": "password",
+    "Please enter your password.": "Please enter your password.",
+    "Remember Me": "Remember Me",
+    "Forgot password?": "Forgot password?",
+    "Log in": "Log in",
+    "Don't have an account? Create one now": "Don't have an account? Create one now",
+    "or login with": "or login with",
+    "Username / Password Incorrect": "Username / Password Incorrect",
+    "Sign up": "Sign up",
+    "name": "name",
+    "Please enter your name": "Please enter your name",
+    "Please enter your email address": "Please enter your email address",
+    "Please enter a valid email address": "Please enter a valid email address",
+    "Please enter a password": "Please enter a password",
+    "Your password must be greater than 8 characters long": "Your password must be greater than 8 characters long",
+    "You need to enter the same password": "You need to enter the same password",
+    "confirm password": "confirm password",
+    "Already have an account? Login here.": "Already have an account? Login here.",
+    "Confirmation sent": "Confirmation sent",
+    "Could not sign user up": "Could not sign user up",
+    "Welcome back": "Welcome back",
+    "You have been logged out due to idleness. Enter your password to log back in.": "You have been logged out due to idleness. Enter your password to log back in.",
+    "Log out": "Log out",
+    "Forgot your password?": "Forgot your password?",
+    "Please enter your email below": "Please enter your email below",
+    "Reset": "Reset",
+    "Remembered it? Login in here": "Remembered it? Login in here",
+    "Your new password has been mailed": "Your new password has been mailed",
+    "Could not reset users password": "Could not reset users password",
+    "location": "location",
+    "website": "website",
+    "bio": "bio",
+    "twitter": "twitter",
+    "new password": "new password",
+    "current": "current",
+    "Update Settings": "Update Settings",
+    "Calendar": "Calendar",
+    "Add": "Add",
+    "Save": "Save",
+    "Add Event": "Add Event",
+    "Edit Event": "Edit Event",
+    "Delete": "Delete",
+    "Title": "Title",
+    "All day": "All day",
+    "Start": "Start",
+    "End": "End",
+    "Start Time": "Start Time",
+    "End Time": "End Time",
+    "Location": "Location",
+    "Description": "Description",
+    "Color": "Color",
+    "Pick a color": "Pick a color",
+    "New Event": "New Event",
+    "Event Created": "Event Created",
+    "Event Updated": "Event Updated",
+    "Event Deleted": "Event Deleted",
+    "Year": "Year",
+    "Month": "Month",
+    "Date": "Date",
+    "Hour": "Hour",
+    "Minute": "Minute",
+    "January": "January",
+    "February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December",
+    "Change View": "Change View",
+    "Week": "Week",
+    "Day": "Day",
+    "Charts": "Charts",
+    "Google": "Google",
+    "Chart.js": "Chart.js",
+    "Bar": "Bar",
+    "Line": "Line",
+    "Scatter": "Scatter",
+    "Pie": "Pie",
+    "Ticker": "Ticker",
+    "Dashboards": "Dashboards",
+    "General": "General",
+    "Analytics": "Analytics",
+    "Server": "Server",
+    "Sales": "Sale Cost",
+    "Widgets": "Widgets",
+    "Social": "Social",
+    "Draggable": "Draggable",
+    "Contacts": "Contacts",
+    "Chat": "Chat",
+    "Total Sales": "Sale Cost",
+    "All Time Earnings": "All Time Earnings",
+    "Total Earnings": "Total Earnings",
+    "Orders": "Orders",
+    "Order Status": "Order Status",
+    "Top Product Categories": "Top Product Categories",
+    "Date Range Updated": "Date Range Updated",
+    "Select a date range": "Select a date range",
+    "Start Date": "Start Date",
+    "End Date": "End Date",
+    "Order #": "Order #",
+    "Order Date": "Order Date",
+    "Owner Name": "Owner Name",
+    "Owner Email": "Owner Email",
+    "Number of Items": "Number of Items",
+    "Product Description": "Product Description",
+    "Category": "Category",
+    "Price": "Price",
+    "Sub Total": "Sub Total",
+    "Tax": "Tax",
+    "Total": "Total",
+    "Comments": "Comments",
+    "Tweets": "Tweets",
+    "Likes": "Likes",
+    "Reach": "Reach",
+    "Pageviews & Visits": "Pageviews & Visits",
+    "Referral Traffic": "Referral Traffic",
+    "Network Referrals": "Network Referrals",
+    "11/03/15 - 11/4/15": "11/03/15 - 11/4/15",
+    "IP Address": "IP Address",
+    "Memory": "Memory",
+    "Disk": "Disk",
+    "Real Time": "Real Time",
+    "24 Hours": "24 Hours",
+    "7 Days": "7 Days",
+    "365 Days": "365 Days",
+    "CPU": "CPU",
+    "Bandwidth": "Bandwidth",
+    "Disks": "Disks",
+    "Host Job Queue": "Host Job Queue",
+    "Server Status": "Server Status",
+    "Your server is currently": "Your server is currently",
+    "Running": "Running",
+    "Restart": "Restart",
+    "Shut Down": "Shut Down",
+    "Monthly Usage": "Monthly Usage",
+    "of monthly limit": "of monthly limit",
+    "Current tasks": "Current tasks",
+    "Disk Usage": "Disk Usage",
+    "Update your status": "Update your status",
+    "Whats on your mind?": "Whats on your mind?",
+    "Refresh": "Refresh",
+    "Details": "Details",
+    "Share": "Share",
+    "Print": "Print",
+    "Server Uptime": "Server Uptime",
+    "Full Data": "Full Data",
+    "Drag Me!": "Drag Me!",
+    "You only need to specify the container you want to use.": "You only need to specify the container you want to use.",
+    "You can re-order these widgets inside the container.": "You can re-order these widgets inside the container.",
+    "It works for all elements, not only widgets!": "It works for all elements, not only widgets!",
+    "Moving them outside their container is not quite possible.": "Moving them outside their container is not quite possible.",
+    "Elements": "Elements",
+    "Buttons": "Buttons",
+    "Cards": "Cards",
+    "Icons": "Icons",
+    "Checkboxes": "Checkboxes",
+    "Switches": "Switches",
+    "Radios": "Radios",
+    "Dialogs": "Dialogs",
+    "Grids": "Grids",
+    "FAB Speed Dial": "FAB Speed Dial",
+    "FAB Toolbar": "FAB Toolbar",
+    "Tabs": "Tabs",
+    "Sliders": "Sliders",
+    "Selects": "Selects",
+    "Tables": "Tables",
+    "Progress": "Progress",
+    "Sidebars": "Sidebars",
+    "Toolbars": "Toolbars",
+    "Textangular": "Textangular",
+    "Tooltips": "Tooltips",
+    "Whiteframes": "Whiteframes",
+    "Toasts": "Toasts",
+    "Lists": "Lists",
+    "Chips": "Chips",
+    "Menus": "Menus",
+    "Upload": "Upload",
+    "Loader": "Loader",
+    "Datepicker": "Datepicker",
+    "Name": "Name",
+    "Date of Birth": "Date of Birth",
+    "Avatar": "Avatar",
+    "ID": "ID",
+    "Email": "Email",
+    "Inbox": "Inbox",
+    "Trash": "Trash",
+    "Sent": "Sent",
+    "Search": "Search",
+    "Today": "Today",
+    "Yesterday": "Yesterday",
+    "Older": "Older",
+    "From": "From",
+    "CC": "CC",
+    "BCC": "BCC",
+    "Subject": "Subject",
+    "Send": "Send",
+    "Please enter an address to send to.": "Please enter an address to send to.",
+    "Please enter a subject for the email.": "Please enter a subject for the email.",
+    "To": "To",
+    "Compose": "Compose",
+    "Email to {{to}} sent.": "Email to {{to}} sent.",
+    "Email canceled": "Email canceled",
+    "Reply": "Reply",
+    "Reply All": "Reply All",
+    "Forward": "Forward",
+    "Email Deleted": "Email Deleted",
+    "R.e: ": "R.e: ",
+    "Close": "Close",
+    "Message": "Message",
+    "No emails found": "No emails found",
+    "No email selected": "No email selected",
+    "Message Reply": "Message Reply",
+    "404 Page": "404 Page",
+    "500 Page": "500 Page",
+    "Extras": "Extras",
+    "Gallery": "Gallery",
+    "Avatars": "Avatars",
+    "Blank Page": "Blank Page",
+    "Timeline": "Timeline",
+    "Forms": "Forms",
+    "Inputs": "Inputs",
+    "Data Binding": "Data Binding",
+    "Autocomplete": "Autocomplete",
+    "Validation": "Validation",
+    "Wizard": "Wizard",
+    "We have combined material tabs and form inputs to create an interactive form wizardController.  We have also added validation messages to all fields and prevented the user from completing a step in the wizard until it is valid.": "We have combined material tabs and form inputs to create an interactive form wizardController.  We have also added validation messages to all fields and prevented the user from completing a step in the wizard until it is valid.",
+    "Complete": "Complete",
+    "Account details": "Account details",
+    "Your address": "Your address",
+    "Billing details": "Billing details",
+    "Confirmation": "Confirmation",
+    "Username": "Username",
+    "Password": "Password",
+    "Confirm password": "Confirm password",
+    "Next": "Next",
+    "Previous": "Previous",
+    "First name": "First name",
+    "Last name": "Last name",
+    "Address Line 1": "Address Line 1",
+    "Address Line 2": "Address Line 2",
+    "Town": "Town",
+    "State": "State",
+    "Zip": "Zip",
+    "Country": "Country",
+    "United States": "United States",
+    "Credit card number": "Credit card number",
+    "Name on card": "Name on card",
+    "Expiry date (MM)": "Expiry date (MM)",
+    "Expiry date (YYYY)": "Expiry date (YYYY)",
+    "This field is required": "This field is required",
+    "Please enter a valid email": "Please enter a valid email",
+    "Month must be in the format MM": "Month must be in the format MM",
+    "Year must be in the format YYYY": "Year must be in the format YYYY",
+    "Congratulations - we will be in touch": "Congratulations - we will be in touch",
+    "GitHub": "GitHub",
+    "Join the team": "Join the team",
+    "Anyone who buys triangular can now join the team and see changes as they happen, submit pull requests, create issues and get involved!": "Anyone who buys triangular can now join the team and see changes as they happen, submit pull requests, create issues and get involved!",
+    "Fill in the form below to join": "Fill in the form below to join",
+    "Triangular Purchase Code": "Triangular Purchase Code",
+    "GitHub Username": "GitHub Username",
+    "Please enter a valid purchase code": "Please enter a valid purchase code",
+    "Please enter your GitHub username": "Please enter your GitHub username",
+    "Give me access to the repository": "Give me access to the repository",
+    "Layouts": "Layouts",
+    "Composer": "Composer",
+    "Full Width Layout": "Full Width Layout",
+    "Icon Menu": "Icon Menu",
+    "Tall Toolbar with background": "Tall Toolbar with background",
+    "Hidden": "Hidden",
+    "Full Size": "Full Size",
+    "Default": "Default",
+    "Medium": "Medium",
+    "Tall": "Tall",
+    "Maps": "Maps",
+    "Fullwidth": "Fullwidth",
+    "Demos": "Demos",
+    "Level 1-1": "Level 1-1",
+    "Level 2-1": "Level 2-1",
+    "Level 3-1": "Level 3-1",
+    "Level 4-1": "Level 4-1",
+    "Level 4-2": "Level 4-2",
+    "Level 4-3": "Level 4-3",
+    "Dynamic Menu": "Dynamic Menu",
+    "Dynamic Menu Page": "Dynamic Menu Page",
+    "To do": "To do",
+    "To do list": "To do list",
+    "Note": "Note",
+    "Remove items from the list by swiping right": "Remove items from the list by swiping right",
+    "Add Task": "Add Task",
+    "Task Name": "Task Name",
+    "High": "High",
+    "Low": "Low",
+    "Priority": "Priority",
+    "Please enter a task name": "Please enter a task name",
+    "UI": "UI",
+    "Colors": "Colors",
+    "Font Awesome": "Font Awesome",
+    "Material Icons": "Material Icons",
+    "Typography": "Typography",
+    "Toolbar": "Toolbar",
+    "Sandbox": "Sandbox",
+    "Skins": "Skins",
+    "Weather Icons": "Weather Icons",
+    "Size": "Size",
+    "Choose a size": "Choose a size",
+    "Change the size of the admin panel top toolbar": "Change the size of the admin panel top toolbar",
+    "Background": "Background",
+    "Use image background on toolbar": "Use image background on toolbar",
+    "Scroll Shrink": "Scroll Shrink",
+    "Hide toolbar on scroll": "Hide toolbar on scroll",
+    "Logo": "Logo",
+    "Sidebar": "Sidebar",
+    "Content": "Content",
+    "Choose a skin": "Choose a skin",
+    "Try It": "Try It",
+    "MENU": {
+        "propertyfurnished": {
+            "NAME": "Property Furnished Management",
+            "propertyfurnished": "Property Furnished",
+            "DIALOG": {
+                "NEW": "Add Property Furnished",
+                "propertyfurnishedid": "Furnished ID",
+                "name": "Furnished",
+                "propertyfurnishedform": {
+                    "PLEASE_name_required": "The Furnished is required"
+                }
+            },
+            "GRID": {
+                "propertyfurnishedid": "Furnished ID",
+                "name": "Furnished"
+            }
+        }
+
+        ,
+        "propertykey": {
+            "NAME": "Property Key Management",
+            "propertykey": "Property Key",
+            "DIALOG": {
+                "NEW": "Add Property Key",
+                "propertykeyid": " Property Key ID",
+                "name": " Key",
+                "propertykeyform": {
+                    "PLEASE_name_required": "The Key is required"
+                }
+            },
+            "GRID": {
+                "propertykeyid": "Property Key ID",
+                "name": "Key"
+            }
+        }
+
+        ,
+        "occupation": {
+            "NAME": "Occupation Management",
+            "occupation": "Occupation",
+            "DIALOG": {
+                "NEW": "Add Occupation",
+                "occupationid": "Occupation ID",
+                "name": "Occupation",
+                "occupationform": {
+                    "PLEASE_name_required": "The Occupation is required"
+                }
+            },
+            "GRID": {
+                "occupationid": "Occupation ID",
+                "name": "Occupation"
+            }
+        }
+
+        ,
+        "gender": {
+            "NAME": "Gender Management",
+            "gender": "Gender",
+            "DIALOG": {
+                "NEW": "Add Gender",
+                "genderid": "Gender ID",
+                "name": "Gender Type",
+                "genderform": {
+                    "PLEASE_name_required": "The Gender Type is required"
+                }
+            },
+            "GRID": {
+                "genderid": "Gender ID",
+                "name": "Gender Type"
+            }
+        }
+
+        ,
+        "city": {
+            "NAME": "City Management",
+            "city": "City",
+            "DIALOG": {
+                "NEW": "Add City",
+                "cityid": "City Id",
+                "name": "City",
+                "cityform": {
+                    "PLEASE_name_required": "The City is required"
+                }
+            },
+            "GRID": {
+                "cityid": "City Id",
+                "name": "City"
+            }
+        }
+
+        ,
+        "propertytype": {
+            "NAME": "Property Type Management",
+            "propertytype": "Property Type",
+            "DIALOG": {
+                "NEW": "Add Property Type",
+                "propertytypeid": "Property Type ID",
+                "name": "Property Type",
+                "propertytypeform": {
+                    "PLEASE_name_required": "The Property Type is required"
+                }
+            },
+            "GRID": {
+                "propertytypeid": "Property Type ID",
+                "name": "Property Type"
+            }
+        }
+
+        ,
+        "propertyavailibility": {
+            "NAME": "Property Availibility Management",
+            "propertyavailibility": "Property Availibility",
+            "DIALOG": {
+                "NEW": "Add Property Availibility",
+                "propertyavailibilityid": "Availibility Id",
+                "name": "Availibility",
+                "propertyavailibilityform": {
+                    "PLEASE_name_required": "The Availibility is required"
+                }
+            },
+            "GRID": {
+                "propertyavailibilityid": "Availibility Id",
+                "name": "Availibility"
+            }
+        }
+
+        ,
+        "propertylbedrooms": {
+            "NAME": "Property BHK Management",
+            "propertylbedrooms": "Property BHK",
+            "DIALOG": {
+                "NEW": "Add Property Bed Rooms",
+                "propertylbedroomsid": "Bed Rooms ID",
+                "name": "Bed Rooms No of",
+                "propertylbedroomsform": {
+                    "PLEASE_name_required": "The Bed Rooms No of is required"
+                }
+            },
+            "GRID": {
+                "propertylbedroomsid": "BID",
+                "name": "BHK"
+            }
+        }
+
+        ,
+        "propertytobe": {
+            "NAME": "Property Type Management",
+            "propertytobe": "Property Type",
+            "DIALOG": {
+                "NEW": "Add Property Type",
+                "propertytobeid": " ID",
+                "name": " Property Type",
+                "propertytobeform": {
+                    "PLEASE_name_required": "The Property Type is required"
+                }
+            },
+            "GRID": {
+                "propertytobeid": "ID",
+                "name": "Property Type"
+            }
+        }
+
+        ,
+        "inquiry": {
+            "NAME": "Enquiry Management",
+            "inquiry": "Enquiry",
+            "DIALOG": {
+                "NEW": "Add Enquiry",
+                "inquiryid": "Enquiryid",
+                "dateofinquiry": "Date of Enquiry",
+                "name": "Name",
+                "mobileno": "Mobile No",
+                "email": "Email",
+                "budgetid": "Budget",
+                "fromperiod": "From Period",
+                "propertypriorityid": "Priority",
+                "propertylbedroomsid": "BHK",
+                "cityid": "City",
+                "propertylocalityid": "Location",
+                "propertyfacingid": "Facing",
+                "userid": "Select the User",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "budget": "Budget",
+                "inquiryform": {
+                    "PLEASE_name_required": "The Name is required",
+                    "PLEASE_mobileno_required": "The Mobile No is required",
+                    "PLEASE_mobileno_ng-pattern": "Enter Proper Mobile No",
+                    "PLEASE_email_required": "The Email is required",
+                    "PLEASE_email_email": "Email id is wrong",
+                    "PLEASE_budgetid_required": "The Budget is required",
+                    "PLEASE_fromperiod_required": "The From Period is required",
+                    "PLEASE_propertypriorityid_required": "The Priority is required",
+                    "PLEASE_propertylbedroomsid_required": "The BHK is required",
+                    "PLEASE_cityid_required": "The City is required",
+                    "PLEASE_propertylocalityid_required": "The Location is required",
+                    "PLEASE_propertyfacingid_required": "The Facing is required"
+                }
+            },
+            "GRID": {
+                "inquiryid": "Enquiryid",
+                "dateofinquiry": "Date of Enquiry",
+                "name": "Name",
+                "mobileno": "Mobile No",
+                "email": "Email",
+                "budgetid": "Budget",
+                "fromperiod": "From Period",
+                "budget": "Budget",
+                "propertypriorityid": "Priority",
+                "propertylbedroomsid": "BHK",
+                "cityid": "City",
+                "propertylocalityid": "Location",
+                "propertyfacingid": "Facing",
+                "userid": "User",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date"
+            }
+        },
+        "modeoperation": {
+            "NAME": "Mode of Operation Management",
+            "modeoperation": "Mode of Operation",
+            "DIALOG": {
+                "NEW": "Add Mode of Operation",
+                "modeoperationid": "id",
+                "name": "Name",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Order",
+                "modeoperationform": {
+                    "PLEASE_name_required": "The Name is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "modeoperationid": "id",
+                "name": "Name",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "agent": {
+            "NAME": "Agent Management",
+            "agent": "Agent",
+            "DIALOG": {
+                "NEW": "Add Agent",
+                "agentid": "Agent id",
+                "name": "Name",
+                "mobile": "Mobile",
+                "email": "Email",
+                "companyname": "Company Name",
+                "address": "Address",
+                "cityid": "City",
+                "propertylocalityid": "Area of Operation",
+                "modeoperationid": "Mode of Operation",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Order",
+                "remark": "Remark",
+                "agentform": {
+                    "PLEASE_name_required": "The Name is required",
+                    "PLEASE_mobile_required": "The Mobile is required",
+                    "PLEASE_mobile_ng-pattern": "Enter Proper Mobile No",
+                    "PLEASE_email_required": "The Email is required",
+                    "PLEASE_companyname_None": "The Company Name is required",
+                    "PLEASE_address_None": "The Address is required",
+                    "PLEASE_cityid_required": "The City is required",
+                    "PLEASE_propertylocalityid_required": "The Area of Operation is required",
+                    "PLEASE_modeoperationid_required": "The Mode of Operation is required",
+                    "PLEASE_recordorder_required": "The Order is required",
+                    "PLEASE_remark_None": "The Remark is required"
+
+                }
+            },
+            "GRID": {
+                "agentid": "Agent id",
+                "name": "Name",
+                "mobile": "Mobile",
+                "email": "Email",
+                "companyname": "Company Name",
+                "address": "Address",
+                "cityid": "City",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order",
+                "propertylocalityid": "Area of Operation",
+                "modeoperationid": "Mode of Operation"
+            }
+        }
+        ,
+        "flatamenities": {
+            "NAME": "Flat Amenities Management",
+            "flatamenities": "Flat Amenities",
+            "DIALOG": {
+                "NEW": "Add Flat Amenities",
+                "flatamenitiesid": " Flat Amenities ID",
+                "name": " Flat Amenities",
+                "flatamenitiesform": {
+                    "PLEASE_flatamenitiesid_None": "The Flat Amenities ID is required",
+                    "PLEASE_name_required": "The Flat Amenities is required"
+                }
+            },
+            "GRID": {
+                "flatamenitiesid": "Flat Amenities ID",
+                "name": "Flat Amenities"
+            }
+        }
+
+        ,
+        "property": {
+            "NAME": "Property Management",
+            "Rent": "Property Rent Management",
+            "Sale": "Property Sale Management",
+            "property": "Property",
+            "DIALOG": {
+                "NEW": "Add Property",
+                "propertyid": "Property ID",
+                "propertytypeid": "Property Type",
+                "customerid": "Owner Name",
+                "totalarea": "Area In Sq.Ft",
+                "amount": "Amount",
+                "propertypriorityid": "Priority",
+                "flatno": "Bldge / Flat No",
+                "apt": "Apt / Society Name",
+                "address": "Address",
+                "roadname": "Road Name",
+                "cityid": "City",
+                "propertylocalityid": "Location",
+                "landmark": "Landmark",
+                "propertyage": "Age (Year)",
+                "leaseperiod": "Lease (Month)",
+                "propertylbedroomsid": "BHK",
+                "floorno": "Floor No",
+                "propertyfacingid": "Facing",
+                "propertyavailibilityid": "Availibility",
+                "propertyfurnishedid": "Furnished",
+                "image1": "Image",
+                "image2": "Image",
+                "image3": "Image",
+                "image4": "Image",
+                "image5": "Image",
+                "remark": "Remark",
+                "userid": "Select the User",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "deposit": " Deposit",
+                "sqfeetrate": "Sq.Ft Rate",
+                "bookingcharges": " Booking Charges",
+                "image6": "Image",
+                "image7": "Image",
+                "image8": "Image",
+                "image9": "Image",
+                "image10": "Image",
+                "postedon": " Posted On",
+                "propertytobeid": "Property Type",
+                "availablefrom": "Available From",
+                "propertykeyid": " Key",
+                "flatamenitiesid": " Flat Amenities",
+                "status": " Status (Close)",
+                "societyamenitiesid": " Society Amenities",
+                "recordorder": " Order",
+                "balcony": " Balcony",
+                "bathroom": " Bathroom",
+                "totalfloorno": " Total Floor No",
+                "parking": " Parking",
+                "keyavailability": " Key Availability",
+                "keyname": " Name",
+                "keymobile": " Mobile",
+                "keyaddress": " Address",
+                "propertyform": {
+                    "PLEASE_propertytypeid_required": "The Property to be is required",
+                    "PLEASE_customerid_required": "The Owner is required",
+                    "PLEASE_totalarea_required": "The Area In Sq.Ft is required",
+                    "PLEASE_amount_required": "The Amount is required",
+                    "PLEASE_propertypriorityid_required": "The Priority is required",
+                    "PLEASE_flatno_required": "The Bldge / Flat No is required",
+                    "PLEASE_apt_required": "The Apt / Society Name is required",
+                    "PLEASE_address_required": "The Address is required",
+                    "PLEASE_roadname_required": "The Road Name is required",
+                    "PLEASE_cityid_required": "The City is required",
+                    "PLEASE_propertylocalityid_required": "The Location is required",
+                    "PLEASE_landmark_required": "The Landmark is required",
+                    "PLEASE_propertyage_required": "The Property Age (Year) is required",
+                    "PLEASE_leaseperiod_required": "The Lease Period (Months) is required",
+                    "PLEASE_propertylbedroomsid_required": "The BHK is required",
+                    "PLEASE_floorno_required": "The Floor No is required",
+                    "PLEASE_propertyfacingid_required": "The Facing is required",
+                    "PLEASE_propertyavailibilityid_required": "The Property Availibility is required",
+                    "PLEASE_propertyfurnishedid_required": "The Furnished is required",
+                    "PLEASE_image1_None": "The Image is required",
+                    "PLEASE_image2_None": "The Image is required",
+                    "PLEASE_image3_None": "The Image is required",
+                    "PLEASE_image4_None": "The Image is required",
+                    "PLEASE_image5_None": "The Image is required",
+                    "PLEASE_remark_None": "The Remark is required",
+                    "PLEASE_deposit_required": "The Deposit is required",
+                    "PLEASE_sqfeetrate_required": "The Sq.Ft Rate is required",
+                    "PLEASE_bookingcharges_required": "The Booking Charges is required",
+                    "PLEASE_image6_None": "The Image is required",
+                    "PLEASE_image7_None": "The Image is required",
+                    "PLEASE_image8_None": "The Image is required",
+                    "PLEASE_image9_None": "The Image is required",
+                    "PLEASE_image10_None": "The Image is required",
+                    "PLEASE_postedon_required": "The Posted On is required",
+                    "PLEASE_propertytobeid_required": "The Property Type is required",
+                    "PLEASE_availablefrom_required": "The Available From is required",
+                    "PLEASE_propertykeyid_required": "The Key is required",
+                    "PLEASE_flatamenitiesid_required": "The Flat Amenities is required",
+                    "PLEASE_recordorder_required": "The Order is required",
+                    "PLEASE_balcony_required": "The Balcony is required",
+                    "PLEASE_bathroom_required": "The Bathroom is required",
+                    "PLEASE_totalfloorno_None": "The Total Floor No is required",
+                    "PLEASE_keyavailability_None": "The Key Availability is required",
+                    "PLEASE_keyname_None": "The Name is required",
+                    "PLEASE_keymobile_None": "The Mobile is required",
+                    "PLEASE_keyaddress_None": "The Address is required"
+                }
+            },
+            "GRID": {
+                "propertyid": "Property ID",
+                "propertytypeid": "Property Type",
+                "customerid": "Owner Name",
+                "totalarea": "Area In Sq.Ft",
+                "amount": "Amount",
+                "propertypriorityid": "Priority",
+                "flatno": "Bldge / Flat No",
+                "apt": "Apt / Society Name",
+                "address": "Address",
+                "roadname": "Road Name",
+                "cityid": "City",
+                "propertylocalityid": "Location",
+                "landmark": "Landmark",
+                "propertyage": "Age (Year)",
+                "leaseperiod": "Lease (Months)",
+                "propertylbedroomsid": "BHK",
+                "floorno": "Floor No",
+                "propertyfacingid": "Facing",
+                "propertyavailibilityid": "Availibility",
+                "propertyfurnishedid": "Furnished",
+                "image1": "Image",
+                "image2": "Image",
+                "image3": "Image",
+                "image4": "Image",
+                "image5": "Image",
+                "remark": "Remark",
+                "userid": "User",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "deposit": "Deposit",
+                "sqfeetrate": "Sq.Ft Rate",
+                "bookingcharges": "Booking Charges",
+                "image6": "Image",
+                "image7": "Image",
+                "image8": "Image",
+                "image9": "Image",
+                "image10": "Image",
+                "postedon": "Posted On",
+                "propertytobeid": "Property Type",
+                "availablefrom": "Available From",
+                "propertykeyid": "Key",
+                "flatamenitiesid": "Flat Amenities",
+                "status": "Status (Close)",
+                "societyamenitiesid": "Society Amenities",
+                "recordorder": " Order",
+                "balcony": " Balcony",
+                "bathroom": " Bathroom",
+                "totalfloorno": " Total Floor No",
+                "parking": " Parking",
+                "keyavailability": " Key Availability",
+                "keyname": " Name",
+                "keymobile": " Mobile",
+                "keyaddress": " Address"
+            }
+        }
+
+        ,
+        "budget": {
+            "NAME": "Budget Management",
+            "budget": "Budget",
+            "DIALOG": {
+                "NEW": "Add Budget",
+                "budgetid": "Budget ID",
+                "name": " Text",
+                "amount": " Numerical Value",
+                "budgetform": {
+                    "PLEASE_name_required": "The Text is required",
+                    "PLEASE_amount_required": "The Numerical Value is required"
+                }
+            },
+            "GRID": {
+                "budgetid": "Budget ID",
+                "name": "Text",
+                "amount": "Numerical Value"
+            }
+        }
+
+        ,
+        "datarecovery": {
+            "NAME": "Data Recovery Management",
+            "datarecovery": "Data Recovery",
+            "DIALOG": {
+                "NEW": "Add Data Recovery",
+                "datarecoveryid": " Datarecovery ID",
+                "tablename": " Table Name",
+                "content": " Content",
+                "userid": "Select the User",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "datarecoveryform": {
+                    "PLEASE_tablename_required": "The Table Name is required",
+                    "PLEASE_content_required": "The Content is required"
+                }
+            },
+            "GRID": {
+                "datarecoveryid": "Datarecovery ID",
+                "tablename": "Table Name",
+                "content": "Content",
+                "userid": "User",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date"
+            }
+        }
+
+        ,
+        "societyamenities": {
+            "NAME": "Society Amenities Management",
+            "societyamenities": "Society Amenities",
+            "DIALOG": {
+                "NEW": "Add Society Amenities",
+                "societyamenitiesid": " ID",
+                "name": " Society Amenities",
+                "societyamenitiesform": {
+                    "PLEASE_name_required": "The Society Amenities is required"
+                }
+            },
+            "GRID": {
+                "societyamenitiesid": "ID",
+                "name": "Society Amenities"
+            }
+        }
+
+        ,
+        "customertype": {
+            "NAME": "Owner Type Management",
+            "customertype": "Owner Type",
+            "DIALOG": {
+                "NEW": "Add Owner Type",
+                "customertypeid": "Owner Type ID",
+                "name": "Owner Type",
+                "customertypeform": {
+                    "PLEASE_name_required": "The Owner Type is required"
+                }
+            },
+            "GRID": {
+                "customertypeid": "Owner Type ID",
+                "name": "Owner Type"
+            }
+        }
+
+        ,
+        "propertypriority": {
+            "NAME": "Property Priority Management",
+            "propertypriority": "Property Priority",
+            "DIALOG": {
+                "NEW": "Add Property Priority",
+                "propertypriorityid": "Property Priority ID",
+                "name": "Priority",
+                "propertypriorityform": {
+                    "PLEASE_name_required": "The Priority is required"
+                }
+            },
+            "GRID": {
+                "propertypriorityid": "Property Priority ID",
+                "name": "Priority"
+            }
+        }
+
+        ,
+        "propertylocality": {
+            "NAME": "Property Location Management",
+            "propertylocality": "Property Location",
+            "DIALOG": {
+                "NEW": "Add Property Location",
+                "propertylocalityid": "Property Location ID",
+                "name": "Location",
+                "cityid": " City",
+                "propertylocalityform": {
+                    "PLEASE_name_required": "The Location is required",
+                    "PLEASE_cityid_required": "The City is required"
+                }
+            },
+            "GRID": {
+                "propertylocalityid": "Property Location ID",
+                "name": "Location",
+                "cityid": "City"
+            }
+        }
+
+        ,
+        "propertyfacing": {
+            "NAME": "Property Facing Management",
+            "propertyfacing": "Property Facing",
+            "DIALOG": {
+                "NEW": "Add Property Facing",
+                "propertyfacingid": "Property Facing ID",
+                "name": "Facing",
+                "propertyfacingform": {
+                    "PLEASE_name_required": "The Facing is required"
+                }
+            },
+            "GRID": {
+                "propertyfacingid": "Property Facing ID",
+                "name": "Facing"
+            }
+        },
+        "budgetrent": {
+            "NAME": "Budget Rent Management",
+            "budgetrent": "Budget Rent",
+            "DIALOG": {
+                "NEW": "Add Budget Rent",
+                "budgetrentid": "Budget ID",
+                "name": " Text",
+                "amount": " Numerical Value",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": " Order",
+                "budgetrentform": {
+                    "PLEASE_name_required": "The Text is required",
+                    "PLEASE_amount_required": "The Numerical Value is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "budgetrentid": "Budget ID",
+                "name": "Text",
+                "amount": "Numerical Value",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+        ,
+        "budgetsale": {
+            "NAME": "Budget Sale Management",
+            "budgetsale": "Budget Sale",
+            "DIALOG": {
+                "NEW": "Add Budget Sale",
+                "budgetsaleid": "Budget ID",
+                "name": " Text",
+                "amount": " Numerical Value",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": " Order",
+                "budgetsaleform": {
+                    "PLEASE_name_required": "The Text is required",
+                    "PLEASE_amount_required": "The Numerical Value is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "budgetsaleid": "Budget ID",
+                "name": "Text",
+                "amount": "Numerical Value",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        },
+        "customer": {
+            "NAME": "Owner Management",
+            "customer": "Owner",
+            "DIALOG": {
+                "NEW": "Add Owner",
+                "customerid": "Owner Id",
+                "fullname": "Full name",
+                "customertypeid": "Owner is a",
+                "occupationid": "Occupation",
+                "dateofbirth": "Date of Birth",
+                "genderid": "Gender",
+                "email": "Email ID",
+                "mobileno": "Mobile No",
+                "landlineno": "Landline No",
+                "address": "Address",
+                "cityid": "City",
+                "pincode": "Pin Code",
+                "customerform": {
+                    "PLEASE_fullname_required": "The Full name is required",
+                    "PLEASE_customertypeid_required": "The Owner is a is required",
+                    "PLEASE_occupationid_required": "The Occupation is required",
+                    "PLEASE_dateofbirth_type": "The Date of Birth is required",
+                    "PLEASE_genderid_required": "The Gender is required",
+                    "PLEASE_email_required": "The Email is required",
+                    "PLEASE_email_email": "Email id is wrong",
+                    "PLEASE_mobileno_required": "The Mobile No is required",
+                    "PLEASE_mobileno_ng-pattern": "Enter the proper Mobile No",
+                    "PLEASE_landlineno_required": "The Landline No is required",
+                    "PLEASE_landlineno_ng-pattern": " Landline No is wrong",
+                    "PLEASE_address_required": "The Address is required",
+                    "PLEASE_cityid_required": "The City is required",
+                    "PLEASE_pincode_required": "The Pin Code is required"
+                }
+            },
+            "GRID": {
+                "customerid": "Owner Id",
+                "fullname": "Full name",
+                "customertypeid": "Owner Type",
+                "occupationid": "Occupation",
+                "dateofbirth": "Date of Birth",
+                "genderid": "Gender",
+                "email": "Email ID",
+                "mobileno": "Mobile No",
+                "landlineno": "Landline No",
+                "address": "Address",
+                "cityid": "City",
+                "pincode": "Pin Code"
+            }
+        }
+
+
+    }
+
+
+
+
+
+}

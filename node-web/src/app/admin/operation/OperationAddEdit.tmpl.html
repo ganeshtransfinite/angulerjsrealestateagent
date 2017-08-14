@@ -1,0 +1,67 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar md-theme="{{triSkin.elements.content}}">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{'adminmenu.operation.DIALOG.NEW'| translate}}     </span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-dialog-content class="sticky-container">
+        <div> 
+           <form name="operationfrom" novalidate>
+                 <md-input-container class="md-block">
+                    <label>{{'adminmenu.operation.DIALOG.operationid'| translate}}</label>
+                    <input ng-model="adminoperation.operationid" class="dialog-close" name="operationid" 
+                           id="operationid" type="" > 
+                    <div ng-messages="operationfrom.operationid.$error">
+                     </div>
+                </md-input-container>
+ <md-input-container class="md-block">
+                    <label>{{'adminmenu.operation.DIALOG.name'| translate}}</label>
+                    <input ng-model="adminoperation.name" class="dialog-close" name="name" 
+                           id="name" type="text" required> 
+                    <div ng-messages="operationfrom.name.$error">
+                         <div ng-message="required">
+                            {{'adminmenu.operation.DIALOG.operationform.PLEASE_name_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+ <md-input-container class="md-block">
+                    <label>{{'adminmenu.operation.DIALOG.funname'| translate}}</label>
+                    <input ng-model="adminoperation.funname" class="dialog-close" name="funname" 
+                           id="funname" type="" > 
+                    <div ng-messages="operationfrom.funname.$error">
+                     </div>
+                </md-input-container>
+ <md-input-container class="md-block">
+                    <label>{{'adminmenu.operation.DIALOG.url'| translate}}</label>
+                    <input ng-model="adminoperation.url" class="dialog-close" name="url" 
+                           id="url" type="" > 
+                    <div ng-messages="operationfrom.url.$error">
+                     </div>
+                </md-input-container>
+ <md-input-container ng-show="false" class="md-block">
+                    <label>{{'adminmenu.operation.DIALOG.recordorder'| translate}}</label>
+                    <input ng-model="adminoperation.recordorder" class="dialog-close" name="recordorder" 
+                           id="recordorder" type="text" required> 
+                    <div ng-messages="operationfrom.recordorder.$error">
+                         <div ng-message="required">
+                            {{'adminmenu.operation.DIALOG.operationform.PLEASE_recordorder_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+            </form>
+        </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()" class="md-primary">
+            Cancel
+        </md-button>
+        <md-button ng-click="hide()" class="md-primary" ng-disabled="operationfrom.$invalid">
+            Ok
+        </md-button>
+    </div>
+</md-dialog>

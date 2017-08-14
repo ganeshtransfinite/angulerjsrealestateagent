@@ -1,0 +1,47 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar md-theme="{{triSkin.elements.content}}">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{'MENU.flatamenities.DIALOG.NEW'| translate}}     </span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-dialog-content class="sticky-container">
+        <div> 
+           <form name="flatamenitiesfrom" novalidate>
+                
+ <md-input-container class="md-block">
+                    <label>{{'MENU.flatamenities.DIALOG.name'| translate}}</label>
+                    <input ng-model="pmsflatamenities.name" class="dialog-close" name="name" 
+                           id="name" type="select" required> 
+                    <div ng-messages="flatamenitiesfrom.name.$error">
+                         <div ng-message="required">
+                            {{'MENU.flatamenities.DIALOG.flatamenitiesform.PLEASE_name_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+ <md-input-container ng-show="false" class="md-block">
+                    <label>{{'MENU.flatamenities.DIALOG.recordorder'| translate}}</label>
+                    <input ng-model="pmsflatamenities.recordorder" class="dialog-close" name="recordorder" 
+                           id="recordorder" type="text" required> 
+                    <div ng-messages="flatamenitiesfrom.recordorder.$error">
+                         <div ng-message="required">
+                            {{'MENU.flatamenities.DIALOG.flatamenitiesform.PLEASE_recordorder_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+            </form>
+        </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()" class="md-primary">
+            Cancel
+        </md-button>
+        <md-button ng-click="hide()" class="md-primary" ng-disabled="flatamenitiesfrom.$invalid">
+            Ok
+        </md-button>
+    </div>
+</md-dialog>

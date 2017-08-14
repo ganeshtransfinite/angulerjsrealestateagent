@@ -1,0 +1,57 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar md-theme="{{triSkin.elements.content}}">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{'MENU.budgetsale.DIALOG.NEW'| translate}}     </span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-dialog-content class="sticky-container">
+        <div> 
+           <form name="budgetsalefrom" novalidate>
+                
+ <md-input-container class="md-block">
+                    <label>{{'MENU.budgetsale.DIALOG.name'| translate}}</label>
+                    <input ng-model="pmsbudgetsale.name" class="dialog-close" name="name" 
+                           id="name" type="text" required> 
+                    <div ng-messages="budgetsalefrom.name.$error">
+                         <div ng-message="required">
+                            {{'MENU.budgetsale.DIALOG.budgetsaleform.PLEASE_name_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+ <md-input-container class="md-block">
+                    <label>{{'MENU.budgetsale.DIALOG.amount'| translate}}</label>
+                    <input ng-model="pmsbudgetsale.amount" class="dialog-close" name="amount" 
+                           id="amount" type="text" required> 
+                    <div ng-messages="budgetsalefrom.amount.$error">
+                         <div ng-message="required">
+                            {{'MENU.budgetsale.DIALOG.budgetsaleform.PLEASE_amount_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+ <md-input-container class="md-block">
+                    <label>{{'MENU.budgetsale.DIALOG.recordorder'| translate}}</label>
+                    <input ng-model="pmsbudgetsale.recordorder" class="dialog-close" name="recordorder" 
+                           id="recordorder" type="text" required> 
+                    <div ng-messages="budgetsalefrom.recordorder.$error">
+                         <div ng-message="required">
+                            {{'MENU.budgetsale.DIALOG.budgetsaleform.PLEASE_recordorder_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+            </form>
+        </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()" class="md-primary">
+            Cancel
+        </md-button>
+        <md-button ng-click="hide()" class="md-primary" ng-disabled="budgetsalefrom.$invalid">
+            Ok
+        </md-button>
+    </div>
+</md-dialog>

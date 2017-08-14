@@ -1,0 +1,95 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar class="md-primary" layout="row"  layout-align="space-between center">
+        <div class="md-toolbar-tools" >
+            <h2>View Customer  </h2> 
+        </div>
+        <md-button ng-click="hide()"  class="md-fab md-mini" aria-label="Close">
+            <md-icon md-font-icon="zmdi zmdi-close-circle"></md-icon>
+        </md-button>
+    </md-toolbar>
+    <md-dialog-content class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10" >
+        <md-whiteframe class="md-whiteframe-18dp"    layout layout-align="center center">
+            <div flex="100" layout="column" class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10">
+                 
+             
+                <md-divider></md-divider>
+                <div  layout="row" layout-align="space-between center">    
+                    <div flex="100">
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.customerid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.customerid}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.fullname}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.fullname}}  </div>
+                        </div>   
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.customertypeid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.customertypeid.__fkey__}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.occupationid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.occupationid.__fkey__}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.dateofbirth}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.dateofbirth | date:'dd/MM/yyyy'}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.genderid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.genderid.__fkey__}}  </div>
+                        </div>  
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.email}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.email}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.mobileno}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.mobileno}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.landlineno}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.landlineno}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.address}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.address}}  </div>
+                        </div>   
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.cityid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.cityid.__fkey__}}  </div>
+                        </div>  
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.pincode}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.pincode}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.active}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.active}}  </div>
+                        </div>   
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.createddate}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.createddate | date:'dd/MM/yyyy'}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.modifyddate}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.modifyddate | date:'dd/MM/yyyy'}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.userid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.userid.__fkey__}}  </div>
+                        </div>  
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customer.GRID.recordorder}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customerobj.recordorder}}  </div>
+                        </div>   
+"
+                    </div>
+               
+                </div>
+                <md-divider></md-divider>
+            
+            </div>   </md-whiteframe>
+    </md-dialog-content>
+</md-dialog>

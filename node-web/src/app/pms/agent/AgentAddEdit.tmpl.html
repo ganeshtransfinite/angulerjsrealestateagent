@@ -1,0 +1,28 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar md-theme="{{triSkin.elements.content}}">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{'MENU.agent.DIALOG.NEW'| translate}}     </span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-dialog-content class="sticky-container">
+        <div> 
+            <form name="agentfrom" novalidate>
+              
+            </form>
+
+        </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button aria-label="cancel" ng-click="cancel()" class="md-primary">
+            Cancel
+        </md-button>
+        <md-button aria-label="Ok" ng-click="hide()" class="md-primary" ng-disabled="agentfrom.$invalid">
+            Ok
+        </md-button>
+    </div>
+</md-dialog>

@@ -1,0 +1,14 @@
+
+<div ng-controller="UserLoadTableController as vm">
+    <div flex layout="row" >
+        <div flex class="loader padding-100" ng-show="vm.isActive" layout="column" layout-fill layout-align="center center">
+            
+             <img src="{{vm.triSettings.logo}}" alt=""> 
+            <h3 class="md-headline">{{vm.triSettings.name}}</h3>
+            <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+        
+        
+        
+        </div>
+    </div>
+</div>

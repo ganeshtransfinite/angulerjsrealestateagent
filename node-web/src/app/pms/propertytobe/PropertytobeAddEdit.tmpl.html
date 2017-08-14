@@ -1,0 +1,47 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar md-theme="{{triSkin.elements.content}}">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{'MENU.propertytobe.DIALOG.NEW'| translate}}     </span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-dialog-content class="sticky-container">
+        <div> 
+           <form name="propertytobefrom" novalidate>
+                
+ <md-input-container class="md-block">
+                    <label>{{'MENU.propertytobe.DIALOG.name'| translate}}</label>
+                    <input ng-model="pmspropertytobe.name" class="dialog-close" name="name" 
+                           id="name" type="text" required> 
+                    <div ng-messages="propertytobefrom.name.$error">
+                         <div ng-message="required">
+                            {{'MENU.propertytobe.DIALOG.propertytobeform.PLEASE_name_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+ <md-input-container ng-show="false" class="md-block">
+                    <label>{{'MENU.propertytobe.DIALOG.recordorder'| translate}}</label>
+                    <input ng-model="pmspropertytobe.recordorder" class="dialog-close" name="recordorder" 
+                           id="recordorder" type="text" required> 
+                    <div ng-messages="propertytobefrom.recordorder.$error">
+                         <div ng-message="required">
+                            {{'MENU.propertytobe.DIALOG.propertytobeform.PLEASE_recordorder_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+            </form>
+        </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()" class="md-primary">
+            Cancel
+        </md-button>
+        <md-button ng-click="hide()" class="md-primary" ng-disabled="propertytobefrom.$invalid">
+            Ok
+        </md-button>
+    </div>
+</md-dialog>

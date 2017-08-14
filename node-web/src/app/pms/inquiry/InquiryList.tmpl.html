@@ -1,0 +1,844 @@
+<div ng-controller="InquiryTableController as vm">
+    <div ng-show="!addeditform" flex layout="row" >
+        <div flex layout="row" >
+            <div flex-gt-lg="15" ng-show="!vm.filterclose && role['Inquiry'].Filter && vm.showmenu === true"     >
+                <md-toolbar >
+                    <div class="md-toolbar-tools">
+                        <h2>
+                            Filter
+                        </h2>
+                        <md-menu  >
+                            <md-button class="md-icon-button" aria-label="open menu" ng-click="$mdOpenMenu()">
+                                <md-icon md-font-icon="zmdi zmdi-more-vert"></md-icon>
+                            </md-button>
+                            <md-menu-content >
+
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsinquiry.selectlistbox.inquirybudget = false;" ng-model="pmsinquiry.selectlistbox.inquirybudget"    >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.inquiry.GRID.budget'| translate}} 
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item>         
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsinquiry.selectlistbox.inquirypropertypriorityid = true;" ng-model="pmsinquiry.selectlistbox.inquirypropertypriorityid"    >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.inquiry.GRID.propertypriorityid'| translate}} 
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item>         
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsinquiry.selectlistbox.inquirypropertylbedroomsid = true;" ng-model="pmsinquiry.selectlistbox.inquirypropertylbedroomsid"    >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.inquiry.GRID.propertylbedroomsid'| translate}} 
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item>         
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsinquiry.selectlistbox.inquirycityid = false;" ng-model="pmsinquiry.selectlistbox.inquirycityid"    >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.inquiry.GRID.cityid'| translate}} 
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item>         
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsinquiry.selectlistbox.inquirypropertylocalityid = true;" ng-model="pmsinquiry.selectlistbox.inquirypropertylocalityid"    >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.inquiry.GRID.propertylocalityid'| translate}} 
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item>         
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsinquiry.selectlistbox.inquirypropertytobeid = true;" 
+                                                     ng-model="pmsinquiry.selectlistbox.inquirypropertytobeid"    >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.inquiry.GRID.propertytobeid'| translate}} 
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item>         
+                                
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsinquiry.selectlistbox.inquirypropertyfacingid = false;" ng-model="pmsinquiry.selectlistbox.inquirypropertyfacingid"    >
+                                        <div class="md-body-2"  >
+                                            {{'MENU.inquiry.GRID.propertyfacingid'| translate}} 
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item>         
+
+                                <md-menu-item>
+                                    <md-button  >
+                                        <md-checkbox ng-init="vm.showmenu = true;pmsinquiry.selectlistbox.propertyavailablefrom = false;" ng-model="pmsinquiry.selectlistbox.propertyavailablefrom"    >
+                                        <div class="md-body-2"  >
+                                            Enquiry From
+                                        </div></md-checkbox>    
+                                    </md-button>
+                                </md-menu-item>  
+                                
+                                <md-menu-divider></md-menu-divider>
+                            </md-menu-content>
+                        </md-menu>
+                        <span flex>                                 
+                            <md-button    ng-click="vm.getTable()"     class="md-fab md-mini" aria-label="Add">
+                                <md-icon md-font-icon="zmdi zmdi-refresh"></md-icon> <md-tooltip>Refresh</md-tooltip>
+                            </md-button>
+                        </span>
+                    </div>
+                </md-toolbar>
+                <md-content flex layout="column"  class="filter-content"  >
+                    <md-content flex='100' layout="column">
+                        <md-list flex='100' class="filter-list" >
+
+                            <div ng-show="pmsinquiry.selectlistbox.inquirybudget" layout="column"  flex>
+
+                                <md-subheader  
+                                    style="background-color: {{sessionobject.getPlaletColor(pmsinquiry.amountform)}}" 
+                                    >  
+                                    <md-icon ng-click="pmsinquiry.selectlistbox.inquirybudget = false" 
+                                             g-model="pmsinquiry.select" md-font-icon="zmdi zmdi-close-circle" ></md-icon>
+                                    &nbsp; <span  class="md-subheaderheader"> Inquiry Budget</span> </md-subheader>
+
+
+                                <div layout layout-xs="column" flex="100">
+                                    <div flex="45" style="width: 20px">
+                                        <md-input-container class="md-block" >
+                                            <input ng-model="pmsinquiry.amountform"  name="amountform" 
+                                                   id="amountform"   currency-mask type="text"  >
+                                        </md-input-container>
+                                    </div>
+                                    <div flex="10" > To </div>
+                                    <div flex="45" style="width: 20px">
+                                        <md-input-container class="md-block" >
+                                            <input ng-model="pmsinquiry.amountto" currency-mask   name="amountto" 
+                                                   id="amountto"    type="text"    > 
+                                        </md-input-container>
+                                    </div>
+
+                                </div>
+
+                                <md-divider></md-divider>
+                            </div>
+                            <div ng-show="pmsinquiry.selectlistbox.propertyavailablefrom" layout="column"  flex>
+                                <md-subheader class="md-primary" style="background-color: {{sessionobject.getPlaletColorText(pmsinquiry.availablefromdate_from)}}" > <md-icon ng-click="pmsinquiry.selectlistbox.propertyavailablefrom = false"
+                                                                                                                                                                              md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp;
+                                    Enquiry From </md-subheader>
+
+                                <div class="margin-normal" layout="row"  layout-align="space-around center" >
+                                    <input mdc-datetime-picker="" date="true" time="false" type="text" short-time="true" id="pmsinquiry.availablefromdate_from"
+                                           min-date="date" ng-model="pmsinquiry.availablefromdate_from" class="md-input" format="DD-MM-YYYY" flex="40">
+
+                                    To 
+                                    <input mdc-datetime-picker="" date="true" time="false" type="text" short-time="true" id="pmsinquiry.availablefromdate_to"
+                                           min-date="date" ng-model="pmsinquiry.availablefromdate_to" class="md-input" format="DD-MM-YYYY"  flex="40">
+                                </div>
+
+
+                                <div layout layout-xs="column" flex>
+                                    <md-button class="md-raised"  ng-click="sessionobject.dateAdd(pmsinquiry, 'availablefromdate_to', 'availablefromdate_from', -30);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Prev 1 Mon</md-button>
+                                    <md-button class="md-raised"  ng-click="sessionobject.dateAdd(pmsinquiry, 'availablefromdate_to', 'availablefromdate_from', -90);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Prev 3 Mon</md-button>
+                                </div>
+                                <div layout layout-xs="column" flex>
+                                    <md-button class="md-raised"  ng-click="sessionobject.dateAdd(pmsinquiry, 'availablefromdate_to', 'availablefromdate_from', -180);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Prev 6 Mon</md-button>
+                                    <md-button class="md-raised"  ng-click="sessionobject.dateAdd(pmsinquiry, 'availablefromdate_to', 'availablefromdate_from', -365);" class="md-primary md-raised" md-ripple-size="full" aria-label="raised button" flex>Prev 1 Year</md-button>
+
+                                </div>    
+                                <md-divider></md-divider>
+                            </div>
+
+                            <div ng-show="pmsinquiry.selectlistbox.inquirypropertytobeid" layout="column"  flex>
+                                <md-subheader  
+                                    style="background-color: {{sessionobject.getPlaletColor(pmsinquiry.selectinquirypropertytobeidtbl)}}" 
+                                    >  
+                                    <md-icon ng-click="pmsinquiry.selectlistbox.inquirypropertytobeid = false" 
+                                             g-model="pmsinquiry.select" md-font-icon="zmdi zmdi-close-circle" ></md-icon>
+                                    &nbsp; <span  class="md-subheaderheader"> EQ Type</span> </md-subheader>
+                                <div   ninquirypropertytobeidtbl"   name="inquirypropertytobeid" id="inquirypropertytobeid" flex="100">
+                                           <div class="filtertext" ng-show="$index < sessionobject.getPlaletCount(pmsinquiry.selectlistbox) || selectinquirypropertytobeidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.inquirypropertytobeidcntlist" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsinquiry.selectinquirypropertytobeidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                            {{objcombo.text}}  ( {{objcombo.count}} )
+                                        </md-checkbox>  
+                                    </div>                                
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!selectinquirypropertytobeidtblflag"  layout="row" ng-click="selectinquirypropertytobeidtblflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="selectinquirypropertytobeidtblflag"  layout="row" ng-click="selectinquirypropertytobeidtblflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+
+                            <div ng-show="pmsinquiry.selectlistbox.inquirypropertypriorityid" layout="column"  flex>
+                                <md-subheader  
+                                    style="background-color: {{sessionobject.getPlaletColor(pmsinquiry.selectinquirypropertypriorityidtbl)}}" 
+                                    >  
+                                    <md-icon ng-click="pmsinquiry.selectlistbox.inquirypropertypriorityid = false" 
+                                             g-model="pmsinquiry.select" md-font-icon="zmdi zmdi-close-circle" ></md-icon>
+                                    &nbsp; <span  class="md-subheaderheader"> {{'MENU.inquiry.GRID.propertypriorityid'| translate}} </span> </md-subheader>
+                                <div   ninquirypropertypriorityidtbl"   name="inquirypropertypriorityid" id="inquirypropertypriorityid" flex="100">
+                                           <div class="filtertext" ng-show="$index < sessionobject.getPlaletCount(pmsinquiry.selectlistbox) || selectinquirypropertypriorityidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.inquirypropertypriorityidcntlist" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsinquiry.selectinquirypropertypriorityidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                            {{objcombo.text}}  ( {{objcombo.count}} )
+                                        </md-checkbox>  
+                                    </div>                                
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!selectinquirypropertypriorityidtblflag"  layout="row" ng-click="selectinquirypropertypriorityidtblflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="selectinquirypropertypriorityidtblflag"  layout="row" ng-click="selectinquirypropertypriorityidtblflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+                            <div ng-show="pmsinquiry.selectlistbox.inquirypropertylbedroomsid" layout="column"  flex>
+                                <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsinquiry.selectinquirypropertylbedroomsidtbl)}}" 
+                                               >   
+                                    <md-icon ng-click="pmsinquiry.selectlistbox.inquirypropertylbedroomsid = false"  md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp;  <span  class="md-subheaderheader"> 
+                                        {{'MENU.inquiry.GRID.propertylbedroomsid'| translate}}</span> </md-subheader>
+                                <div   ng-model="pmsinquiry.selectinquirypropertylbedroomsidtbl"   name="inquirypropertylbedroomsid" id="inquirypropertylbedroomsid" flex="100">
+                                    <div class="filtertext" ng-show="$index < sessionobject.getPlaletCount(pmsinquiry.selectlistbox) || selectinquirypropertylbedroomsidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.inquirypropertylbedroomsidcntlist" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsinquiry.selectinquirypropertylbedroomsidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                            {{objcombo.text}}  ( {{objcombo.count}} )
+                                        </md-checkbox>  
+                                    </div>                                
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!selectinquirypropertylbedroomsidtblflag"  layout="row" ng-click="selectinquirypropertylbedroomsidtblflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="selectinquirypropertylbedroomsidtblflag"  layout="row" ng-click="selectinquirypropertylbedroomsidtblflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+                            <div ng-show="pmsinquiry.selectlistbox.inquirycityid" layout="column"  flex>
+                                <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsinquiry.selectinquirycityidtbl)}}" 
+                                               >   <md-icon ng-click="pmsinquiry.selectlistbox.inquirycityid = false"  md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp;
+                                    <span  class="md-subheaderheader"> {{'MENU.inquiry.GRID.cityid'| translate}} </span></md-subheader>
+                                <div   ng-model="pmsinquiry.selectinquirycityidtbl"   name="inquirycityid" id="inquirycityid" flex="100">
+                                    <div class="filtertext" ng-show="$index < sessionobject.getPlaletCount(pmsinquiry.selectlistbox) || selectinquirycityidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.inquirycityidcntlist" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsinquiry.selectinquirycityidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                            {{objcombo.text}}  ( {{objcombo.count}} )
+                                        </md-checkbox>  
+                                    </div>                                
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!selectinquirycityidtblflag"  layout="row" ng-click="selectinquirycityidtblflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="selectinquirycityidtblflag"  layout="row" ng-click="selectinquirycityidtblflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+                            <div ng-show="pmsinquiry.selectlistbox.inquirypropertylocalityid" layout="column"  flex>
+                                <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsinquiry.selectinquirypropertylocalityidtbl)}}" 
+                                               >   
+                                    <md-icon ng-click="pmsinquiry.selectlistbox.inquirypropertylocalityid = false"  md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp; 
+                                    <span  class="md-subheaderheader"> {{'MENU.inquiry.GRID.propertylocalityid'| translate}}</span> </md-subheader>
+                                <div   ng-model="pmsinquiry.selectinquirypropertylocalityidtbl"   name="inquirypropertylocalityid" id="inquirypropertylocalityid" flex="100">
+                                    <div class="filtertext" ng-show="$index < sessionobject.getPlaletCount(pmsinquiry.selectlistbox) || selectinquirypropertylocalityidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.inquirypropertylocalityidcntlist" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsinquiry.selectinquirypropertylocalityidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                            {{objcombo.text}}  ( {{objcombo.count}} )
+                                        </md-checkbox>  
+                                    </div>                                
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!selectinquirypropertylocalityidtblflag"  layout="row" ng-click="selectinquirypropertylocalityidtblflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="selectinquirypropertylocalityidtblflag"  layout="row" ng-click="selectinquirypropertylocalityidtblflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+                            <div ng-show="pmsinquiry.selectlistbox.inquirypropertyfacingid" layout="column"  flex>
+                                <md-subheader  class="md-primary" style="background-color: {{sessionobject.getPlaletColor(pmsinquiry.selectinquirypropertyfacingidtbl)}}" 
+                                               >   <md-icon ng-click="pmsinquiry.selectlistbox.inquirypropertyfacingid = false"  md-font-icon="zmdi zmdi-close-circle" ></md-icon> &nbsp; 
+                                    <span  class="md-subheaderheader"> {{'MENU.inquiry.GRID.propertyfacingid'| translate}} </span></md-subheader>
+                                <div   ng-model="pmsinquiry.selectinquirypropertyfacingidtbl"   name="inquirypropertyfacingid" id="inquirypropertyfacingid" flex="100">
+                                    <div class="filtertext" ng-show="$index < sessionobject.getPlaletCount(pmsinquiry.selectlistbox) || selectinquirypropertyfacingidtblflag" ng-repeat="objcombo in sessionobject.comboboxlist.inquirypropertyfacingidcntlist" >
+                                        <md-checkbox class="md-primary md-subheadercontenet" ng-model="pmsinquiry.selectinquirypropertyfacingidtbl[objcombo.id]"  aria-label="Primary Checkbox" flex="100">
+                                            {{objcombo.text}}  ( {{objcombo.count}} )
+                                        </md-checkbox>  
+                                    </div>                                
+                                </div>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="!selectinquirypropertyfacingidtblflag"  layout="row" ng-click="selectinquirypropertyfacingidtblflag = true"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-down" ></md-icon>
+                                </md-button>
+                                <md-button flex  layout="row"  layout-align="end" class="md-primary md-raised demo-dialog-open-button"
+                                           ng-show="selectinquirypropertyfacingidtblflag"  layout="row" ng-click="selectinquirypropertyfacingidtblflag = false"  layout-align="end center" >
+                                    <md-icon  md-font-icon="zmdi zmdi-triangle-up" ></md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+                            </div>
+                        </md-list>
+                    </md-content>
+                </md-content>
+            </div>
+            <div class="md-whiteframe-z5 animate-wrapper" layout="column" layout-align="start start" flex>
+                <div flex id="ui-admin-email" ui-view layout="column" layout-align="start stretch" class="overflow-auto full-width">
+                    <div flex class="inbox-no-email-selected" layout="column" layout-align="center" >
+                        <md-toolbar  layout="row" layout-align="space-between center"  class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10">
+                            <div>
+                                <div  layout='row' layout-align="start" >
+                                    <md-button    ng-click="vm.filterclose = false"   ng-show="role['Inquiry'].Filter && vm.filterclose && vm.showmenu === true"   class="md-fab md-mini" aria-label="Close">
+                                        <md-icon md-font-icon="fa fa-sign-in" ></md-icon>  <md-tooltip>Close Filter</md-tooltip>
+                                    </md-button>
+                                    <md-button    ng-click="vm.filterclose = true"  ng-show="role['Inquiry'].Filter && !vm.filterclose && vm.showmenu === true"   class="md-fab md-mini" aria-label="Open">
+                                        <md-icon md-font-icon="fa fa-sign-out"></md-icon> <md-tooltip> Open Filter </md-tooltip>
+                                    </md-button>
+                                    <md-button    ng-click="addTodo($event)"   ng-show="role['Inquiry'].Add"  class="md-fab md-mini"  class="md-fab md-mini" aria-label="Add">
+                                        <md-icon md-font-icon="fa fa-plus"></md-icon> <md-tooltip> Add </md-tooltip>
+                                    </md-button>
+                                    <md-button    ng-show="role['Inquiry'].Edit"  class="md-fab md-mini"
+                                                  ng-click="vm.object.editTodo($event)"   class="md-fab md-mini" aria-label="Edit">
+                                        <md-icon md-font-icon="fa fa-edit"></md-icon> <md-tooltip> Edit </md-tooltip>
+                                    </md-button>
+                                    <md-button     ng-show="role['Inquiry'].Delete"  class="md-fab md-mini" ng-click="vm.object.removeTodo($event)"    class="md-fab md-mini" aria-label="Delete">
+                                        <md-icon md-font-icon="zmdi zmdi-delete"></md-icon> <md-tooltip> Delete </md-tooltip>
+                                    </md-button>
+                                </div>
+                            </div>
+                            <div ng-show="role['Inquiry'].Export">
+                                {{'ADMIN.TOOLBAR.EXPORTDATA'| translate}}   
+                                <md-menu>
+                                    <md-button class="md-icon-button" aria-label="{{'ADMIN.TOOLBAR.EXPORTDATA'| translate}} " ng-click="$mdOpenMenu()">
+                                        <md-icon md-font-icon="zmdi zmdi-more-vert"> </md-icon>
+                                    </md-button>
+                                    <md-menu-content >
+                                        <md-menu-item >
+                                            <md-button  ng-click="sessionobject.tableExport({type: 'excel', escape: 'false'});" >
+                                                <md-icon md-font-icon="fa fa-file-excel-o"> </md-icon>
+                                                <div class="md-body-2"  >
+                                                    {{'ADMIN.TOOLBAR.EXCEL'| translate}} 
+                                                </div>
+                                            </md-button>
+                                        </md-menu-item>
+                                        <md-menu-item >
+                                            <md-button  ng-click="sessionobject.tableExport({type: 'xml', escape: 'false'});" >
+                                                <md-icon md-font-icon="fa fa-file-o"> </md-icon>
+                                                <div class="md-body-2"  >
+                                                    {{'ADMIN.TOOLBAR.xml'| translate}} 
+                                                </div>
+                                            </md-button>
+                                        </md-menu-item >
+                                        <md-menu-item >
+                                            <md-button  ng-click="sessionobject.tableExport({type: 'csv', escape: 'false'});" >
+                                                <md-icon md-font-icon="fa fa-file-text-o"> </md-icon>
+                                                <div class="md-body-2"  >
+                                                    {{'ADMIN.TOOLBAR.csv'| translate}} 
+                                                </div>
+                                            </md-button>
+                                        </md-menu-item >
+                                        <md-menu-divider></md-menu-divider>
+                                        <md-menu-item >
+                                            <md-button  ng-click="sessionobject.printIt('printArea1')" >
+                                                <md-icon md-font-icon="fa fa-print"> </md-icon>
+                                                <div class="md-body-2"  >
+                                                    {{'ADMIN.TOOLBAR.Print'| translate}} 
+                                                </div>
+                                            </md-button>
+                                        </md-menu-item >
+                                    </md-menu-content>
+                                </md-menu>
+                            </div>
+                        </md-toolbar>
+                        <md-divider></md-divider>
+
+                        <md-table-pagination  class="page-nav-list md-title"  
+                                              md-limit-options="vm.query.limitoption" md-limit="vm.query.limit" md-page-select md-page="vm.query.page" md-total="{{vm.contents.total_count}}" 
+                                              md-on-paginate="vm.getTable"></md-table-pagination>
+
+                        <md-divider></md-divider>
+                        <!--                    <md-toolbar class="md-table-toolbar alternate" ng-show="vm.selected.length" ng-show="role['Inquiry'].Grid">
+                                                <div class="md-toolbar-tools" layout-align="start center">
+                        
+                                                </div>
+                                            </md-toolbar>-->
+                        <md-table-container flex="grow"    ng-show="role['Inquiry'].Grid"  id="printArea1"  class="md-tablegrid-container overflow-auto full-width">
+                            <table fixed-header md-table class="md-primary md-tablegrid" id="printArea" md-row-select ng-model="vm.selected" 
+                                   multiple id="tabledata"   md-progress="vm.promise">
+                                <thead  md-head md-order="vm.query.order" md-on-reorder="vm.getTable">
+                                    <tr md-row>
+                                        <th md-column md-order-by="propertytobeid.propertytobeid" >EQ Type</th>
+
+                                        <th md-column md-order-by="name" >{{vm.columns.name| translate }} </th>
+                                        <th md-column md-order-by="mobileno" >{{vm.columns.mobileno| translate }} </th>
+                                        <th md-column md-order-by="budget" > {{vm.columns.budget| translate }} </th>
+                                        <th md-column md-order-by="fromperiod" >{{vm.columns.fromperiod| translate }} </th>
+                                        <th md-column md-order-by="inquiryid" >{{vm.columns.propertypriorityid| translate }} </th>
+                                        <th md-column md-order-by="propertylbedroomsid.name" >{{vm.columns.propertylbedroomsid| translate }} </th>
+                                        <th md-column md-order-by="propertylocalityid.name" >{{vm.columns.propertylocalityid| translate }} </th>
+                                        <th md-column md-order-by="propertytypeid.name" >{{vm.columns.propertytypeid| translate }} </th>
+                                        <th md-column md-order-by="nextdate" >  Follow-Up  </th>
+                                        <th md-column md-order-by="nextdate" >   Executive  </th>
+                                        <th md-column md-order-by="nextdate" > Close By  </th>
+
+
+                                        <th md-column md-order-by="remark" >  Remark </th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody md-body>
+                                    <tr  palette-background="{{pmsinquirycommonobject.getColor(inquiryobj.propertytobeid[0].name, inquiryobj.fromperiod)}}" md-row md-auto-select md-select="inquiryobj" ng-repeat="inquiryobj in vm.contents.items"  >
+                                        <td md-cell  > 
+                                            <!---->
+                                            <span  ng-repeat="obj in inquiryobj.propertytobeid">  {{obj.name}} <span ng-if="!$last">,<br></span>  </span>
+
+                                        </td>
+                                        <td md-cell>{{::inquiryobj.name}}</td>
+                                        <td md-cell>{{::inquiryobj.mobileno}}
+                                            <span ng-if="inquiryobj.contact1 !== null"><br> {{::inquiryobj.contact1}}</span>                                       
+                                            <span ng-if="inquiryobj.contact1 !== null"> <br>          {{::inquiryobj.contact2}}</span>  
+                                            <span ng-if="inquiryobj.contact1 !== null"> <br>   {{::inquiryobj.contact3}}</span>  </td>
+
+                                        <td md-cell> {{sessionobject.formatNumber(inquiryobj.budget)}} </td>
+                                        <td md-cell>{{inquiryobj.fromperiod| date:'dd/MM/yyyy' }}  </td>
+                                        <td md-cell>
+                                            <span  ng-repeat="obj in inquiryobj.propertypriorityid"> {{obj.name}} <span ng-if="!$last">, <span ng-if="($index % 3) === 2">  </span></span></span> </span>
+                                        </td>
+                                        <td md-cell>
+                                            <span  ng-repeat="obj in inquiryobj.propertylbedroomsid"> {{obj.name}} <span ng-if="!$last">, <span ng-if="($index % 3) === 2">  </span></span> </span>
+                                        </td>
+
+                                        <td md-cell> 
+                                            <span  ng-repeat="obj in inquiryobj.propertylocalityid"> {{obj.name}} <span ng-if="!$last">, <span ng-if="($index % 3) === 2">   </span></span></span> </span>
+                                        </td>
+                                        <td md-cell> 
+                                            <span  ng-repeat="obj in inquiryobj.propertytypeid"> {{obj.name}} <span ng-if="!$last">, <span ng-if="($index % 3) === 2">  </span></span></span> </span>
+                                        </td>
+                                        <td md-cell>{{inquiryobj.nextdate| date:'dd/MM/yyyy' }}</td>
+                                        <td md-cell>{{inquiryobj.excutive}}</td>
+                                        <td md-cell>{{inquiryobj.closeby}}</td>
+                                        <td md-cell>{{inquiryobj.remark}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </md-table-container>
+                        <md-table-pagination    class="page-nav-list md-title"  md-limit-options="vm.query.limitoption"  md-limit="vm.query.limit" md-page-select md-page="vm.query.page" md-total="{{vm.contents.total_count}}" md-on-paginate="vm.getTable"></md-table-pagination>
+                        <div>
+                            <md-toolbar class="toolbar-default margin-bottom-30">
+                                <div class="md-toolbar-tools">
+                                    <md-button class="md-icon-button" aria-label="Settings">
+                                        <md-icon md-font-icon="icon-menu"></md-icon>
+                                    </md-button>
+                                    <!--                                sessionobject.printIt('printArea')-->
+                                    <span flex></span>
+                                    <div  layout='row' layout-align="start">
+                                        <md-button    
+                                            ng-click="vm.showInquiry1($event, 1)"   class="md-fab md-mini" aria-label="Search">
+                                            <md-icon md-font-icon="zmdi zmdi-search-for"></md-icon>R<md-tooltip> Search Rent Property </md-tooltip>
+                                        </md-button>
+                                        <md-button    
+                                            ng-click="vm.showInquiry1($event, 0)"   class="md-fab md-mini" aria-label="Search">
+                                            <md-icon md-font-icon="zmdi zmdi-search-for"></md-icon>S<md-tooltip> Search Sale Property </md-tooltip>
+                                        </md-button>
+                                        <md-button    ng-click="addTodo($event)"   ng-show="role['Inquiry'].Add"  class="md-fab md-mini"  class="md-fab md-mini" aria-label="Add">
+                                            <md-icon md-font-icon="fa fa-plus"></md-icon> <md-tooltip> Add </md-tooltip>
+                                        </md-button>
+                                        <md-button    ng-show="role['Inquiry'].Edit"  class="md-fab md-mini"
+                                                      ng-click="vm.object.editTodo($event)"   class="md-fab md-mini" aria-label="Edit">
+                                            <md-icon md-font-icon="fa fa-edit"></md-icon> <md-tooltip> Edit </md-tooltip>
+                                        </md-button>
+                                        <md-button     ng-show="role['Inquiry'].Delete"  class="md-fab md-mini" ng-click="vm.object.removeTodo($event)"    class="md-fab md-mini" aria-label="Delete">
+                                            <md-icon md-font-icon="zmdi zmdi-delete"></md-icon> <md-tooltip> Delete </md-tooltip>
+                                        </md-button>
+                                    </div>
+                                </div>
+                            </md-toolbar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div> 
+
+    <div ng-show="addeditform" class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10">
+        <div flex="98"  class="md-whiteframe-z5 animate-wrapper" layout="column" layout-align="start start" flex>
+            <div id="ui-admin-email" ui-view layout="column" layout-align="start stretch" class="overflow-auto full-width">
+                <div flex="100" layout="column" layout-align="center center"  style="background-color: white;">
+                    <md-toolbar md-theme="{{triSkin.elements.content}}">
+                        <div class="md-toolbar-tools">
+                            <h2>
+                                <span>{{'MENU.inquiry.DIALOG.NEW'| translate}}     </span>
+                            </h2>
+                        </div>
+                    </md-toolbar>
+
+
+                    <div  class="margin-normal" layout="row" layout-align="center center" style="background-color: white;width: 95%" > 
+                        <form name="inquiryfrom" novalidate style="background-color: white;width: 100%">
+                            <div class="divheader"  palette-background="blue:100"  >   Enquiry Info </div>
+                            <div class="divspace" >&nbsp;</div>
+                            <div layout layout-xs="column" flex>
+                                <md-input-container  flex="25" >
+                                    <label>Enquiry Type </label>
+                                    <md-select placeholder="Enquiry Type"  ng-model="pmsinquiry.selectpropertytobeid" name="propertytobeid"  id="propertytobeid" type="select" required multiple="true">
+                                        <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertytobeidlist">{{objcombo.text}}</md-option>
+                                    </md-select>
+                                    <div ng-messages="inquiryfrom.propertytobeid.$error">
+                                        <div ng-message="required">
+                                            {{'MENU.property.DIALOG.propertyform.PLEASE_propertytobeid_required'| translate}}
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container flex="25" >
+                                    <label>{{'MENU.property.DIALOG.propertytypeid'| translate}} </label>
+                                    <md-select placeholder="{{'MENU.property.DIALOG.propertytypeid'| translate}}"
+                                               ng-model="pmsinquiry.selectpropertytypeid" name="propertytypeid"
+                                               id="propertytypeid" type="select" required multiple="true" required>
+                                        <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertytypeidlist">{{objcombo.text}}</md-option>
+                                    </md-select>
+                                    <div ng-messages="inquiryfrom.propertytypeid.$error">
+                                        <div ng-message="required">
+                                            {{'MENU.property.DIALOG.propertyform.PLEASE_propertytypeid_required'| translate}}
+                                        </div>
+                                    </div>
+
+                                </md-input-container>
+                                <div  flex="25" >
+                                    <md-input-container class="md-input-has-placeholder md-block"  >
+                                        <label>{{'MENU.inquiry.DIALOG.dateofinquiry'| translate}} </label>
+
+                                        <input mdc-datetime-picker="" date="true" time="false" type="text" short-time="true" id="pmsinquiry.dateofinquiry"
+                                               min-date="date" ng-model="pmsinquiry.dateofinquiry" class="md-input" format="DD-MM-YYYY">
+                                    </md-input-container>
+
+                                </div>
+
+                                <div  flex="25">
+
+                                    <md-input-container class="md-input-has-placeholder md-block"  >
+                                        <label>{{'MENU.inquiry.DIALOG.fromperiod'| translate}} </label>
+
+                                        <input mdc-datetime-picker="" date="true" time="false" type="text" short-time="true" id="pmsinquiry.fromperiod"
+                                               min-date="date" ng-model="pmsinquiry.fromperiod" class="md-input" format="DD-MM-YYYY">
+                                    </md-input-container>
+
+
+                                </div>
+                            </div>
+                            <div layout layout-xs="column" flex>
+
+
+                                <md-input-container class="md-input-has-placeholder md-block" flex="25" >
+                                    <label>Next Date</label>
+
+                                    <input mdc-datetime-picker="" date="true" time="false" type="text" short-time="true" id="pmsinquiry.nextdate"
+                                           min-date="date" ng-model="pmsinquiry.nextdate" class="md-input" format="DD-MM-YYYY">
+                                </md-input-container>
+                                <md-input-container flex="25">
+                                    <label>{{'MENU.inquiry.DIALOG.propertypriorityid'| translate}} </label>
+                                    <md-select placeholder="{{'MENU.inquiry.DIALOG.propertypriorityid'| translate}}"  
+                                               ng-model="pmsinquiry.selectpropertypriorityid" name="propertypriorityid"  id="propertypriorityid" type="select"   multiple="true">
+                                        <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertypriorityidlist">{{objcombo.text}}</md-option>
+                                    </md-select>
+                                    <div ng-messages="inquiryfrom.propertypriorityid.$error">
+                                        <div ng-message="required">
+                                            {{'MENU.inquiry.DIALOG.inquiryform.PLEASE_propertypriorityid_required'| translate}}
+                                        </div>
+                                    </div>
+                                </md-input-container> 
+                                <md-input-container flex="25">
+                                    <label>{{'MENU.inquiry.DIALOG.propertylbedroomsid'| translate}} </label>
+                                    <md-select placeholder="{{'MENU.inquiry.DIALOG.propertylbedroomsid'| translate}}"  ng-model="pmsinquiry.selectpropertylbedroomsid" name="propertylbedroomsid"  id="propertylbedroomsid" type="select" required multiple="true">
+                                        <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertylbedroomsidlist">{{objcombo.text}}</md-option>
+                                    </md-select>
+                                    <div ng-messages="inquiryfrom.propertylbedroomsid.$error">
+                                        <div ng-message="required">
+                                            {{'MENU.inquiry.DIALOG.inquiryform.PLEASE_propertylbedroomsid_required'| translate}}
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container flex="25">
+                                    <label>{{'MENU.inquiry.DIALOG.propertyfacingid'| translate}} </label>
+                                    <md-select placeholder="{{'MENU.inquiry.DIALOG.propertyfacingid'| translate}}"  ng-model="pmsinquiry.selectpropertyfacingid" name="propertyfacingid"  id="propertyfacingid" type="select" required multiple="false">
+                                        <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertyfacingidlist">{{objcombo.text}}</md-option>
+                                    </md-select>
+                                    <div ng-messages="inquiryfrom.propertyfacingid.$error">
+                                        <div ng-message="required">
+                                            {{'MENU.inquiry.DIALOG.inquiryform.PLEASE_propertyfacingid_required'| translate}}
+                                        </div>
+                                    </div>
+                                </md-input-container>
+
+                            </div>
+                            <div layout="row" style="height: 120px" layout-align="start start" >
+
+                                <md-input-container ng-show="false" >
+                                    <label>{{'MENU.inquiry.DIALOG.cityid'| translate}} </label>
+                                    <md-select placeholder="{{'MENU.inquiry.DIALOG.cityid'| translate}}"  ng-model="pmsinquiry.selectcityid" name="cityid"  id="cityid" type="select" required multiple="false">
+                                        <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.cityidlist| filter:{pid1:pmsinquiry.selectpropertylocality} ">{{objcombo.text}}</md-option>
+                                    </md-select>
+                                    <div ng-messages="inquiryfrom.cityid.$error">
+                                        <div ng-message="required">
+                                            {{'MENU.inquiry.DIALOG.inquiryform.PLEASE_cityid_required'| translate}}
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container flex="25">
+                                    <label>{{'MENU.inquiry.DIALOG.propertylocalityid'| translate}} </label>
+                                    <md-select placeholder="{{'MENU.inquiry.DIALOG.propertylocalityid'| translate}}"  ng-model="pmsinquiry.selectpropertylocalityid" name="propertylocalityid"  id="propertylocalityid" type="select" required multiple="true">
+                                        <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.propertylocalityidlist">{{objcombo.text}}</md-option>
+                                    </md-select>
+                                    <div ng-messages="inquiryfrom.propertylocalityid.$error">
+                                        <div ng-message="required">
+                                            {{'MENU.inquiry.DIALOG.inquiryform.PLEASE_propertylocalityid_required'| translate}}
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                                <div layout="column"     flex="50">
+
+                                    <!--                                    <div flex="100" layout-align="center start"   >{{'MENU.inquiry.DIALOG.budget'| translate}}</div>
+                                                                        <div flex="100" layout-align="center start"  >   {{ sessionobject.intToEnglish(pmsinquiry.budget)}}</div>-->
+
+                                    <!--                                    <div layout="row" flex="100"  layout-align="center start"  layout-align="start center" >
+                                                                            <div flex="15" class="digitborder" >
+                                                                                Ten Cr.
+                                                                            </div>
+                                                                            <div flex="5"  class="digitborder">
+                                                                                Cr.
+                                                                            </div>
+                                                                            <div flex="15"  class="digitborder">
+                                                                                Ten Lakh 
+                                                                            </div>
+                                                                            <div flex="10"  class="digitborder">
+                                                                                Lakh
+                                                                            </div>
+                                                                            <div flex="25"  class="digitborder">
+                                                                                Ten Thousand
+                                                                            </div>
+                                                                            <div flex="15"  class="digitborder">
+                                                                                Thousand
+                                                                            </div>
+                                                                            <div flex="15"  class="digitborder">
+                                                                                Hundred
+                                                                            </div>
+                                                                            <div flex="10"  class="digitborder">
+                                                                                Ten's
+                                                                            </div>
+                                                                            <div flex="10"  class="digitborderend">
+                                                                                Unit
+                                                                            </div>
+                                                                        </div>
+                                                                        <div layout="row" layout-align="center center"  flex="100">
+                                                                            <div flex="15"  s  class="digitborder">
+                                    
+                                    
+                                                                                <input ng-model="pmsinquiry.budget9" style="width: 20px;" name="budget9" id="budget9" 
+                                                                                       ng-change="pmsinquirycommonobject.chengetext(9, pmsinquiry)"  >  
+                                    
+                                                                            </div>
+                                                                            <div flex="5" class="digitborder">
+                                                                                <input class="md-input-container" ng-model="pmsinquiry.budget8" style="width: 20px;" name="budget8" 
+                                                                                       id="budget8"  ng-change="pmsinquirycommonobject.chengetext(8, pmsinquiry)"  >  
+                                                                            </div>
+                                                                            <div flex="15" class="digitborder">
+                                                                                <input ng-model="pmsinquiry.budget7" style="width: 20px;" name="budget7" 
+                                                                                       id="budget7" ng-change="pmsinquirycommonobject.chengetext(7, pmsinquiry)" >  
+                                                                            </div>
+                                                                            <div flex="10" class="digitborder">
+                                                                                <input ng-model="pmsinquiry.budget6" style="width: 20px;" name="budget6" 
+                                                                                       id="budget6" ng-change="pmsinquirycommonobject.chengetext(6, pmsinquiry)" >  
+                                                                            </div>
+                                                                            <div flex="25" class="digitborder">
+                                                                                <input ng-model="pmsinquiry.budget5" style="width: 20px;" name="budget5" 
+                                                                                       id="budget5"  ng-change="pmsinquirycommonobject.chengetext(5, pmsinquiry)">  
+                                                                            </div>
+                                                                            <div  flex="15" class="digitborder">
+                                                                                <input ng-model="pmsinquiry.budget4" style="width: 20px;" name="budget4" 
+                                                                                       id="budget4" ng-change="pmsinquirycommonobject.chengetext(4, pmsinquiry)" >  
+                                                                            </div>
+                                                                            <div  flex="15" class="digitborder" >
+                                                                                <input ng-model="pmsinquiry.budget3"  style="width: 20px;" name="budget3" 
+                                                                                       id="budget3" ng-change="pmsinquirycommonobject.chengetext(3, pmsinquiry)" >  
+                                                                            </div>
+                                                                            <div  flex="10" class="digitborder">
+                                                                                <input ng-model="pmsinquiry.budget2" style="width: 20px;" name="budget2" 
+                                                                                       id="budget2" ng-change="pmsinquirycommonobject.chengetext(2, pmsinquiry)" >  
+                                                                            </div >
+                                                                            <div   flex="10" class="digitborderend">
+                                                                                <input ng-model="pmsinquiry.budget1" style="width: 20px;" name="budget1" 
+                                                                                       id="budget1" ng-change="pmsinquirycommonobject.chengetext(1, pmsinquiry)" >  
+                                                                            </div>
+                                                                        </div>-->
+                                    <md-input-container flex="100">
+                                        <label>{{'MENU.inquiry.DIALOG.budget'| translate}} </label>
+                                        <input ng-model="pmsinquiry.budget" name="budget" 
+                                               id="budget" type="select" currency-mask  required>  
+                                        <div ng-messages="inquiryfrom.budget.$error">
+                                            <div ng-message="required">
+                                                {{'MENU.inquiry.DIALOG.inquiryform.PLEASE_budget_required'| translate}}
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                                <md-input-container flex="25">
+                                    <label>{{'MENU.agent.DIALOG.remark'| translate}} </label>
+                                    <textarea ng-model="pmsinquiry.remark" name="remark" 
+                                              id="remark" type="text" > </textarea>
+
+                                    <div ng-messages="inquiryfrom.remark.$error">
+                                        <div ng-message="None">
+                                            {{'MENU.agent.DIALOG.agentform.PLEASE_remark_None'| translate}}
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                            </div>
+
+                            <div class="divheader"  palette-background="blue:100"  >   Contact Info </div>
+                            <div class="divspace" >&nbsp;</div>
+                            <div  layout="row"   flex>
+                                <md-input-container flex="20">
+                                    <label>{{'MENU.inquiry.DIALOG.name'| translate}}</label>
+                                    <input ng-model="pmsinquiry.name" name="name" 
+                                           id="name" type="text" required> 
+                                    <div ng-messages="inquiryfrom.name.$error">
+                                        <div ng-message="required">
+                                            {{'MENU.inquiry.DIALOG.inquiryform.PLEASE_name_required'| translate}}
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container flex="20">
+                                    <label>{{'MENU.inquiry.DIALOG.email'| translate}}</label>
+                                    <input ng-model="pmsinquiry.email" name="email" 
+                                           id="email" type="text"  > 
+                                    <div ng-messages="inquiryfrom.email.$error">
+                                        <div ng-message="required">
+                                            {{'MENU.inquiry.DIALOG.inquiryform.PLEASE_email_required'| translate}}
+                                        </div>
+                                        <div ng-message="email">
+                                            {{'MENU.inquiry.DIALOG.inquiryform.PLEASE_email_email'| translate}}
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container flex="15">
+                                    <label>{{'MENU.inquiry.DIALOG.mobileno'| translate}}</label>
+                                    <input ng-model="pmsinquiry.mobileno" name="mobileno" 
+                                           id="mobileno" type="text" required ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/"> 
+                                    <div ng-messages="inquiryfrom.mobileno.$error">
+                                        <div ng-message="required">
+                                            {{'MENU.inquiry.DIALOG.inquiryform.PLEASE_mobileno_required'| translate}}
+                                        </div>
+                                        <div ng-message="ng-pattern">
+                                            {{'MENU.inquiry.DIALOG.inquiryform.PLEASE_mobileno_ng-pattern'| translate}}
+                                        </div>
+                                    </div>
+                                </md-input-container>
+
+                                <md-input-container style="line-height:24px" flex="15">
+                                    <label>Contact No </label>
+                                    <input ng-model="pmsinquiry.contact1" name="contact1" 
+                                           id="contact1" type="text"   ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/"
+                                           > 
+
+                                    <div ng-messages="inquiryfrom.contact1.$error"  >
+                                        <div ng-message="required">
+                                            {{'MENU.customer.DIALOG.customerform.PLEASE_mobileno_required'| translate}}
+                                        </div>
+                                        <div ng-message="ng-pattern">
+                                            {{'MENU.customer.DIALOG.customerform.PLEASE_mobileno_ng-pattern'| translate}}
+                                        </div>
+                                    </div>
+
+
+
+
+                                </md-input-container>
+                                <md-input-container  style="line-height:24px" flex="15">
+                                    <label>Contact No </label>
+                                    <input ng-model="pmsinquiry.contact2" name="contact2" 
+                                           id="contact2" type="text"   ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/"
+                                           > 
+
+                                    <div ng-messages="inquiryfrom.contact2.$error"   >
+                                        <div ng-message="required">
+                                            {{'MENU.customer.DIALOG.customerform.PLEASE_mobileno_required'| translate}}
+                                        </div>
+                                        <div ng-message="ng-pattern">
+                                            {{'MENU.customer.DIALOG.customerform.PLEASE_mobileno_ng-pattern'| translate}}
+                                        </div>
+                                    </div>
+
+
+                                </md-input-container>
+                                <md-input-container style="line-height:24px" flex="15">
+                                    <label>Contact No </label>
+                                    <input ng-model="pmsinquiry.contact3" name="contact3" 
+                                           id="contact3" type="text"   ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/"
+                                           > 
+
+                                    <div ng-messages="inquiryfrom.contact3.$error"  >
+                                        <div ng-message="required">
+                                            {{'MENU.customer.DIALOG.customerform.PLEASE_mobileno_required'| translate}}
+                                        </div>
+                                        <div ng-message="ng-pattern">
+                                            {{'MENU.customer.DIALOG.customerform.PLEASE_mobileno_ng-pattern'| translate}}
+                                        </div>
+                                    </div>  
+
+
+
+                                </md-input-container>
+                            </div>
+                            <div class="divheader"  palette-background="blue:100"  >   Executive Info </div>
+                            <div class="divspace" >&nbsp;</div>
+                            <div  layout="row"   flex>
+                                <md-input-container flex="50">
+                                    <label>Executive</label>
+                                    <input ng-model="pmsinquiry.excutive" name="name" 
+                                           id="excutive" type="text" > 
+
+                                </md-input-container>
+                                <md-input-container flex="50" ng-show="pmsinquiry.inquiryid > 0">
+                                    <label>Close By</label>
+                                    <input ng-model="pmsinquiry.closeby" name="closeby" 
+                                           id="closeby" type="text"  > 
+
+                                </md-input-container>
+
+
+                                </md-input-container>
+                            </div>
+
+
+                        </form>
+                    </div>
+
+
+                    <div class="md-actions" layout="row">
+                        <span flex></span>
+                        <md-button ng-click="cancel()" class="md-primary">
+                            Cancel
+                        </md-button>
+                        <md-button ng-click="hide(pmsinquirycommonobject.pmsinquiry.inquiryid)" class="md-primary" ng-disabled="inquiryfrom.$invalid">
+                            Ok
+                        </md-button>
+                    </div>
+                    <div>
+
+                    </div>
+                </div></div></div>
+
+
+
+    </div>
+</div>
+
+

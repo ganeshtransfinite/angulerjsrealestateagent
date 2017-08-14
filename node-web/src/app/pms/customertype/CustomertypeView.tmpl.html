@@ -1,0 +1,55 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar class="md-primary" layout="row"  layout-align="space-between center">
+        <div class="md-toolbar-tools" >
+            <h2>View Customer Type  </h2> 
+        </div>
+        <md-button ng-click="hide()"  class="md-fab md-mini" aria-label="Close">
+            <md-icon md-font-icon="zmdi zmdi-close-circle"></md-icon>
+        </md-button>
+    </md-toolbar>
+    <md-dialog-content class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10" >
+        <md-whiteframe class="md-whiteframe-18dp"    layout layout-align="center center">
+            <div flex="100" layout="column" class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10">
+                 
+             
+                <md-divider></md-divider>
+                <div  layout="row" layout-align="space-between center">    
+                    <div flex="100">
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customertype.GRID.customertypeid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customertypeobj.customertypeid}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customertype.GRID.name}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customertypeobj.name}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customertype.GRID.active}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customertypeobj.active}}  </div>
+                        </div>   
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customertype.GRID.createddate}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customertypeobj.createddate | date:'dd/MM/yyyy'}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customertype.GRID.modifyddate}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customertypeobj.modifyddate | date:'dd/MM/yyyy'}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customertype.GRID.userid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customertypeobj.userid.__fkey__}}  </div>
+                        </div>  
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'MENU.customertype.GRID.recordorder}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::customertypeobj.recordorder}}  </div>
+                        </div>   
+"
+                    </div>
+               
+                </div>
+                <md-divider></md-divider>
+            
+            </div>   </md-whiteframe>
+    </md-dialog-content>
+</md-dialog>

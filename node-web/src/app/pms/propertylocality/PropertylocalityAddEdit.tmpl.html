@@ -1,0 +1,58 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar md-theme="{{triSkin.elements.content}}">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{'MENU.propertylocality.DIALOG.NEW'| translate}}     </span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-dialog-content class="sticky-container">
+        <div> 
+           <form name="propertylocalityfrom" novalidate>
+                
+ <md-input-container class="md-block">
+                    <label>{{'MENU.propertylocality.DIALOG.name'| translate}}</label>
+                    <input ng-model="pmspropertylocality.name" class="dialog-close" name="name" 
+                           id="name" type="text" required> 
+                    <div ng-messages="propertylocalityfrom.name.$error">
+                         <div ng-message="required">
+                            {{'MENU.propertylocality.DIALOG.propertylocalityform.PLEASE_name_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{'MENU.propertylocality.DIALOG.cityid'| translate}} </label>
+                    <md-select placeholder="{{'MENU.propertylocality.DIALOG.cityid'| translate}}"  ng-model="pmspropertylocality.selectcityid" name="cityid"  id="cityid" type="select" required multiple="false">
+                        <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.cityidlist  ">{{objcombo.text }}</md-option>
+                    </md-select>
+                    <div ng-messages="propertylocalityfrom.cityid.$error">
+                         <div ng-message="required">
+                            {{'MENU.propertylocality.DIALOG.propertylocalityform.PLEASE_cityid_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+ <md-input-container ng-show="false" class="md-block">
+                    <label>{{'MENU.propertylocality.DIALOG.recordorder'| translate}}</label>
+                    <input ng-model="pmspropertylocality.recordorder" class="dialog-close" name="recordorder" 
+                           id="recordorder" type="text" required> 
+                    <div ng-messages="propertylocalityfrom.recordorder.$error">
+                         <div ng-message="required">
+                            {{'MENU.propertylocality.DIALOG.propertylocalityform.PLEASE_recordorder_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+            </form>
+        </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()" class="md-primary">
+            Cancel
+        </md-button>
+        <md-button ng-click="hide()" class="md-primary" ng-disabled="propertylocalityfrom.$invalid">
+            Ok
+        </md-button>
+    </div>
+</md-dialog>

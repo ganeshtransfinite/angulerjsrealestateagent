@@ -1,0 +1,63 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar class="md-primary" layout="row"  layout-align="space-between center">
+        <div class="md-toolbar-tools" >
+            <h2>View Role Permission  </h2> 
+        </div>
+        <md-button ng-click="hide()"  class="md-fab md-mini" aria-label="Close">
+            <md-icon md-font-icon="zmdi zmdi-close-circle"></md-icon>
+        </md-button>
+    </md-toolbar>
+    <md-dialog-content class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10" >
+        <md-whiteframe class="md-whiteframe-18dp"    layout layout-align="center center">
+            <div flex="100" layout="column" class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10">
+                 
+             
+                <md-divider></md-divider>
+                <div  layout="row" layout-align="space-between center">    
+                    <div flex="100">
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'adminmenu.rolepermission.GRID.rolepermissionid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::rolepermissionobj.rolepermissionid}}  </div>
+                        </div>   
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'adminmenu.rolepermission.GRID.pfunction}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::rolepermissionobj.pfunction}}  </div>
+                        </div>   
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'adminmenu.rolepermission.GRID.roleid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::rolepermissionobj.roleid.__fkey__}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'adminmenu.rolepermission.GRID.operationid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::rolepermissionobj.operationid.__fkey__}}  </div>
+                        </div>  
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'adminmenu.rolepermission.GRID.active}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::rolepermissionobj.active}}  </div>
+                        </div>   
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'adminmenu.rolepermission.GRID.createddate}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::rolepermissionobj.createddate | date:'dd/MM/yyyy'}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'adminmenu.rolepermission.GRID.modifyddate}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::rolepermissionobj.modifyddate | date:'dd/MM/yyyy'}}  </div>
+                        </div>  
+  <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'adminmenu.rolepermission.GRID.userid}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::rolepermissionobj.userid.__fkey__}}  </div>
+                        </div>  
+ <div  layout="row" layout-align="start center">    
+                            <div  class="md-body-2" flex="20"> {{'adminmenu.rolepermission.GRID.recordorder}'| translate}}  </div>
+                            <div  class="md-body-2" flex="80" >: {{::rolepermissionobj.recordorder}}  </div>
+                        </div>   
+"
+                    </div>
+               
+                </div>
+                <md-divider></md-divider>
+            
+            </div>   </md-whiteframe>
+    </md-dialog-content>
+</md-dialog>

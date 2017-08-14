@@ -1,0 +1,77 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar md-theme="{{triSkin.elements.content}}">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{'adminmenu.file.DIALOG.NEW'| translate}}     </span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-dialog-content class="sticky-container">
+        <div> 
+           <form name="filefrom" novalidate>
+                
+ <md-input-container class="md-block">
+                    <label>{{'adminmenu.file.DIALOG.filename'| translate}}</label>
+                    <input ng-model="adminfile.filename" class="dialog-close" name="filename" 
+                           id="filename" type="text" required> 
+                    <div ng-messages="filefrom.filename.$error">
+                         <div ng-message="required">
+                            {{'adminmenu.file.DIALOG.fileform.PLEASE_filename_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+ <md-input-container class="md-block">
+                    <label>{{'adminmenu.file.DIALOG.conenttype'| translate}}</label>
+                    <input ng-model="adminfile.conenttype" class="dialog-close" name="conenttype" 
+                           id="conenttype" type="text" required> 
+                    <div ng-messages="filefrom.conenttype.$error">
+                         <div ng-message="required">
+                            {{'adminmenu.file.DIALOG.fileform.PLEASE_conenttype_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+<md-input-container class="md-block">
+                    <label>{{'adminmenu.file.DIALOG.content'| translate}} </label>
+                    <input placeholder="{{'adminmenu.file.DIALOG.content'| translate}} " ng-model="adminfile.selectcontent" name="content" id="content"  ngf-select="uploadcontent($files)" type="file" required>
+  <img ng-src="data:image/JPEG;base64,{{adminfile.content.content}}" flex="100" alt="">
+                                                                      <div ng-messages="filefrom.content.$error">
+                         <div ng-message="required">
+                            {{'adminmenu.file.DIALOG.fileform.PLEASE_content_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+ <md-input-container class="md-block">
+                    <label>{{'adminmenu.file.DIALOG.type'| translate}}</label>
+                    <input ng-model="adminfile.type" class="dialog-close" name="type" 
+                           id="type" type="text" required> 
+                    <div ng-messages="filefrom.type.$error">
+                         <div ng-message="required">
+                            {{'adminmenu.file.DIALOG.fileform.PLEASE_type_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+ <md-input-container class="md-block">
+                    <label>{{'adminmenu.file.DIALOG.recordorder'| translate}}</label>
+                    <input ng-model="adminfile.recordorder" class="dialog-close" name="recordorder" 
+                           id="recordorder" type="text" required> 
+                    <div ng-messages="filefrom.recordorder.$error">
+                         <div ng-message="required">
+                            {{'adminmenu.file.DIALOG.fileform.PLEASE_recordorder_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+            </form>
+        </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()" class="md-primary">
+            Cancel
+        </md-button>
+        <md-button ng-click="hide()" class="md-primary" ng-disabled="filefrom.$invalid">
+            Ok
+        </md-button>
+    </div>
+</md-dialog>

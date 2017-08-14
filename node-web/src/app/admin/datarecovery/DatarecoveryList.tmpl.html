@@ -1,0 +1,163 @@
+
+<div ng-controller="DatarecoveryTableController as vm">
+    <div flex layout="row" >
+        <div flex-gt-lg="15" ng-show="!vm.filterclose && role['Data Recovery'].Filter && vm.showmenu===true"     >
+            <md-toolbar >
+                <div class="md-toolbar-tools">
+                    <h2>
+                        Filter
+                    </h2>
+                    <md-menu>
+                        <md-button class="md-icon-button" aria-label="open menu" ng-click="$mdOpenMenu()">
+                            <md-icon md-font-icon="zmdi zmdi-more-vert"></md-icon>
+                        </md-button>
+                        <md-menu-content >
+                            
+                            <md-menu-divider></md-menu-divider>
+                        </md-menu-content>
+                    </md-menu>
+                    <span flex>                                 
+                         <md-button    ng-click="vm.getTable()"     class="md-fab md-mini" aria-label="Add">
+                                    <md-icon md-font-icon="zmdi zmdi-refresh"></md-icon> <md-tooltip>Refresh</md-tooltip>
+                                </md-button>
+                    </span>
+                </div>
+            </md-toolbar>
+            <md-content flex layout="column"  class="filter-content"  >
+                <md-content flex='100' layout="column">
+                    <md-list flex='100' class="filter-list" >
+                        
+                    </md-list>
+                </md-content>
+            </md-content>
+        </div>
+        <div class="md-whiteframe-z5 animate-wrapper" layout="column" layout-align="start start" flex>
+            <div flex id="ui-admin-email" ui-view layout="column" layout-align="start stretch" class="overflow-auto full-width">
+                <div flex class="inbox-no-email-selected" layout="column" layout-align="center" >
+                    <md-toolbar  layout="row" layout-align="space-between center"  class="padding-bottom-10 padding-left-10 padding-top-10  padding-right-10">
+                        <div>
+                            <div  layout='row' layout-align="start" >
+                                <md-button    ng-click="vm.filterclose = false"   ng-show="role['Data Recovery'].Filter && vm.filterclose && vm.showmenu===true"   class="md-fab md-mini" aria-label="Close">
+                                      <md-icon md-font-icon="fa fa-sign-in" ></md-icon>  <md-tooltip>Close Filter</md-tooltip>
+                                </md-button>
+                                <md-button    ng-click="vm.filterclose = true"  ng-show="role['Data Recovery'].Filter && !vm.filterclose && vm.showmenu===true"   class="md-fab md-mini" aria-label="Open">
+                                    <md-icon md-font-icon="fa fa-sign-out"></md-icon> <md-tooltip> Open Filter </md-tooltip>
+                                </md-button>
+                                <md-button    ng-click="addTodo($event)"   ng-show="role['Data Recovery'].Add"  class="md-fab md-mini" aria-label="Add">
+                                    <md-icon md-font-icon="fa fa-plus"></md-icon> <md-tooltip> Add </md-tooltip>
+                                </md-button>
+                                <md-button    ng-show="role['Data Recovery'].Edit"
+                                              ng-click="vm.object.editTodo($event)"   class="md-fab md-mini" aria-label="Edit">
+                                    <md-icon md-font-icon="fa fa-edit"></md-icon> <md-tooltip> Edit </md-tooltip>
+                                </md-button>
+                                <md-button     ng-show="role['Data Recovery'].Delete"  class="md-fab md-mini" ng-click="vm.object.removeTodo($event)"    class="md-fab md-mini" aria-label="Delete">
+                                    <md-icon md-font-icon="zmdi zmdi-delete"></md-icon> <md-tooltip> Delete </md-tooltip>
+                                </md-button>
+                            </div>
+                        </div>
+                        <div ng-show="role['Data Recovery'].Export">
+                            {{'ADMIN.TOOLBAR.EXPORTDATA'| translate}}   
+                            <md-menu>
+                                <md-button class="md-icon-button" aria-label="{{'ADMIN.TOOLBAR.EXPORTDATA'| translate}} " ng-click="$mdOpenMenu()">
+                                    <md-icon md-font-icon="zmdi zmdi-more-vert"> </md-icon>
+                                </md-button>
+                                <md-menu-content >
+                                    <md-menu-item >
+                                        <md-button  ng-click="sessionobject.tableExport({type: 'excel', escape: 'false'});" >
+                                            <md-icon md-font-icon="fa fa-file-excel-o"> </md-icon>
+                                            <div class="md-body-2"  >
+                                                {{'ADMIN.TOOLBAR.EXCEL'| translate}} 
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item >
+                                        <md-button  ng-click="sessionobject.tableExport({type: 'xml', escape: 'false'});" >
+                                            <md-icon md-font-icon="fa fa-file-o"> </md-icon>
+                                            <div class="md-body-2"  >
+                                                {{'ADMIN.TOOLBAR.xml'| translate}} 
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item >
+                                    <md-menu-item >
+                                        <md-button  ng-click="sessionobject.tableExport({type: 'csv', escape: 'false'});" >
+                                            <md-icon md-font-icon="fa fa-file-text-o"> </md-icon>
+                                            <div class="md-body-2"  >
+                                                {{'ADMIN.TOOLBAR.csv'| translate}} 
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item >
+                                    <md-menu-divider></md-menu-divider>
+                                    <md-menu-item >
+                                        <md-button  ng-click="sessionobject.printIt('printArea1')" >
+                                            <md-icon md-font-icon="fa fa-print"> </md-icon>
+                                            <div class="md-body-2"  >
+                                                {{'ADMIN.TOOLBAR.Print'| translate}} 
+                                            </div>
+                                        </md-button>
+                                    </md-menu-item >
+                                </md-menu-content>
+                            </md-menu>
+                        </div>
+                    </md-toolbar>
+                    <md-divider></md-divider>
+                    <md-table-pagination  class="page-nav-list md-title"  
+                                          md-limit-options="vm.query.limitoption" md-limit="vm.query.limit" md-page-select md-page="vm.query.page" md-total="{{vm.contents.total_count}}" 
+                                          md-on-paginate="vm.getTable"></md-table-pagination>
+                    <md-divider></md-divider>
+                    <md-toolbar class="md-table-toolbar alternate" ng-show="vm.selected.length" ng-show="role['Data Recovery'].Grid">
+                        <div class="md-toolbar-tools" layout-align="start center">
+                            <div>{{vm.selected.length}} {{vm.selected.length > 1 ? 'users' : 'user'}} selected</div>
+                        </div>
+                    </md-toolbar>
+                    <md-table-container flex="grow"    ng-show="role['Data Recovery'].Grid"  id="printArea1"  class="md-tablegrid-container overflow-auto full-width">
+                        <table fixed-header md-table class="md-primary md-tablegrid" id="printArea" md-row-select ng-model="vm.selected" 
+                               multiple id="tabledata"   md-progress="vm.promise">
+                            <thead  md-head md-order="vm.query.order" md-on-reorder="vm.getTable">
+                                <tr md-row>
+                                        <th md-column md-order-by="datarecoveryid" >{{vm.columns.datarecoveryid| translate }} </th>
+  <th md-column md-order-by="tablename" >{{vm.columns.tablename| translate }} </th>
+  <th md-column md-order-by="content" >{{vm.columns.content| translate }} </th>
+  <th md-column md-order-by="userid.fullname" >{{vm.columns.userid| translate }} </th>
+  <th md-column md-order-by="recordorder" ng-show="false" >{{vm.columns.recordorder| translate }} </th>
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+                                <tr   md-row md-auto-select md-select="datarecoveryobj" ng-repeat="datarecoveryobj in vm.contents.items"  >
+                                    <td md-cell>{{::datarecoveryobj.datarecoveryid}}</td>
+  <td md-cell>{{::datarecoveryobj.tablename}}</td>
+  <td md-cell>{{::datarecoveryobj.content}}</td>
+  <td md-cell>{{::datarecoveryobj.userid.fullname}}</td>
+  <td md-cell>{{::datarecoveryobj.recordorder}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
+                    <md-table-pagination    class="page-nav-list md-title"  md-limit-options="vm.query.limitoption"  md-limit="vm.query.limit" md-page-select md-page="vm.query.page" md-total="{{vm.contents.total_count}}" md-on-paginate="vm.getTable"></md-table-pagination>
+                    <div>
+                        <md-toolbar class="toolbar-default margin-bottom-30">
+                            <div class="md-toolbar-tools">
+                                <md-button class="md-icon-button" aria-label="Settings">
+                                    <md-icon md-font-icon="icon-menu"></md-icon>
+                                </md-button>
+                                <!--                                sessionobject.printIt('printArea')-->
+                                <span flex></span>
+                                <div  layout='row' layout-align="start">
+                                    <md-button    ng-click="addTodo($event)"   ng-show="role['Data Recovery'].Add"  class="md-fab md-mini" aria-label="Add">
+                                        <md-icon md-font-icon="fa fa-plus"></md-icon> <md-tooltip> Add </md-tooltip>
+                                    </md-button>
+                                    <md-button    ng-show="role['Data Recovery'].Edit"
+                                                  ng-click="vm.object.editTodo($event)"   class="md-fab md-mini" aria-label="Edit">
+                                        <md-icon md-font-icon="fa fa-edit"></md-icon> <md-tooltip> Edit </md-tooltip>
+                                    </md-button>
+                                    <md-button     ng-show="role['Data Recovery'].Delete"  class="md-fab md-mini" ng-click="vm.object.removeTodo($event)"    class="md-fab md-mini" aria-label="Delete">
+                                        <md-icon md-font-icon="zmdi zmdi-delete"></md-icon> <md-tooltip> Delete </md-tooltip>
+                                    </md-button>
+                                </div>
+                            </div>
+                        </md-toolbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>

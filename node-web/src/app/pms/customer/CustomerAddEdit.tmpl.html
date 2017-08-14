@@ -1,0 +1,228 @@
+
+<md-dialog aria-label="Mango (Fruit)"  flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar md-theme="{{triSkin.elements.content}}">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{'MENU.customer.DIALOG.NEW'| translate}}     </span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-dialog-content class="sticky-container">
+        <div> 
+            <form name="customerform" novalidate>
+
+                <md-input-container class="md-block">
+                    <label>{{'MENU.customer.DIALOG.fullname'| translate}}</label>
+                    <input ng-model="pmscustomer.fullname" class="dialog-close" name="fullname" 
+                           id="fullname" type="text" ng-change="pmscustomercommonobject.checkExist('fullname', pmscustomer.fullname, pmscustomer.customerid)" required> 
+                    <div ng-messages="customerform.fullname.$error">
+                        <div ng-message="required">
+                            {{'MENU.customer.DIALOG.customerform.PLEASE_fullname_required'| translate}}
+                        </div>
+                    </div>
+                    <div class="md-input-message-animation ng-binding ng-scope" ng-show="pmscustomercommonobject.checkExistCustomerFName">
+                        Full Name is already in database.
+                    </div>
+                </md-input-container>
+
+
+                <div layout layout-xs="column" flex>
+
+                    <md-input-container flex>
+                        <label>{{'MENU.customer.DIALOG.customertypeid'| translate}} </label>
+                        <md-select placeholder="{{'MENU.customer.DIALOG.customertypeid'| translate}}" 
+                                   ng-model="pmscustomer.selectcustomertypeid" name="customertypeid"  id="customertypeid" 
+                                   type="select" required multiple="false" >
+                            <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.customertypeidlist">{{objcombo.text}}</md-option>
+                        </md-select>
+                        <div ng-messages="customerform.customertypeid.$error">
+                            <div ng-message="required">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_customertypeid_required'| translate}}
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>{{'MENU.customer.DIALOG.occupationid'| translate}} </label>
+                        <md-select placeholder="{{'MENU.customer.DIALOG.occupationid'| translate}}"  ng-model="pmscustomer.selectoccupationid" name="occupationid"  id="occupationid" type="select" required multiple="false">
+                            <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.occupationidlist">{{objcombo.text}}</md-option>
+                        </md-select>
+                        <div ng-messages="customerform.occupationid.$error">
+                            <div ng-message="required">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_occupationid_required'| translate}}
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <div  flex>
+                        <label>{{'MENU.customer.DIALOG.dateofbirth'| translate}} </label>
+                        <md-datepicker ng-model="pmscustomer.dateofbirth"
+                                       name="dateofbirth" 
+                                       id="dateofbirth" 
+                                       md-placeholder="{{pmscustomer.dateofbirth| date: 'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\''}}"
+                                       ></md-datepicker>
+                    </div>
+                </div>
+                <div layout layout-xs="column" flex>
+                    <md-input-container flex>
+                        <label>{{'MENU.customer.DIALOG.genderid'| translate}} </label>
+                        <md-select placeholder="{{'MENU.customer.DIALOG.genderid'| translate}}"  ng-model="pmscustomer.selectgenderid" name="genderid"  id="genderid" type="select" required multiple="false">
+                            <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.genderidlist">{{objcombo.text}}</md-option>
+                        </md-select>
+                        <div ng-messages="customerform.genderid.$error">
+                            <div ng-message="required">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_genderid_required'| translate}}
+                            </div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container flex>
+                        <label>{{'MENU.customer.DIALOG.email'| translate}}</label>
+                        <input ng-model="pmscustomer.email" class="dialog-close" name="email" 
+                               id="email" type="text" ng-change="pmscustomercommonobject.checkExist('email', pmscustomer.email, pmscustomer.customerid)"  > 
+                        <div ng-messages="customerform.email.$error">
+                            <div ng-message="required">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_email_required'| translate}}
+                            </div>
+                            <div ng-message="email">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_email_email'| translate}}
+                            </div>
+                            <div ng-message="check">
+                                Email ID Already in database. 
+                            </div>
+                        </div>
+                      
+
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>{{'MENU.customer.DIALOG.mobileno'| translate}}</label>
+                        <input ng-model="pmscustomer.mobileno" class="dialog-close" name="mobileno" 
+                               id="mobileno" type="text"   ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/"
+                               ng-change="checkExist('mobileno', pmscustomer.mobileno, pmscustomer.customerid)" > 
+                        <div ng-messages="customerform.mobileno.$error">
+                            <div ng-message="required">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_mobileno_required'| translate}}
+                            </div>
+                            <div ng-message="ng-pattern">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_mobileno_ng-pattern'| translate}}
+                            </div>
+                            <div ng-message="check">
+                               Mobile no is already in database. 
+                            </div>
+                        </div>
+                       
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>{{'MENU.customer.DIALOG.landlineno'| translate}}</label>
+                        <input ng-model="pmscustomer.landlineno" class="dialog-close" name="landlineno" 
+                               id="landlineno" type="text"  ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/"> 
+                        <div ng-messages="customerform.landlineno.$error">
+                            <div ng-message="required">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_landlineno_required'| translate}}
+                            </div>
+                            <div ng-message="ng-pattern">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_landlineno_ng-pattern'| translate}}
+                            </div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout layout-xs="column" flex>
+                    <md-input-container flex="33">
+                        <label>Contact No </label>
+                        <input ng-model="pmscustomer.contact1" class="dialog-close" name="contact1" 
+                               id="contact1" type="text"   ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/"
+                               > 
+                        <div ng-messages="customerform.contact1.$error">
+                            <div ng-message="required">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_mobileno_required'| translate}}
+                            </div>
+                            <div ng-message="ng-pattern">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_mobileno_ng-pattern'| translate}}
+                            </div>
+                                <div ng-message="check">
+                               Mobile no is already in database. 
+                            </div>
+                        </div>
+                      
+                    </md-input-container>
+                    <md-input-container flex="33">
+                        <label>Contact No </label>
+                        <input ng-model="pmscustomer.contact2" class="dialog-close" name="contact2" 
+                               id="contact2" type="text"   ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/"
+                               > 
+                        <div ng-messages="customerform.contact2.$error">
+                            <div ng-message="required">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_mobileno_required'| translate}}
+                            </div>
+                            <div ng-message="ng-pattern">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_mobileno_ng-pattern'| translate}}
+                            </div>
+                              <div ng-message="check">
+                               Mobile no is already in database. 
+                            </div>
+                        </div>
+                        
+                    </md-input-container>
+                    <md-input-container flex="33">
+                        <label>Contact No </label>
+                        <input ng-model="pmscustomer.contact3" class="dialog-close" name="contact3" 
+                               id="contact3" type="text"   ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/"
+                               > 
+                        <div ng-messages="customerform.contact3.$error">
+                            <div ng-message="required">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_mobileno_required'| translate}}
+                            </div>
+                            <div ng-message="ng-pattern">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_mobileno_ng-pattern'| translate}}
+                            </div>
+                              <div ng-message="check">
+                               Mobile no is already in database. 
+                            </div>
+                        </div>
+                        
+                    </md-input-container>
+                </div>
+                <md-input-container class="md-block">
+                    <label>{{'MENU.customer.DIALOG.address'| translate}}</label>
+                    <input ng-model="pmscustomer.address" class="dialog-close" name="address" 
+                           id="address" type="textariea"  > 
+                    <div ng-messages="customerform.address.$error">
+                        <div ng-message="required">
+                            {{'MENU.customer.DIALOG.customerform.PLEASE_address_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+                <div layout layout-xs="column" flex>
+                    <md-input-container flex="50">
+                        <label>{{'MENU.customer.DIALOG.cityid'| translate}} </label>
+                        <md-select placeholder="{{'MENU.customer.DIALOG.cityid'| translate}}"  ng-model="pmscustomer.selectcityid" name="cityid"  id="cityid" type="select" required multiple="false">
+                            <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.cityidlist">{{objcombo.text}}</md-option>
+                        </md-select>
+                        <div ng-messages="customerform.cityid.$error">
+                            <div ng-message="required">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_cityid_required'| translate}}
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container flex="50">
+                        <label>{{'MENU.customer.DIALOG.pincode'| translate}}</label>
+                        <input ng-model="pmscustomer.pincode" class="dialog-close" name="pincode" 
+                               id="pincode" type="text" > 
+                        <div ng-messages="customerform.pincode.$error">
+                            <div ng-message="required">
+                                {{'MENU.customer.DIALOG.customerform.PLEASE_pincode_required'| translate}}
+                            </div>
+                        </div>
+                    </md-input-container>
+            </form>
+        </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()" class="md-primary">
+            Cancel 
+        </md-button>
+        <md-button ng-click="hide()" class="md-primary" ng-disabled="customerform.$invalid">
+            Ok
+        </md-button>
+    </div>
+</md-dialog>

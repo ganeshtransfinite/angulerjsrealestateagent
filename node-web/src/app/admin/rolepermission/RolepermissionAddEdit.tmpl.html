@@ -1,0 +1,64 @@
+
+<md-dialog aria-label="Mango (Fruit)" flex="{{sessionobject.flex_dialog}}" flex-sm="100">
+    <md-toolbar md-theme="{{triSkin.elements.content}}">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{'adminmenu.rolepermission.DIALOG.NEW'| translate}}     </span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-dialog-content class="sticky-container">
+        <div> 
+           <form name="rolepermissionfrom" novalidate>
+                
+ <md-input-container class="md-block">
+                    <label>{{'adminmenu.rolepermission.DIALOG.pfunction'| translate}}</label>
+                      <md-switch ng-model="adminrolepermission.pfunction">
+                    </md-switch>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{'adminmenu.rolepermission.DIALOG.roleid'| translate}} </label>
+                    <md-select placeholder="{{'adminmenu.rolepermission.DIALOG.roleid'| translate}}"  ng-model="adminrolepermission.selectroleid" name="roleid"  id="roleid" type="select" required multiple="false">
+                        <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.roleidlist  ">{{objcombo.text }}</md-option>
+                    </md-select>
+                    <div ng-messages="rolepermissionfrom.roleid.$error">
+                         <div ng-message="required">
+                            {{'adminmenu.rolepermission.DIALOG.rolepermissionform.PLEASE_roleid_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{'adminmenu.rolepermission.DIALOG.operationid'| translate}} </label>
+                    <md-select placeholder="{{'adminmenu.rolepermission.DIALOG.operationid'| translate}}"  ng-model="adminrolepermission.selectoperationid" name="operationid"  id="operationid" type="select" required multiple="false">
+                        <md-option value="{{objcombo.id}}" ng-repeat="objcombo in sessionobject.comboboxlist.operationidlist  ">{{objcombo.text }}</md-option>
+                    </md-select>
+                    <div ng-messages="rolepermissionfrom.operationid.$error">
+                         <div ng-message="required">
+                            {{'adminmenu.rolepermission.DIALOG.rolepermissionform.PLEASE_operationid_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+ <md-input-container ng-show="false" class="md-block">
+                    <label>{{'adminmenu.rolepermission.DIALOG.recordorder'| translate}}</label>
+                    <input ng-model="adminrolepermission.recordorder" class="dialog-close" name="recordorder" 
+                           id="recordorder" type="text" required> 
+                    <div ng-messages="rolepermissionfrom.recordorder.$error">
+                         <div ng-message="required">
+                            {{'adminmenu.rolepermission.DIALOG.rolepermissionform.PLEASE_recordorder_required'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+            </form>
+        </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()" class="md-primary">
+            Cancel
+        </md-button>
+        <md-button ng-click="hide()" class="md-primary" ng-disabled="rolepermissionfrom.$invalid">
+            Ok
+        </md-button>
+    </div>
+</md-dialog>

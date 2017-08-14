@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory> 
+<!--        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/pmsdemo</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"></property>
+        <property name="connection.pool_size">1</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="current_session_context_class">thread</property>   
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property> 
+        <property name="show_sql">true</property>        
+        <property name="hibernate.hbm2ddl.auto">update</property> 
+  -->
+        
+        <mapping class="admin.datarecovery.DatarecoveryForm"/>
+        <mapping class="admin.role.RoleForm"/>
+        <mapping class="admin.user.UserForm"/>
+        <mapping class="admin.operation.OperationForm"/>
+        <mapping class="admin.file.FileForm"/>
+        <mapping class="admin.rolepermission.RolepermissionForm"/>
+        <mapping class="pms.propertyfurnished.PropertyfurnishedForm"/>
+        <mapping class="pms.agent.AgentForm"/>
+        <mapping class="pms.occupation.OccupationForm"/>
+        <mapping class="pms.gender.GenderForm"/>
+        <mapping class="pms.city.CityForm"/>
+        <mapping class="pms.propertytype.PropertytypeForm"/>
+        <mapping class="pms.propertylbedrooms.PropertylbedroomsForm"/>
+        <mapping class="pms.budgetrent.BudgetrentForm"/>
+        <mapping class="pms.propertytobe.PropertytobeForm"/>
+        <mapping class="pms.inquiry.InquiryForm"/>
+        <mapping class="pms.flatamenities.FlatamenitiesForm"/>
+        <mapping class="pms.property.PropertyForm"/>
+        <mapping class="pms.property.PropertyDateForm"/>        
+        <mapping class="pms.modeoperation.ModeoperationForm"/>
+        <mapping class="pms.societyamenities.SocietyamenitiesForm"/>
+        <mapping class="pms.customertype.CustomertypeForm"/>
+        <mapping class="pms.propertypriority.PropertypriorityForm"/>
+        <mapping class="pms.budgetsale.BudgetsaleForm"/>
+        <mapping class="pms.test.TestForm"/>
+        <mapping class="pms.propertylocality.PropertylocalityForm"/>
+        <mapping class="pms.propertyfacing.PropertyfacingForm"/>
+        <mapping class="pms.customer.CustomerForm"/>
+    </session-factory>
+</hibernate-configuration>

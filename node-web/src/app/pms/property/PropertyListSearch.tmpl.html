@@ -1,0 +1,398 @@
+<div class="padded-content-page master-container" flex layout-align="center center">
+    <div ng-controller="PropertyTableControllerSearch as vm">
+
+        <div>
+            <md-toolbar class="toolbar-default margin-bottom-30">
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" aria-label="Settings">
+                        <md-icon md-font-icon="icon-menu"></md-icon>
+                    </md-button>
+                    <h2>
+                        <span>Property Search</span>
+                    </h2>
+                    <span flex></span>
+                    <md-button class="md-raised"   ng-show="role['Property Search'].Add"  class="md-fab md-mini" ng-click="addTodo($event)" ng-class="[buttonClass, buttonHue]"  ng-show="role['Property Search'].Add"  class="md-fab md-mini" aria-label="raised button">Add Property</md-button>
+                </div>
+            </md-toolbar>
+        </div>    
+
+        <md-toolbar class="md-table-toolbar md-default" ng-show="role['Property Search'].psearch">
+            <div layout layout-xs="column" flex>
+                <div flex="33">
+                    <div flex="90">
+                        <md-input-container class="md-block">
+                            Set General Filter
+                        </md-input-container>
+
+
+
+                        <md-input-container class="md-block">
+                            <label>{{'MENU.property.DIALOG.propertytypeid'| translate}} </label>
+                            <md-select placeholder="{{'MENU.property.DIALOG.propertytypeid'| translate}}" multiple="true"  ng-model="pmsproperty.selectpropertytypeidtbl"
+                                       name="propertytypeid" id="propertytypeid" type="select" >
+                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in pmspropertycommonobject.propertytypeidlist">{{objcombo.text}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>{{'MENU.property.DIALOG.propertypriorityid'| translate}} </label>
+                            <md-select placeholder="{{'MENU.property.DIALOG.propertypriorityid'| translate}}" multiple="true" ng-model="pmsproperty.selectpropertypriorityidtbl"
+                                       name="propertypriorityid" id="propertypriorityid" type="select" >
+                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in pmspropertycommonobject.propertypriorityidlist">{{objcombo.text}}</md-option>
+                            </md-select>
+
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label>{{'MENU.property.DIALOG.cityid'| translate}} </label>
+                            <md-select placeholder="{{'MENU.property.DIALOG.cityid'| translate}}" 
+                                       ng-change="pmspropertycommonobject.changeCityid(pmsproperty.selectcityidtbl)"
+                                       ng-model="pmsproperty.selectcityidtbl"
+                                       name="cityid" id="cityid" type="select"   >
+                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in pmspropertycommonobject.cityidlist">{{objcombo.text}}</md-option>
+                            </md-select>
+
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label>{{'MENU.property.DIALOG.propertylocalityid'| translate}} </label>
+                            <md-select placeholder="{{'MENU.property.DIALOG.propertylocalityid'| translate}}" multiple="true" ng-model="pmsproperty.selectpropertylocalityidtbl"
+                                       name="propertylocalityid" id="propertylocalityid" type="select" >
+                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in pmspropertycommonobject.propertylocalityidlist">{{objcombo.text}}</md-option>
+                            </md-select>
+
+                        </md-input-container>
+
+
+                        <md-input-container class="md-block">                                                     
+
+                            <md-autocomplete
+                                ng-disabled="pmspropertycommonobject.isDisabled"
+                                md-no-cache="pmspropertycommonobject.noCache"
+                                md-search-text-change="pmspropertycommonobject.searchTextChange(pmsproperty.apt)"
+                                md-search-text="pmsproperty.apt"
+                                md-items="item in pmspropertycommonobject.querySearch(pmsproperty.apt)"
+                                md-item-text="item.display"
+                                md-min-length="0"
+                                placeholder="{{'MENU.property.DIALOG.apt'| translate}}" name="apt" 
+                                id="apt">
+
+                                <md-item-template>
+                                    <span md-highlight-text="pmsproperty.apt" md-highlight-flags="^i">{{item.display}}</span>
+                                </md-item-template>
+
+                            </md-autocomplete> 
+                        </md-input-container>
+
+
+                        <md-input-container class="md-block">
+                            <label>{{'MENU.inquiry.DIALOG.budgetid'| translate}} </label>
+                            <md-select placeholder="{{'MENU.inquiry.DIALOG.budgetid'| translate}}"  ng-model="pmsproperty.selectbudgetidtbl"
+                                       name="budgetid" id="budgetid" type="select" >
+                                <md-option value="{{objcombo.text}}" ng-repeat="objcombo in pmspropertycommonobject.budgetidlist">{{objcombo.text}}</md-option>
+                            </md-select>
+
+                        </md-input-container>
+                    </div>
+                </div>
+                <div flex="33">
+                    <div flex="90">
+
+                        <md-input-container class="md-block">
+                            Set Construction Filter
+                        </md-input-container>
+
+
+                        <md-input-container class="md-block">
+                            <label>{{'MENU.property.DIALOG.propertylbedroomsid'| translate}} </label>
+                            <md-select placeholder="{{'MENU.property.DIALOG.propertylbedroomsid'| translate}}" multiple="true" ng-model="pmsproperty.selectpropertylbedroomsidtbl"
+                                       name="propertylbedroomsid" id="propertylbedroomsid" type="select" >
+                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in pmspropertycommonobject.propertylbedroomsidlist">{{objcombo.text}}</md-option>
+                            </md-select>
+
+                        </md-input-container>
+
+
+                        <md-input-container  class="md-block">
+                            <label>{{'MENU.property.DIALOG.propertystatusid'| translate}} </label>
+                            <md-select placeholder="{{'MENU.property.DIALOG.propertystatusid'| translate}}" multiple="true" ng-model="pmsproperty.selectpropertystatusidtbl"
+                                       name="propertystatusid" id="propertystatusid" type="select" >
+                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in pmspropertycommonobject.propertystatusidlist">{{objcombo.text}}</md-option>
+                            </md-select>
+
+                        </md-input-container>
+
+                        <md-input-container  class="md-block">
+                            <label>{{'MENU.property.DIALOG.propertyfacingid'| translate}} </label>
+                            <md-select placeholder="{{'MENU.property.DIALOG.propertyfacingid'| translate}}" multiple="true" ng-model="pmsproperty.selectpropertyfacingidtbl"
+                                       name="propertyfacingid" id="propertyfacingid" type="select" >
+                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in pmspropertycommonobject.propertyfacingidlist">{{objcombo.text}}</md-option>
+                            </md-select>
+
+                        </md-input-container>
+
+                        <md-input-container  class="md-block">
+                            <label>{{'MENU.property.DIALOG.propertyavailibilityid'| translate}} </label>
+                            <md-select placeholder="{{'MENU.property.DIALOG.propertyavailibilityid'| translate}}" multiple="true" ng-model="pmsproperty.selectpropertyavailibilityidtbl"
+                                       name="propertyavailibilityid" id="propertyavailibilityid" type="select" >
+                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in pmspropertycommonobject.propertyavailibilityidlist">{{objcombo.text}}</md-option>
+                            </md-select>
+
+                        </md-input-container>
+
+                    </div>
+                </div>
+                <div flex="33">
+                    <div flex="90">
+
+                        <md-input-container class="md-block">
+                            Set Ammenities Filter
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label>{{'MENU.property.DIALOG.propertyfurnishedid'| translate}} </label>
+                            <md-select placeholder="{{'MENU.property.DIALOG.propertyfurnishedid'| translate}}" multiple="true" ng-model="pmsproperty.selectpropertyfurnishedidtbl"
+                                       name="propertyfurnishedid" id="propertyfurnishedid" type="select" >
+                                <md-option value="{{objcombo.id}}" ng-repeat="objcombo in pmspropertycommonobject.propertyfurnishedidlist">{{objcombo.text}}</md-option>
+                            </md-select>
+
+                        </md-input-container>
+                        <div layout layout-xs="column"  >
+
+
+
+                            <md-input-container flex>
+                                <label>{{'MENU.property.DIALOG.carpark'| translate}}</label>
+                                <md-switch ng-model="pmsproperty.carpark">
+                                </md-switch>
+                            </md-input-container>
+
+                            <md-input-container flex>
+                                <label>{{'MENU.property.DIALOG.lift'| translate}}</label>
+                                <md-switch ng-model="pmsproperty.lift">
+                                </md-switch>
+                            </md-input-container>
+
+                            <md-input-container flex>
+                                <label>{{'MENU.property.DIALOG.backup'| translate}}</label>
+                                <md-switch ng-model="pmsproperty.backup">
+                                </md-switch>
+                            </md-input-container>
+
+                            <md-input-container flex>
+                                <label>{{'MENU.property.DIALOG.garden'| translate}}</label>
+                                <md-switch ng-model="pmsproperty.garden">
+                                </md-switch>
+                            </md-input-container>
+
+                        </div>
+
+                        <div layout layout-xs="column" flex>
+
+                            <md-input-container flex>
+                                <label>{{'MENU.property.DIALOG.clubhouse'| translate}}</label>
+                                <md-switch ng-model="pmsproperty.clubhouse">
+                                </md-switch>
+                            </md-input-container>
+
+                            <md-input-container flex>
+                                <label>{{'MENU.property.DIALOG.swimmingpool'| translate}}</label>
+                                <md-switch ng-model="pmsproperty.swimmingpool">
+                                </md-switch>
+                            </md-input-container>
+
+                            <md-input-container flex>
+                                <label>{{'MENU.property.DIALOG.gym'| translate}}</label>
+                                <md-switch ng-model="pmsproperty.gym">
+                                </md-switch>
+                            </md-input-container>
+
+                            <md-input-container flex>
+                                <label>{{'MENU.property.DIALOG.pipegas'| translate}}</label>
+                                <md-switch ng-model="pmsproperty.pipegas">
+                                </md-switch>
+                            </md-input-container>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+
+            <md-input-container  class="md-block">
+                <md-button class="md-raised"  ng-click="vm.getProperty()" ng-class="[buttonClass, buttonHue]" aria-label="raised button">Search Property</md-button>
+            </md-input-container>
+
+        </md-toolbar>
+
+        <md-toolbar ng-hide="vm.selected.length || vm.filter.show" class="md-table-toolbar md-default">
+            <div class="md-toolbar-tools">
+                <h2 class="md-title">Search Property</h2>
+                <div flex></div>
+                <md-button class="md-icon-button" ng-click="vm.filter.show = true">
+                    <md-icon md-font-icon="zmdi zmdi-filter-list"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+
+        <md-toolbar ng-show="vm.filter.show && !vm.selected.length && role['Property Search'].psearch" class="md-table-toolbar md-default">
+            <div class="md-toolbar-tools">
+                <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+                <form flex="" name="vm.filter.form">
+                    <input type="text" ng-model="vm.query.filter" ng-model-options="vm.filter.options" placeholder="search">
+                </form>
+                <md-button class="md-icon-button" ng-click="vm.removeFilter()">
+                    <md-icon md-font-icon="zmdi zmdi-close"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-toolbar class="md-table-toolbar alternate" ng-show="vm.selected.length">
+            <div class="md-toolbar-tools" layout-align="start center">
+                <div>{{vm.selected.length}} {{vm.selected.length > 1 ? 'users' : 'user'}} selected</div>
+            </div>
+        </md-toolbar>
+
+
+
+        <md-table-container ng-show="role['Property Search'].Grid" >
+            <table fixed-header md-table class="md-primary md-data-table" md-row-select ng-model="vm.selected" md-progress="vm.promise">
+                <thead  md-head md-order="vm.query.order" md-on-reorder="vm.getProperty">
+                    <tr md-row>
+                        <th md-column md-order-by="propertyid" >{{vm.columns.propertyid| translate }} </th>
+                        <th md-column md-order-by="customerid.fullname" >{{vm.columns.customerid| translate }} </th>
+
+                        <th md-column md-order-by="cityid.name" >{{vm.columns.cityid| translate }} </th>
+                        <th md-column md-order-by="propertypriorityid.name" >{{vm.columns.propertypriorityid| translate }} </th>
+                        <th md-column md-order-by="propertylocalityid.name" >{{vm.columns.propertylocalityid| translate }} </th>
+                        <th md-column md-order-by="propertylbedroomsid.name" >{{vm.columns.propertylbedroomsid| translate }} </th>
+                        <th md-column md-order-by="propertyfacingid.name" >{{vm.columns.propertyfacingid| translate }} </th>
+                        <th md-column md-order-by="propertyavailibilityid.name" >{{vm.columns.propertyavailibilityid| translate }} </th>
+                        <th md-column md-order-by="propertyfurnishedid.name" >{{vm.columns.propertyfurnishedid| translate }} </th>
+
+                        <!--                        <th md-column md-order-by="image1" >{{vm.columns.image1| translate }} </th>
+                        
+                                                <th md-column md-order-by="propertytypeid.name" >{{vm.columns.propertytypeid| translate }} </th>
+                                                <th md-column md-order-by="totalarea" >{{vm.columns.totalarea| translate }} </th>
+                                                <th md-column md-order-by="amount" >{{vm.columns.amount| translate }} </th>
+                                                <th md-column md-order-by="flatno" >{{vm.columns.flatno| translate }} </th>
+                                                <th md-column md-order-by="apt" >{{vm.columns.apt| translate }} </th>
+                                                <th md-column md-order-by="address" >{{vm.columns.address| translate }} </th>
+                                                <th md-column md-order-by="roadname" >{{vm.columns.roadname| translate }} </th>
+                                                <th md-column md-order-by="landmark" >{{vm.columns.landmark| translate }} </th>
+                                                <th md-column md-order-by="propertyage" >{{vm.columns.propertyage| translate }} </th>
+                                                <th md-column md-order-by="leaseperiod" >{{vm.columns.leaseperiod| translate }} </th>
+                                                <th md-column md-order-by="floorno" >{{vm.columns.floorno| translate }} </th>
+                                                <th md-column md-order-by="propertystatusid.name" >{{vm.columns.propertystatusid| translate }} </th>
+                                                <th md-column md-order-by="carpark" >{{vm.columns.carpark| translate }} </th>
+                                                <th md-column md-order-by="lift" >{{vm.columns.lift| translate }} </th>
+                                                <th md-column md-order-by="backup" >{{vm.columns.backup| translate }} </th>
+                                                <th md-column md-order-by="garden" >{{vm.columns.garden| translate }} </th>
+                                                <th md-column md-order-by="clubhouse" >{{vm.columns.clubhouse| translate }} </th>
+                                                <th md-column md-order-by="swimmingpool" >{{vm.columns.swimmingpool| translate }} </th>
+                                                <th md-column md-order-by="gym" >{{vm.columns.gym| translate }} </th>
+                                                <th md-column md-order-by="pipegas" >{{vm.columns.pipegas| translate }} </th>
+                        
+                        
+                        
+                        
+                                                <th md-column md-order-by="userid.email" >{{vm.columns.userid| translate }} </th>
+                        -->
+
+
+
+
+
+
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row md-auto-select md-select="propertyobj" ng-repeat="propertyobj in vm.contents.items" style="height: 200px;" >
+                        <td md-cell>{{::propertyobj.propertyid}}</td>
+                        <td md-cell colspan="8"   >
+                            <div layout="row" layout-xs="column">
+                                <div flex="15">
+                                    <img ng-src="data:image/JPEG;base64,{{::propertyobj.image1.content}}"  ng-click="vm.openImage(propertyobj)" style="height: 200px;width: 200px" >
+                                </div>
+                                <div flex="25" class="padding-bottom-10 padding-left-10 padding-top-10">
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.propertytypeid'| translate}}  :</div><div flex="70">  {{::propertyobj.propertytypeid.name}}   </div>  </div>
+
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.customerid'| translate}}  :</div><div flex="70">  {{::propertyobj.customerid.fullname}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.totalarea'| translate}}  :</div><div flex="70">  {{::propertyobj.totalarea}}   </div>  </div>
+
+                                    <div layout="row" layout-xs="column" ng-show="{{propertyobj.propertytypeid.propertytypeid === 2}}" > <div flex="30">{{'MENU.property.DIALOG.deposit'| translate}}  :</div><div flex="70">{{::propertyobj.deposit}}</div> </div>
+                                    <div layout="row" layout-xs="column" ng-show="{{propertyobj.propertytypeid.propertytypeid === 1}}" > <div flex="30">{{'MENU.property.DIALOG.sqfeetrate'| translate}}  :</div><div flex="70">  {{::propertyobj.sqfeetrate}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" ng-show="{{propertyobj.propertytypeid.propertytypeid === 1}}" > <div flex="30">{{'MENU.property.DIALOG.bookingcharges'| translate}}  :</div><div flex="70">  {{::propertyobj.bookingcharges}}   </div>  </div>
+
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.amount'| translate}}  :</div><div flex="70">  {{::propertyobj.amount}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.flatno'| translate}}  :</div><div flex="70">  {{::propertyobj.flatno}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.apt'| translate}}  :</div><div flex="70">  {{::propertyobj.apt}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.address'| translate}}  :</div><div flex="70">  {{::propertyobj.address}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.cityid'| translate}}  :</div><div flex="70">  {{::propertyobj.cityid.name}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.landmark'| translate}}  :</div><div flex="70">  {{::propertyobj.landmark}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.propertylocalityid'| translate}}  :</div><div flex="70">  {{::propertyobj.propertylocalityid.name}}   </div>  </div>
+                                </div>
+
+                                <div flex="25" class="padding-bottom-10 padding-left-10 padding-top-10">
+
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.propertyage'| translate}}  :</div><div flex="70">  {{::propertyobj.propertyage}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.leaseperiod'| translate}}  :</div><div flex="70">  {{::propertyobj.leaseperiod}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.propertylbedroomsid'| translate}}  :</div><div flex="70">  {{::propertyobj.propertylbedroomsid.name}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.floorno'| translate}}  :</div><div flex="70">  {{::propertyobj.floorno}}   </div>  </div>
+
+
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.propertystatusid'| translate}}  :</div><div flex="70">  {{::propertyobj.propertystatusid.name}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.propertyfacingid'| translate}}  :</div><div flex="70">  {{::propertyobj.propertyfacingid.name}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.propertyavailibility.DIALOG.name'| translate}}  :</div><div flex="70">  {{::propertyobj.propertyavailibilityid.name}}   </div>  </div>
+
+                                </div>
+                                <div   flex="20" class="padding-bottom-10 padding-left-10 padding-top-10">
+
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.carpark'| translate}}  :</div><div flex="70">  {{::propertyobj.carpark}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.lift'| translate}}  :</div><div flex="70">  {{::propertyobj.lift}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.backup'| translate}}  :</div><div flex="70">  {{::propertyobj.backup}}   </div>  </div> 
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.garden'| translate}}  :</div><div flex="70">  {{::propertyobj.garden}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.clubhouse'| translate}}  :</div><div flex="70">  {{::propertyobj.clubhouse}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.swimmingpool'| translate}}  :</div><div flex="70">  {{::propertyobj.swimmingpool}}   </div>  </div>
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.gym'| translate}}  :</div><div flex="70">  {{::propertyobj.gym}}   </div>  </div> 
+                                    <div layout="row" layout-xs="column" > <div flex="30">{{'MENU.property.DIALOG.pipegas'| translate}}  :</div><div flex="70">  {{::propertyobj.pipegas}}   </div>  </div>
+
+                                </div>
+                                <div   flex="20" class="padding-bottom-10 padding-left-10 padding-top-10">
+                                    <div flex="30">{{'MENU.property.DIALOG.remark'| translate}}  :</div><div flex="70">  {{::propertyobj.remark}}   </div>  
+
+                                </div>
+                            </div>
+
+
+                        </td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <md-table-pagination md-limit="vm.query.limit" md-page-select md-page="vm.query.page" md-total="{{vm.contents.total_count}}" md-on-paginate="vm.getproperty"></md-table-pagination>
+        <div>
+            <md-toolbar class="toolbar-default margin-bottom-30">
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" aria-label="Settings">
+                        <md-icon md-font-icon="icon-menu"></md-icon>
+                    </md-button>
+                    <span flex></span>
+
+                    <md-button class="md-raised"  ng-click="vm.object.editTodo($event)" ng-class="[buttonClass, buttonHue]" aria-label="raised button">View Property</md-button>
+
+                </div>
+            </md-toolbar>
+        </div>    
+    </div>
+
+
+
+</div>

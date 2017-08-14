@@ -1,0 +1,830 @@
+
+{
+    "MENU": {
+        "propertyfurnished": {
+            "NAME": "Property Furnished Management",
+            "propertyfurnished": "Property Furnished",
+            "DIALOG": {
+                "NEW": "Add Property Furnished",
+                "propertyfurnishedid": "Furnished ID",
+                "name": "Furnished",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "propertyfurnishedform": {
+                    "PLEASE_name_required": "The Furnished is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "propertyfurnishedid": "Furnished ID",
+                "name": "Furnished",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "agent": {
+            "NAME": "Agent Management",
+            "agent": "Agent",
+            "DIALOG": {
+                "NEW": "Add Agent",
+                "agentid": "Enater the Agent id",
+                "name": "Enater the Name",
+                "mobile": "Enater the Mobile",
+                "email": "Enater the Email",
+                "companyname": "Enater the Company Name",
+                "address": "Enater the Address",
+                "cityid": "City",
+                "propertylocalityid": "Area of Operation",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "agentform": {
+                    "PLEASE_name_required": "The Name is required",
+                    "PLEASE_mobile_required": "The Mobile is required",
+                    "PLEASE_mobile_ng-pattern": "Enter Proper Mobile No",
+                    "PLEASE_email_required": "The Email is required",
+                    "PLEASE_companyname_None": "The Company Name is required",
+                    "PLEASE_address_None": "The Address is required",
+                    "PLEASE_cityid_required": "The City is required",
+                    "PLEASE_propertylocalityid_required": "The Area of Operation is required",
+                    "PLEASE_modeoperationid_required": "The Mode of Operation is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "agentid": "Agent id",
+                "name": "Name",
+                "mobile": "Mobile",
+                "email": "Email",
+                "companyname": "Company Name",
+                "address": "Address",
+                "cityid": "City",
+                "propertylocalityid": "Area of Operation",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "occupation": {
+            "NAME": "Occupation Management",
+            "occupation": "Occupation",
+            "DIALOG": {
+                "NEW": "Add Occupation",
+                "occupationid": "Occupation ID",
+                "name": "Occupation",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "occupationform": {
+                    "PLEASE_name_required": "The Occupation is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "occupationid": "Occupation ID",
+                "name": "Occupation",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "gender": {
+            "NAME": "Gender Management",
+            "gender": "Gender",
+            "DIALOG": {
+                "NEW": "Add Gender",
+                "genderid": "Gender ID",
+                "name": "Gender Type",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "genderform": {
+                    "PLEASE_name_required": "The Gender Type is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "genderid": "Gender ID",
+                "name": "Gender Type",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "city": {
+            "NAME": "City Management",
+            "city": "City",
+            "DIALOG": {
+                "NEW": "Add City",
+                "cityid": "City Id",
+                "name": "City",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "cityform": {
+                    "PLEASE_name_required": "The City is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "cityid": "City Id",
+                "name": "City",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "propertytype": {
+            "NAME": "Property Type Management",
+            "propertytype": "Property Type",
+            "DIALOG": {
+                "NEW": "Add Property Type",
+                "propertytypeid": "Property Type ID",
+                "name": "Property To be",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "propertytypeform": {
+                    "PLEASE_name_required": "The Property To be is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "propertytypeid": "Property Type ID",
+                "name": "Property Type",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "propertylbedrooms": {
+            "NAME": "Property Bed Rooms Management",
+            "propertylbedrooms": "Property Bed Rooms",
+            "DIALOG": {
+                "NEW": "Add Property Bed Rooms",
+                "propertylbedroomsid": "Bed Rooms ID",
+                "name": "Bed Rooms No of",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "propertylbedroomsform": {
+                    "PLEASE_name_required": "The Bed Rooms No of is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "propertylbedroomsid": "Bed Rooms ID",
+                "name": "Bed Rooms No of",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "budgetrent": {
+            "NAME": "Budget Rent Management",
+            "budgetrent": "Budget Rent",
+            "DIALOG": {
+                "NEW": "Add Budget Rent",
+                "budgetrentid": "Budget ID",
+                "name": "Enater the Text",
+                "amount": "Enater the Numerical Value",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "budgetrentform": {
+                    "PLEASE_name_required": "The Text is required",
+                    "PLEASE_amount_required": "The Numerical Value is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "budgetrentid": "Budget ID",
+                "name": "Text",
+                "amount": "Numerical Value",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "propertytobe": {
+            "NAME": "Property To be Management",
+            "propertytobe": "Property To be",
+            "DIALOG": {
+                "NEW": "Add Property To be",
+                "propertytobeid": "Enater the ID",
+                "name": "Enater the Property To be",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "propertytobeform": {
+                    "PLEASE_name_required": "The Property To be is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "propertytobeid": "ID",
+                "name": "Property To be",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "inquiry": {
+            "NAME": "Inquiry Management",
+            "inquiry": "Inquiry",
+            "DIALOG": {
+                "NEW": "Add Inquiry",
+                "inquiryid": "Inquiryid",
+                "dateofinquiry": "Date of Inquiry",
+                "name": "Name",
+                "mobileno": "Mobile No",
+                "email": "Email",
+                "budget": "Enater the Budget",
+                "fromperiod": "From Period",
+                "propertypriorityid": "Priority",
+                "propertylbedroomsid": "No of Bedrooms",
+                "cityid": "City",
+                "propertylocalityid": "Locality",
+                "propertyfacingid": "Facing",
+                "userid": "Select the User",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "recordorder": "Enater the Order",
+                "inquiryform": {
+                    "PLEASE_name_required": "The Name is required",
+                    "PLEASE_mobileno_required": "The Mobile No is required",
+                    "PLEASE_mobileno_ng-pattern": "Enter Proper Mobile No",
+                    "PLEASE_email_required": "The Email is required",
+                    "PLEASE_email_email": "Email id is wrong",
+                    "PLEASE_budget_required": "The Budget is required",
+                    "PLEASE_fromperiod_required": "The From Period is required",
+                    "PLEASE_propertypriorityid_required": "The Priority is required",
+                    "PLEASE_propertylbedroomsid_required": "The No of Bedrooms is required",
+                    "PLEASE_cityid_required": "The City is required",
+                    "PLEASE_propertylocalityid_required": "The Locality is required",
+                    "PLEASE_propertyfacingid_required": "The Facing is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "inquiryid": "Inquiryid",
+                "dateofinquiry": "Date of Inquiry",
+                "name": "Name",
+                "mobileno": "Mobile No",
+                "email": "Email",
+                "budget": "Budget",
+                "fromperiod": "From Period",
+                "propertypriorityid": "Priority",
+                "propertylbedroomsid": "No of Bedrooms",
+                "cityid": "City",
+                "propertylocalityid": "Locality",
+                "propertyfacingid": "Facing",
+                "userid": "User",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "flatamenities": {
+            "NAME": "Flat Amenities Management",
+            "flatamenities": "Flat Amenities",
+            "DIALOG": {
+                "NEW": "Add Flat Amenities",
+                "flatamenitiesid": "Enater the Flat Amenities ID",
+                "name": "Enater the Flat Amenities",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "flatamenitiesform": {
+                    "PLEASE_name_required": "The Flat Amenities is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "flatamenitiesid": "Flat Amenities ID",
+                "name": "Flat Amenities",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "property": {
+            "NAME": "Property Management",
+            "property": "Property",
+            "DIALOG": {
+                "NEW": "Add Property",
+                "propertyid": "Property ID",
+                "propertytypeid": "Property to be",
+                "customerid": "Customer",
+                "totalarea": "Total Area",
+                "amount": "Amount",
+                "propertypriorityid": "Priority",
+                "flatno": "Bldge / Flat No",
+                "apt": "Apt / Society Name",
+                "address": "Address",
+                "cityid": "City",
+                "propertylocalityid": "Locality",
+                "landmark": "Landmark",
+                "propertyage": "Property Age (Year)",
+                "leaseperiod": "Lease Period (Months)",
+                "propertylbedroomsid": "No of Bedrooms",
+                "floorno": "Floor No",
+                "propertyfacingid": "Facing",
+                "propertyfurnishedid": "Furnished",
+                "image1": "Image",
+                "image2": "Image",
+                "image3": "Image",
+                "image4": "Image",
+                "image5": "Image",
+                "remark": "Remark",
+                "userid": "Select the User",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "deposit": "Enater the Deposit",
+                "sqfeetrate": "Enater the Built-up Area",
+                "image6": "Image",
+                "image7": "Image",
+                "image8": "Image",
+                "image9": "Image",
+                "image10": "Image",
+                "postedon": "Enater the Posted On",
+                "propertytobeid": "Enater the Property To Be",
+                "availablefrom": "Enater the Available From",
+                "status": "Enater the Status (Close)",
+                "recordorder": "Enater the Order",
+                "balcony": "Enater the Balcony",
+                "bathroom": "Enater the Bathroom",
+                "totalfloorno": "Enater the Total Floor No",
+                "parking": "Enater the Parking",
+                "keyavailability": "Enater the Key Availability",
+                "keyname": "Enater the Name",
+                "keymobile": "Enater the Mobile",
+                "keyaddress": "Enater the Address",
+                "propertyform": {
+                    "PLEASE_propertytypeid_required": "The Property to be is required",
+                    "PLEASE_customerid_required": "The Customer is required",
+                    "PLEASE_totalarea_required": "The Total Area is required",
+                    "PLEASE_amount_required": "The Amount is required",
+                    "PLEASE_propertypriorityid_required": "The Priority is required",
+                    "PLEASE_flatno_required": "The Bldge / Flat No is required",
+                    "PLEASE_apt_required": "The Apt / Society Name is required",
+                    "PLEASE_address_required": "The Address is required",
+                    "PLEASE_cityid_required": "The City is required",
+                    "PLEASE_propertylocalityid_required": "The Locality is required",
+                    "PLEASE_landmark_required": "The Landmark is required",
+                    "PLEASE_propertyage_required": "The Property Age (Year) is required",
+                    "PLEASE_leaseperiod_required": "The Lease Period (Months) is required",
+                    "PLEASE_propertylbedroomsid_required": "The No of Bedrooms is required",
+                    "PLEASE_floorno_required": "The Floor No is required",
+                    "PLEASE_propertyfacingid_required": "The Facing is required",
+                    "PLEASE_propertyfurnishedid_required": "The Furnished is required",
+                    "PLEASE_image1_None": "The Image is required",
+                    "PLEASE_image2_None": "The Image is required",
+                    "PLEASE_image3_None": "The Image is required",
+                    "PLEASE_image4_None": "The Image is required",
+                    "PLEASE_image5_None": "The Image is required",
+                    "PLEASE_remark_None": "The Remark is required",
+                    "PLEASE_deposit_required": "The Deposit is required",
+                    "PLEASE_sqfeetrate_required": "The Built-up Area is required",
+                    "PLEASE_image6_None": "The Image is required",
+                    "PLEASE_image7_None": "The Image is required",
+                    "PLEASE_image8_None": "The Image is required",
+                    "PLEASE_image9_None": "The Image is required",
+                    "PLEASE_image10_None": "The Image is required",
+                    "PLEASE_postedon_required": "The Posted On is required",
+                    "PLEASE_propertytobeid_required": "The Property To Be is required",
+                    "PLEASE_availablefrom_required": "The Available From is required",
+                    "PLEASE_flatamenitiesid_required": "The Flat Amenities is required",
+                    "PLEASE_recordorder_required": "The Order is required",
+                    "PLEASE_balcony_required": "The Balcony is required",
+                    "PLEASE_bathroom_required": "The Bathroom is required",
+                    "PLEASE_totalfloorno_None": "The Total Floor No is required",
+                    "PLEASE_keyavailability_None": "The Key Availability is required",
+                    "PLEASE_keyname_None": "The Name is required",
+                    "PLEASE_keymobile_None": "The Mobile is required",
+                    "PLEASE_keyaddress_None": "The Address is required"
+                }
+            },
+            "GRID": {
+                "propertyid": "Property ID",
+                "propertytypeid": "Property Type",
+                "customerid": "Customer",
+                "totalarea": "Total Area",
+                "amount": "Amount",
+                "propertypriorityid": "Priority",
+                "flatno": "Bldge / Flat No",
+                "apt": "Apt / Society Name",
+                "address": "Address",
+                "cityid": "City",
+                "propertylocalityid": "Locality",
+                "landmark": "Landmark",
+                "propertyage": "Property Age (Year)",
+                "leaseperiod": "Lease Period (Months)",
+                "propertylbedroomsid": "No of Bedrooms",
+                "floorno": "Floor No",
+                "propertyfacingid": "Facing",
+                "propertyfurnishedid": "Furnished",
+                "image1": "Image",
+                "image2": "Image",
+                "image3": "Image",
+                "image4": "Image",
+                "image5": "Image",
+                "remark": "Remark",
+                "userid": "User",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "deposit": "Deposit",
+                "sqfeetrate": "Built-up Area",
+                "image6": "Image",
+                "image7": "Image",
+                "image8": "Image",
+                "image9": "Image",
+                "image10": "Image",
+                "postedon": "Posted On",
+                "propertytobeid": "Property To Be",
+                "availablefrom": "Available From",
+                "status": "Status (Close)",
+                "recordorder": "Order",
+                "balcony": "Balcony",
+                "bathroom": "Bathroom",
+                "totalfloorno": "Total Floor No",
+                "parking": "Parking",
+                "keyavailability": "Key Availability",
+                "keyname": "Name",
+                "keymobile": "Mobile",
+                "keyaddress": "Address"
+            }
+        }
+
+        ,
+        "modeoperation": {
+            "NAME": "Mode of Operation Management",
+            "modeoperation": "Mode of Operation",
+            "DIALOG": {
+                "NEW": "Add Mode of Operation",
+                "modeoperationid": "Enater the id",
+                "name": "Enater the Name",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "modeoperationform": {
+                    "PLEASE_name_required": "The Name is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "modeoperationid": "id",
+                "name": "Name",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "societyamenities": {
+            "NAME": "Society Amenities Management",
+            "societyamenities": "Society Amenities",
+            "DIALOG": {
+                "NEW": "Add Society Amenities",
+                "societyamenitiesid": "Enater the ID",
+                "name": "Enater the Society Amenities",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "societyamenitiesform": {
+                    "PLEASE_name_required": "The Society Amenities is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "societyamenitiesid": "ID",
+                "name": "Society Amenities",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "customertype": {
+            "NAME": "Customer Type Management",
+            "customertype": "Customer Type",
+            "DIALOG": {
+                "NEW": "Add Customer Type",
+                "customertypeid": "Customer Type ID",
+                "name": "Customer Type",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "customertypeform": {
+                    "PLEASE_name_required": "The Customer Type is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "customertypeid": "Customer Type ID",
+                "name": "Customer Type",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "propertypriority": {
+            "NAME": "Property Priority Management",
+            "propertypriority": "Property Priority",
+            "DIALOG": {
+                "NEW": "Add Property Priority",
+                "propertypriorityid": "Property Priority ID",
+                "name": "Priority",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "propertypriorityform": {
+                    "PLEASE_name_required": "The Priority is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "propertypriorityid": "Property Priority ID",
+                "name": "Priority",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "budgetsale": {
+            "NAME": "Budget Sale Management",
+            "budgetsale": "Budget Sale",
+            "DIALOG": {
+                "NEW": "Add Budget Sale",
+                "budgetsaleid": "Budget ID",
+                "name": "Enater the Text",
+                "amount": "Enater the Numerical Value",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "budgetsaleform": {
+                    "PLEASE_name_required": "The Text is required",
+                    "PLEASE_amount_required": "The Numerical Value is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "budgetsaleid": "Budget ID",
+                "name": "Text",
+                "amount": "Numerical Value",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "test": {
+            "NAME": "Test Management",
+            "test": "Test",
+            "DIALOG": {
+                "NEW": "Add Test",
+                "testid": "",
+                "name": "Enater the Name",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "testform": {
+                    "PLEASE_name_required": "The Name is required",
+                    "PLEASE_flatamenitiesid_required": "The Flat Amenities is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "testid": "",
+                "name": "Name",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "propertylocality": {
+            "NAME": "Property Locality Management",
+            "propertylocality": "Property Locality",
+            "DIALOG": {
+                "NEW": "Add Property Locality",
+                "propertylocalityid": "Property Locality ID",
+                "name": "Locality",
+                "cityid": "Enater the City",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "propertylocalityform": {
+                    "PLEASE_name_required": "The Locality is required",
+                    "PLEASE_cityid_required": "The City is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "propertylocalityid": "Property Locality ID",
+                "name": "Locality",
+                "cityid": "City",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "propertyfacing": {
+            "NAME": "Property Facing Management",
+            "propertyfacing": "Property Facing",
+            "DIALOG": {
+                "NEW": "Add Property Facing",
+                "propertyfacingid": "Property Facing ID",
+                "name": "Facing",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "propertyfacingform": {
+                    "PLEASE_name_required": "The Facing is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "propertyfacingid": "Property Facing ID",
+                "name": "Facing",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+        ,
+        "customer": {
+            "NAME": "Customer Management",
+            "customer": "Customer",
+            "DIALOG": {
+                "NEW": "Add Customer",
+                "customerid": "Customer Id",
+                "fullname": "Full name",
+                "customertypeid": "Customer is a",
+                "occupationid": "Occupation",
+                "dateofbirth": "Date of Birth",
+                "genderid": "Gender",
+                "email": "Email ID",
+                "mobileno": "Mobile No",
+                "landlineno": "Landline No",
+                "address": "Address",
+                "cityid": "City",
+                "pincode": "Pin Code",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "Select the User",
+                "recordorder": "Enater the Order",
+                "customerform": {
+                    "PLEASE_fullname_required": "The Full name is required",
+                    "PLEASE_customertypeid_required": "The Customer is a is required",
+                    "PLEASE_occupationid_required": "The Occupation is required",
+                    "PLEASE_dateofbirth_type": "The Date of Birth is required",
+                    "PLEASE_genderid_required": "The Gender is required",
+                    "PLEASE_email_required": "The Email is required",
+                    "PLEASE_email_email": "Email id is wrong",
+                    "PLEASE_mobileno_required": "The Mobile No is required",
+                    "PLEASE_mobileno_ng-pattern": "Enter the proper Mobile No",
+                    "PLEASE_landlineno_required": "The Landline No is required",
+                    "PLEASE_landlineno_ng-pattern": " Landline No is wrong",
+                    "PLEASE_address_required": "The Address is required",
+                    "PLEASE_cityid_required": "The City is required",
+                    "PLEASE_pincode_required": "The Pin Code is required",
+                    "PLEASE_recordorder_required": "The Order is required"
+                }
+            },
+            "GRID": {
+                "customerid": "Customer Id",
+                "fullname": "Full name",
+                "customertypeid": "Customer Type",
+                "occupationid": "Occupation",
+                "dateofbirth": "Date of Birth",
+                "genderid": "Gender",
+                "email": "Email ID",
+                "mobileno": "Mobile No",
+                "landlineno": "Landline No",
+                "address": "Address",
+                "cityid": "City",
+                "pincode": "Pin Code",
+                "active": "active",
+                "createddate": "Date",
+                "modifyddate": "Date",
+                "userid": "User",
+                "recordorder": "Order"
+            }
+        }
+
+
+    }
+}
